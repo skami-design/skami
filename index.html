@@ -1,0 +1,3668 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pomáhám handmade tvůrkyním a začínajícím podnikatelkám vybudovat profesionální značku, která prodává. Strategie, logo, vizuální identita, sociální sítě.">
+<title>SKAMI Design — Značka od základů, pro začínající podnikatelky</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16211A;
+    --pink: #C0A0A5;
+    --green: #2B362E;
+    --mint: #9FD4B0;
+    --mint-light: #D5F0DE;
+    --mint-bg: #D5F0DE;
+    --off: #F5F5F5;
+    --off2: #f0eeea;
+    --dark: #2B362E;
+    --white: #FFFFFF;
+    --text: #16211A;
+    --text-light: #5a5a5a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .nav-logo-sm {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: var(--ink);
+    color: white;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-logo-text span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .nav-logo-text span:last-child {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--green); }
+
+  .nav-cta {
+    background: var(--ink) !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    letter-spacing: 1.5px !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--green) !important; color: white !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: all 0.3s;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--off);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-circle-1 {
+    width: 160px; height: 160px;
+    background: var(--pink);
+    opacity: 0.5;
+    top: -40px; left: -40px;
+  }
+
+  .hero-circle-2 {
+    width: 80px; height: 80px;
+    background: var(--pink);
+    opacity: 0.4;
+    top: 45%; left: 20px;
+  }
+
+  .hero-circle-3 {
+    width: 120px; height: 120px;
+    background: var(--mint);
+    opacity: 0.5;
+    top: 20%; right: -20px;
+  }
+
+  .hero-circle-4 {
+    width: 180px; height: 180px;
+    background: var(--mint);
+    opacity: 0.4;
+    bottom: 60px; left: 15%;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+  }
+
+  .hero-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .hero-logo-sm {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    background: var(--ink);
+    color: white;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .hero-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .hero-logo-text span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .hero-logo-text span:last-child {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+
+  .hero h1 em {
+    color: var(--pink);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-pills {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .hero-pill {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .hero-pill + .hero-pill::before {
+    content: '·';
+    margin-right: 16px;
+    color: var(--pink);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--green);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    padding: 14px 34px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: var(--ink);
+    color: white;
+  }
+
+  .btn-outline-white {
+    display: inline-block;
+    border: 2px solid white;
+    color: white;
+    padding: 14px 34px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+
+  .btn-outline-white:hover {
+    background: white;
+    color: var(--ink);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.4;
+  }
+
+  .hero-scroll-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--ink);
+    animation: scrollBounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* SECTION COMMON */
+  section { padding: 96px 40px; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 560px;
+  }
+
+  .text-center { text-align: center; }
+  .text-center .section-sub { margin-left: auto; margin-right: auto; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* PAIN POINTS */
+  .pain {
+    background: var(--white);
+  }
+
+  .pain-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .pain-card {
+    background: var(--off);
+    border-radius: 8px;
+    padding: 36px;
+  }
+
+  .pain-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--mint);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .pain-card h3 {
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .pain-card p {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .pain-quote {
+    text-align: center;
+    margin-top: 48px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-light);
+  }
+
+  .pain-quote strong {
+    color: var(--ink);
+    font-style: normal;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--off);
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .services-badge {
+    display: inline-block;
+    background: var(--mint-light);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+
+  /* Mini Start grid */
+  .mini-start-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto 64px;
+  }
+
+  .mini-card {
+    background: white;
+    border-radius: 8px;
+    padding: 28px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .mini-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .mini-card h3 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .mini-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+    margin-left: 12px;
+  }
+
+  .mini-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mini-card ul li {
+    font-size: 14px;
+    color: var(--text-light);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .mini-card ul li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Packages */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 760px;
+    margin: 0 auto 64px;
+  }
+
+  .package-card {
+    background: white;
+    border-radius: 8px;
+    padding: 36px;
+    border: 1px solid rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .package-card h3 {
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .package-card .package-sub {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .package-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .package-price span {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-light);
+  }
+
+  /* Web services */
+  .web-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto 24px;
+  }
+
+  .web-card {
+    background: white;
+    border-radius: 8px;
+    padding: 32px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .web-card h3 {
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .web-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .web-card .web-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .web-card .web-price span {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 400;
+  }
+
+  /* Combo packages */
+  .combo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto 48px;
+  }
+
+  .combo-card {
+    background: var(--dark);
+    border-radius: 8px;
+    padding: 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .combo-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .combo-savings {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+
+  .combo-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  .combo-card h3 {
+    font-size: 26px;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .combo-card .combo-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+
+  .combo-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .combo-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .combo-card ul li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .combo-card ul li::before {
+    content: '✓';
+    color: var(--mint);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .combo-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .combo-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .combo-price-unit {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .combo-price-old {
+    font-size: 15px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: line-through;
+  }
+
+  .services-cta {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .services-cta p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+
+  /* PROCESS */
+  .process {
+    background: var(--mint-light);
+  }
+
+  .process-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .process-steps {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 44px;
+    bottom: 44px;
+    width: 1px;
+    background: rgba(0,0,0,0.1);
+  }
+
+  .process-step {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .process-step:last-child { margin-bottom: 0; }
+
+  .process-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .process-content {
+    padding-top: 8px;
+  }
+
+  .process-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .process-content h3 {
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .process-content p {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* PORTFOLIO */
+  .portfolio {
+    background: var(--white);
+  }
+
+  .portfolio-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .portfolio-filters {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: transparent;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text);
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  .portfolio-card {
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: white;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+
+  .portfolio-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--mint-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .portfolio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .portfolio-img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--mint);
+    font-size: 32px;
+    opacity: 0.5;
+  }
+
+  .portfolio-info {
+    padding: 24px;
+  }
+
+  .portfolio-client {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 6px;
+  }
+
+  .portfolio-info h3 {
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .portfolio-info p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    background: var(--off);
+    color: var(--text-light);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  /* REFERENCES */
+  .references {
+    background: var(--mint-light);
+  }
+
+  .references-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .references-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .reference-card {
+    background: white;
+    border-radius: 8px;
+    padding: 40px;
+  }
+
+  .reference-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    color: var(--mint);
+    line-height: 0.5;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .reference-card p {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  .reference-author {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reference-author strong {
+    font-size: 15px;
+    color: var(--ink);
+    font-style: normal;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+  }
+
+  .reference-author span {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--white);
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .about-img {
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background: var(--mint-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-img-placeholder {
+    color: var(--mint);
+    font-size: 48px;
+    opacity: 0.4;
+  }
+
+  .about-img-circle {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--mint);
+    opacity: 0.3;
+  }
+
+  .about-content h2 {
+    font-size: clamp(32px, 4vw, 44px);
+    color: var(--ink);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .about-content p {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .about-content p:last-child { margin-bottom: 0; }
+
+  .about-content strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--dark);
+    text-align: center;
+  }
+
+  .contact .section-label {
+    color: var(--mint);
+  }
+
+  .contact .section-title {
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .contact p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  .contact-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-logo-sm {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .footer-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .footer-logo-text span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .footer-logo-text span:last-child {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: white; }
+
+  .footer-community {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-community-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-community-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer-community-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .footer-community-links a:hover { color: var(--mint); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-overlay.open {
+    display: flex;
+  }
+
+  .modal {
+    background: white;
+    border-radius: 10px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 48px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.12);
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--text-light);
+    transition: all 0.2s;
+  }
+
+  .modal-close:hover {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+
+  .modal-client {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+
+  .modal h2 {
+    font-size: 32px;
+    color: var(--ink);
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  .modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .modal-desc {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .modal-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .modal-gallery-item {
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--off);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-gallery-label {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  .modal-gallery-placeholder {
+    color: var(--mint);
+    opacity: 0.3;
+    font-size: 28px;
+  }
+
+  .modal-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 20px;
+    font-style: italic;
+  }
+
+  /* Section dividers */
+  .services-section-title {
+    text-align: center;
+    margin-bottom: 32px;
+    margin-top: 64px;
+  }
+
+  .services-section-title:first-of-type { margin-top: 0; }
+
+  .services-section-title h3 {
+    font-size: 32px;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .services-section-title p {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* Mobile nav */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 24px 40px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 72px 24px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .mini-start-grid { grid-template-columns: 1fr 1fr; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .web-services-grid { grid-template-columns: 1fr; }
+    .combo-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .references-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+    footer { padding: 28px 24px; }
+    .modal { padding: 32px 24px; }
+    .modal-gallery { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .mini-start-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 40px; }
+    .hero-pill + .hero-pill::before { margin-right: 8px; }
+    .modal-gallery { grid-template-columns: 1fr; }
+    .combo-price { font-size: 36px; }
+    section { padding: 56px 20px; }
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* À LA CARTE LIST */
+  .alacarte-list {
+    max-width: 860px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .alacarte-item {
+    display: grid;
+    grid-template-columns: 40px 1fr 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    transition: background 0.2s;
+  }
+
+  .alacarte-item:hover {
+    background: var(--off);
+    margin: 0 -20px;
+    padding: 20px 20px;
+    border-radius: 8px;
+  }
+
+  .alacarte-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--pink);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .alacarte-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .alacarte-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  .alacarte-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  /* PACKAGES NEW */
+  .packages-new-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .package-new-card {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .package-new-card--dark {
+    background: var(--dark);
+    border-color: transparent;
+  }
+
+  .package-new-card--accent {
+    background: var(--ink);
+    border-color: transparent;
+    grid-column: span 2;
+  }
+
+  .package-new-header {
+    padding: 32px 32px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .package-new-card--dark .package-new-header,
+  .package-new-card--accent .package-new-header {
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+
+  .package-code {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--pink);
+    margin-bottom: 8px;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .package-new-card h3 {
+    font-size: 32px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .package-new-card--dark h3,
+  .package-new-card--accent h3 {
+    color: var(--pink);
+  }
+
+  .package-new-tagline {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  .package-new-card--dark .package-new-tagline,
+  .package-new-card--accent .package-new-tagline {
+    color: rgba(255,255,255,0.5);
+  }
+
+  .package-new-body {
+    padding: 24px 32px;
+    flex: 1;
+  }
+
+  .package-includes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .package-includes-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+
+  .package-new-card--dark .package-includes-label,
+  .package-new-card--accent .package-includes-label {
+    color: var(--mint);
+  }
+
+  .package-includes span:not(.package-includes-label) {
+    font-size: 14px;
+    color: var(--text-light);
+    padding-left: 12px;
+    position: relative;
+  }
+
+  .package-includes span:not(.package-includes-label)::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--mint);
+  }
+
+  .package-new-card--dark .package-includes span:not(.package-includes-label),
+  .package-new-card--accent .package-includes span:not(.package-includes-label) {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .package-new-desc {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .package-new-card--dark .package-new-desc,
+  .package-new-card--accent .package-new-desc {
+    color: rgba(255,255,255,0.7);
+  }
+
+  .package-new-note {
+    font-size: 13px;
+    color: var(--pink);
+    font-style: italic;
+    margin-top: 12px;
+  }
+
+  .package-new-quote {
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    margin-top: 16px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .package-new-price {
+    padding: 24px 32px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .package-new-card--dark .package-new-price,
+  .package-new-card--accent .package-new-price {
+    border-top-color: rgba(255,255,255,0.1);
+  }
+
+  .package-price-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .package-new-card--dark .package-price-label,
+  .package-new-card--accent .package-price-label {
+    color: rgba(255,255,255,0.4);
+  }
+
+  .package-price-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .package-new-card--dark .package-price-value,
+  .package-new-card--accent .package-price-value {
+    color: var(--pink);
+  }
+
+  @media (max-width: 900px) {
+    .alacarte-item {
+      grid-template-columns: 32px 1fr auto;
+    }
+    .alacarte-desc { display: none; }
+    .packages-new-grid { grid-template-columns: 1fr; }
+    .package-new-card--accent { grid-column: span 1; }
+  }
+
+  .alacarte-item {
+    cursor: pointer;
+    flex-wrap: wrap;
+  }
+
+  .alacarte-arrow {
+    font-size: 20px;
+    color: var(--pink);
+    font-weight: 300;
+    transition: transform 0.3s;
+    margin-left: auto;
+  }
+
+  .alacarte-item.open .alacarte-arrow {
+    transform: rotate(45deg);
+  }
+
+  .alacarte-detail {
+    display: none;
+    width: 100%;
+    padding: 20px 0 8px;
+  }
+
+  .alacarte-item.open .alacarte-detail {
+    display: block;
+  }
+
+  .alacarte-detail img {
+    max-width: 380px;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  .nav-logo-img {
+    height: 44px;
+    width: auto;
+  }
+
+  .hero-logo-img {
+    height: 85px;
+    width: auto;
+    margin-bottom: 8px;
+  }
+
+  .footer-logo-img {
+    height: 44px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+  }
+
+  .btn-live {
+    display: inline-block;
+    background: var(--mint-light);
+    color: var(--green);
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    transition: background 0.2s;
+  }
+
+  .btn-live:hover {
+    background: var(--mint);
+    color: var(--ink);
+  }
+
+  /* STATS SLIDER */
+  .stats-slider {
+    background: var(--ink);
+    padding: 80px 40px;
+    overflow: hidden;
+  }
+
+  .stats-track {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    min-height: 200px;
+  }
+
+  .stat-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+  }
+
+  .stat-slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(72px, 12vw, 120px);
+    font-weight: 700;
+    color: var(--mint);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .stat-text {
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: white;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .stat-sub {
+    font-size: clamp(14px, 1.8vw, 17px);
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    max-width: 480px;
+  }
+
+  .stats-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 48px;
+  }
+
+  .stats-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .stats-dot.active {
+    background: var(--mint);
+    transform: scale(1.3);
+  }
+
+  @media (max-width: 600px) {
+    .stats-slider { padding: 60px 24px; }
+    .stats-track { min-height: 220px; }
+  }
+
+  /* PORTFOLIO SLIDER */
+  .portfolio-slider {
+    position: relative;
+    max-width: 1060px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    cursor: pointer;
+  }
+
+  .portfolio-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    pointer-events: none;
+  }
+
+  .portfolio-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .portfolio-slide-bg {
+    width: 100%;
+    height: 100%;
+    background: var(--mint-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+  }
+
+  .portfolio-slide-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .portfolio-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(22,33,26,0.75) 0%, rgba(22,33,26,0.1) 40%, transparent 100%);
+  }
+
+  .portfolio-slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 48px;
+  }
+
+  .portfolio-slide-client {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .portfolio-slide-content h3 {
+    font-size: clamp(22px, 3vw, 36px);
+    color: white;
+    margin-bottom: 12px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+  }
+
+  .portfolio-slide-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .portfolio-slide-tags .tag {
+    background: rgba(255,255,255,0.25);
+    color: white;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .portfolio-slide-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .portfolio-slide.active:hover .portfolio-slide-cta {
+    opacity: 1;
+  }
+
+  /* Nav arrows */
+  .portfolio-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    color: var(--ink);
+    font-size: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .portfolio-arrow:hover { background: var(--mint-light); transform: translateY(-50%) scale(1.08); }
+  .portfolio-arrow-prev { left: 20px; }
+  .portfolio-arrow-next { right: 20px; }
+
+  /* Dots */
+  .portfolio-slider-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .portfolio-slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .portfolio-slider-dot.active {
+    background: var(--ink);
+    transform: scale(1.3);
+  }
+
+  @media (max-width: 700px) {
+    .portfolio-slider { aspect-ratio: 4/3; border-radius: 8px; }
+    .portfolio-slide-content { padding: 24px; }
+    .portfolio-arrow { width: 36px; height: 36px; font-size: 16px; }
+  }
+
+  .services-accordion {
+    max-width: 960px;
+    margin: 0 auto;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+  }
+
+  .services-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 36px;
+    cursor: pointer;
+    transition: background 0.2s;
+    gap: 20px;
+  }
+
+  .services-accordion-header:hover {
+    background: var(--off);
+  }
+
+  .services-accordion-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .services-accordion-title h3 {
+    font-size: 22px;
+    color: var(--ink);
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .services-accordion-arrow {
+    font-size: 28px;
+    color: var(--pink);
+    font-weight: 300;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .services-accordion-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .services-accordion-arrow.open {
+    transform: rotate(45deg);
+  }
+
+  .services-accordion-body {
+    display: none;
+    padding: 0 36px 36px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .services-accordion-body.open {
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .services-accordion-header { padding: 20px 24px; }
+    .services-accordion-body { padding: 0 20px 24px; }
+    .services-accordion-title h3 { font-size: 16px; }
+  }
+
+  /* PROCESS NEW */
+  .process-new {
+    background: var(--dark);
+    padding: 96px 0;
+  }
+
+  .process-new-header {
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 0 40px;
+  }
+
+  .process-new-steps {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .process-new-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: 280px;
+  }
+
+  .process-new-step--reverse .process-new-img {
+    order: 2;
+  }
+
+  .process-new-step--reverse .process-new-content {
+    order: 1;
+  }
+
+  .process-new-img {
+    overflow: hidden;
+    aspect-ratio: unset;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+  }
+
+  .process-new-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .process-new-placeholder {
+    font-size: 72px;
+    opacity: 0.2;
+  }
+
+  .process-new-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 48px 72px 64px;
+  }
+
+  .process-new-num {
+    display: inline-block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mint);
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--mint);
+    padding-bottom: 6px;
+    width: fit-content;
+  }
+
+  .process-new-content h3 {
+    font-size: 34px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .process-new-content p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+    max-width: 380px;
+  }
+
+  @media (max-width: 760px) {
+    .process-new-step {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+    .process-new-step--reverse .process-new-img,
+    .process-new-step--reverse .process-new-content {
+      order: unset;
+    }
+    .process-new-img {
+      aspect-ratio: 4/3;
+      min-height: 240px;
+    }
+    .process-new-content { padding: 36px 24px; }
+    .process-new { padding: 64px 0; }
+    .process-new-header { padding: 0 24px; }
+  }
+
+  /* FLIP VIZITKA */
+  .vizitka-section {
+    background: var(--off);
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .vizitka-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .vizitka-wrapper {
+    width: 380px;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .vizitka-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .vizitka-wrapper.flipped .vizitka-inner {
+    transform: rotateY(180deg);
+  }
+
+  .vizitka-front,
+  .vizitka-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .vizitka-front {
+    background: var(--dark);
+    color: white;
+  }
+
+  .vizitka-back {
+    background: var(--ink);
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .vizitka-front-logo {
+    height: 40px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    align-self: flex-start;
+  }
+
+  .vizitka-front-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .vizitka-front-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+  }
+
+  .vizitka-front-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+  }
+
+  .vizitka-front-hint {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  .vizitka-back-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .vizitka-back-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .vizitka-back-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .vizitka-back-item-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    width: 40px;
+    flex-shrink: 0;
+  }
+
+  .vizitka-back-item a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .vizitka-back-item a:hover {
+    color: var(--mint);
+  }
+
+  .vizitka-back-mint {
+    width: 32px;
+    height: 2px;
+    background: var(--mint);
+    margin-top: auto;
+    opacity: 0.4;
+  }
+
+  @media (max-width: 500px) {
+    .vizitka-wrapper { width: 100%; max-width: 340px; height: 200px; }
+    .vizitka-front, .vizitka-back { padding: 24px; }
+  }
+
+  /* HERO SPLIT */
+  .hero-split {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+    overflow: hidden;
+    position: relative;
+    background: var(--dark);
+  }
+
+  .hero-split-left {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    padding: 80px 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-split-right {
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  .hero-split-right::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--dark) 0%, transparent 40%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-split-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-split-photo {
+    width: auto;
+    height: 90%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+
+  /* Kruhy přes obě strany — absolute na celou sekci */
+  .hero-split-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-split-circle-1 {
+    width: 380px; height: 380px;
+    background: var(--pink);
+    opacity: 0.18;
+    top: -80px; left: calc(50% - 120px);
+    z-index: 3;
+  }
+
+  .hero-split-circle-2 {
+    width: 140px; height: 140px;
+    background: var(--mint);
+    opacity: 0.2;
+    bottom: 40px; left: 60px;
+  }
+
+  .hero-split-circle-3 {
+    width: 220px; height: 220px;
+    background: var(--mint);
+    opacity: 0.1;
+    bottom: 40px; right: 60px;
+    z-index: 3;
+  }
+
+  .hero-split-circle-4 {
+    width: 100px; height: 100px;
+    background: var(--pink);
+    opacity: 0.18;
+    bottom: 80px; right: 15%;
+  }
+
+  .hero-split-left h1 {
+    font-size: clamp(28px, 3vw, 48px);
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 700;
+    margin-top: 12px;
+  }
+
+  .hero-split-left h1 em {
+    color: var(--pink);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .hero-split-left .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .hero-split-left .hero-pill {
+    color: rgba(255,255,255,0.5);
+  }
+
+  .hero-split-left .hero-pill + .hero-pill::before {
+    color: var(--mint);
+  }
+
+  @media (max-width: 900px) {
+    .hero-split {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+    .hero-split-right {
+      height: 65vw;
+      max-height: 420px;
+    }
+    .hero-split-left {
+      padding: 60px 24px;
+    }
+  }
+
+  .alacarte-row {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    cursor: pointer;
+  }
+  .alacarte-row:last-child { border-bottom: none; }
+  .alacarte-row-header {
+    display: grid;
+    grid-template-columns: 40px 1fr auto auto;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    transition: all 0.2s;
+  }
+  .alacarte-row.open .alacarte-arrow { transform: rotate(45deg); }
+  .alacarte-detail { display: none; padding: 0 0 24px; }
+  .alacarte-row.open > .alacarte-detail { display: block; }
+  .alacarte-detail-inner {
+    display: block;
+    max-width: 600px;
+  }
+  .alacarte-detail-text ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
+  .alacarte-detail-text ul li { font-size: 15px; color: var(--text-light); line-height: 1.6; padding-left: 16px; position: relative; }
+  .alacarte-detail-text ul li::before { content: "—"; position: absolute; left: 0; color: var(--mint); }
+  .alacarte-tagline { font-size: 14px; font-style: italic; color: var(--pink); margin-bottom: 4px !important; }
+  .alacarte-vystup { font-size: 14px; color: var(--text-light); margin-top: 12px !important; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06); }
+  .alacarte-detail-img img { width: 100%; border-radius: 6px; }
+  @media (max-width: 700px) {
+    .alacarte-detail-inner { grid-template-columns: 1fr; }
+    .alacarte-row-header { grid-template-columns: 32px 1fr auto auto; gap: 8px; }
+  }
+
+  .contact-form {
+    max-width: 520px;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 14px 18px;
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s;
+    width: 100%;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: rgba(255,255,255,0.4);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--mint);
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .contact-form button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: flex-start;
+  }
+
+  .contact-form button:hover {
+    background: white;
+    color: var(--ink);
+  }
+
+  .contact-social {
+    margin-top: 8px;
+  }
+
+  .btn-outline-white-small {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.6);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+
+  .btn-outline-white-small:hover {
+    border-color: white;
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    .contact-form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="SKAMI Design" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sluzby">Služby</a></li>
+    <li><a href="#proces">Jak to funguje</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#reference">Reference</a></li>
+    <li><a href="#o-mne">O mně</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="#schuzka" class="nav-cta">Domluvit schůzku</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#sluzby" onclick="toggleMenu()">Služby</a>
+  <a href="#proces" onclick="toggleMenu()">Jak to funguje</a>
+  <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+  <a href="#reference" onclick="toggleMenu()">Reference</a>
+  <a href="#o-mne" onclick="toggleMenu()">O mně</a>
+  <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section class="hero-split">
+
+  <div class="hero-split-circle hero-split-circle-1"></div>
+  <div class="hero-split-circle hero-split-circle-2"></div>
+  <div class="hero-split-circle hero-split-circle-3"></div>
+  <div class="hero-split-circle hero-split-circle-4"></div>
+
+  <!-- Levá strana — text -->
+  <div class="hero-split-left">
+    <div class="hero-split-content">
+      <div class="hero-logo">
+        <img src="logo.png" alt="SKAMI Design" class="hero-logo-img">
+      </div>
+
+      <h1>Lidi reagují,<br>ale zatím<br><em>nenakupují?</em></h1>
+
+      <p class="hero-sub">Pomůžu ti vytvořit systém komunikace a vizuální identitu,<br>díky kterým tvoje značka začne budit důvěru — a zákazníci začnou nakupovat.</p>
+
+      <div class="hero-pills">
+        <span class="hero-pill">Strategie</span>
+        <span class="hero-pill">Vizuální identita</span>
+        <span class="hero-pill">Systém obsahu</span>
+        <span class="hero-pill">Důvěryhodnost</span>
+      </div>
+
+      <a href="#sluzby" class="btn-primary">Prohlédnout služby</a>
+    </div>
+  </div>
+
+  <!-- Pravá strana — fotka -->
+  <div class="hero-split-right">
+    <img src="hero.png" alt="Michaela Skalková – SKAMI Design" class="hero-split-photo">
+  </div>
+
+</section>
+
+<!-- STATS SLIDER -->
+<section class="stats-slider">
+  <div class="stats-track">
+
+    <div class="stat-slide active">
+      <div class="stat-number">94 %</div>
+      <div class="stat-text">prvních dojmů je čistě vizuálních</div>
+      <div class="stat-sub">Máš půl vteřiny. Buď to tvoje značka zvládne, nebo nezvládne.</div>
+    </div>
+
+    <div class="stat-slide">
+      <div class="stat-number">78 %</div>
+      <div class="stat-text">zákaznic si ověří tvůj profil na IG než nakoupí</div>
+      <div class="stat-sub">Co uvidí, když tam přijdou?</div>
+    </div>
+
+    <div class="stat-slide">
+      <div class="stat-number">+23 %</div>
+      <div class="stat-text">nárůst tržeb při konzistentním brandu</div>
+      <div class="stat-sub">Systém a vizuál nejsou luxus. Jsou investice.</div>
+    </div>
+
+    <div class="stat-slide">
+      <div class="stat-number">1</div>
+      <div class="stat-text">značka v hlavě zákaznice — buď tvoje, nebo konkurence</div>
+      <div class="stat-sub">Rozhoduje konzistence, ne talent.</div>
+    </div>
+
+  </div>
+  <div class="stats-dots">
+    <div class="stats-dot active" onclick="goToSlide(0)"></div>
+    <div class="stats-dot" onclick="goToSlide(1)"></div>
+    <div class="stats-dot" onclick="goToSlide(2)"></div>
+    <div class="stats-dot" onclick="goToSlide(3)"></div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="container">
+    <div class="pain-header">
+      <span class="section-label">Poznáváš se?</span>
+      <h2 class="section-title">Tohle zažívá většina<br>podnikatelek, které se zasekly.</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-number">01</div>
+        <h3>Tvůj feed vypadá pokaždé jinak</h3>
+        <p>Nekonzistentní vizuál nesnižuje jen důvěru zákazníků — snižuje i tvoje vlastní sebevědomí. A to vede k nižším cenám a slabší konverzi.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-1">
+        <div class="pain-number">02</div>
+        <h3>Lidi reagují, ale nenakupují</h3>
+        <p>Obsah sbírá lajky a komentáře — ale zákazníci přijdou na tvůj profil, podívají se a odejdou. Chybí jim důvod ti věřit.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <div class="pain-number">03</div>
+        <h3>Nevíš, co a kdy přidat</h3>
+        <p>Každý příspěvek je boj. Přemýšlíš, váháš, odkládáš. Tráviš čas tvorbou obsahu, který nepřináší výsledky. Chybí ti systém.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-3">
+        <div class="pain-number">04</div>
+        <h3>Myslíš si, že potřebuješ lepší grafiku</h3>
+        <p>Ve skutečnosti ti nechybí hezčí obrázky. Chybí ti systém a konzistence — a to je to, co v prodeji opravdu rozhoduje.</p>
+      </div>
+    </div>
+    <p class="pain-quote reveal">„Lidi reagují, ale nenakupují." <strong>Tohle umím změnit.</strong></p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="sluzby">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-label">Co pro tebe mohu udělat</span>
+      <h2 class="section-title">Služby, které ti pomohou<br>vypadat jako profesionálka.</h2>
+    </div>
+
+    <!-- À la carte -->
+    <div class="services-accordion">
+
+      <div class="services-accordion-header" onclick="toggleSection('alacarte')">
+        <div class="services-accordion-title">
+          <div class="services-badge">À la carte</div>
+          <div>
+            <h3>Vyber si jen to, co potřebuješ</h3>
+            <p class="services-accordion-desc">Jednotlivé služby, které lze zakoupit samostatně — vezmi si přesně to, co tvoje značka teď potřebuje.</p>
+          </div>
+        </div>
+        <span class="services-accordion-arrow" id="arrow-alacarte">+</span>
+      </div>
+
+      <div class="services-accordion-body" id="section-alacarte">
+        <div class="alacarte-list">
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">01</span>
+              <span class="alacarte-name">Strategie &amp; positioning</span>
+              <span class="alacarte-price">1 990 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Pevné základy, bez kterých je grafika jen prázdný obrázek</p>
+                  <ul>
+                    <li><strong>Analýza &amp; Positioning:</strong> Najdeme tvou unikátnost a místo na trhu.</li>
+                    <li><strong>Cílová skupina:</strong> Definujeme tvou ideální zákaznici, aby tvé produkty milovala.</li>
+                    <li><strong>Archetyp značky:</strong> Určíme „osobnost" tvého podnikání a emoci, kterou má budit.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> PDF strategický dokument – tvůj kompas pro další růst.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">02</span>
+              <span class="alacarte-name">Vizuální směr</span>
+              <span class="alacarte-price">1 490 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Estetická tvář, která na první pohled vypráví tvůj příběh</p>
+                  <ul>
+                    <li><strong>Moodboard:</strong> Definice nálady, atmosféry a stylu vaší značky.</li>
+                    <li><strong>Barevná paleta:</strong> Výběr harmonických odstínů včetně HEX kódů.</li>
+                    <li><strong>Typografie:</strong> Výběr 2–3 fontů, které podtrhnou charakter tvé tvorby.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> Přehledný vizuální manuál pro jednotný vzhled.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">03</span>
+              <span class="alacarte-name">Logo &amp; symbolika</span>
+              <span class="alacarte-price">3 900 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Symbol, podle kterého vás zákazníci okamžitě poznají</p>
+                  <ul>
+                    <li><strong>Logo set:</strong> Primární logo, sekundární varianta a zjednodušená ikona.</li>
+                    <li><strong>Favicon:</strong> Ikonka pro webový prohlížeč.</li>
+                    <li><strong>Profi formáty:</strong> PNG, PDF, SVG pro web i tisk.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> Vaše nová značka v kompletním sadě souborů.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">04</span>
+              <span class="alacarte-name">Tiskoviny</span>
+              <span class="alacarte-price">1 990 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Hmatatelná radost, která dodá vašim balíčkům punc luxusu</p>
+                  <ul>
+                    <li><strong>Grafický návrh:</strong> 2–3 kousky (vizitka, děkovná karta, etiketa).</li>
+                    <li><strong>Unboxing zážitek:</strong> Speciální prvek, který vykouzlí zákazníkům úsměv.</li>
+                    <li><strong>Tisková data:</strong> Profesionální příprava podkladů přímo pro tiskárnu.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> Hotové návrhy, které vaši zákazníci nebudou chtít vyhodit.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">05</span>
+              <span class="alacarte-name">Revize &amp; vizuální úklid sítí</span>
+              <span class="alacarte-price">990 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Profil, který začne prodávat během první vteřiny</p>
+                  <ul>
+                    <li><strong>Strategické BIO:</strong> Text, který jasně řekne, co děláte a proč chtít právě vás.</li>
+                    <li><strong>Struktura Highlights:</strong> Návrh výběrů a 5 ikon/coverů v novém brandu.</li>
+                    <li><strong>Audit profilu:</strong> Praktické tipy, co na Instagramu vylepšit.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> Čistý a profesionální profil, který láká k odběru.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">06</span>
+              <span class="alacarte-name">Šablony &amp; vizuální systém na IG</span>
+              <span class="alacarte-price">3 100 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Nástroje pro vaši snadnou tvorbu, které šetří hodiny času</p>
+                  <ul>
+                    <li><strong>Sada 9 šablon v Canvě:</strong> 6× příspěvek a 3× Stories vyladěné do vašich barev.</li>
+                    <li><strong>Snadná editace:</strong> Stačí vložit fotku a přepsat text — hotovo za pár minut.</li>
+                    <li><strong>Konzistence:</strong> Váš feed bude vypadat profi, i když zrovna nestíháte.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> Odkaz na editovatelné šablony přímo ve vašem účtu.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">07</span>
+              <span class="alacarte-name">Obsahová strategie &amp; podpora</span>
+              <span class="alacarte-price">2 900 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Konec tápání nad tím, co vlastně dneska postovat</p>
+                  <ul>
+                    <li><strong>Content plán na 4 týdny:</strong> Konkrétní témata a měsíční kalendář příspěvků.</li>
+                    <li><strong>4 obsahové pilíře:</strong> Strategie témat, která budují komunitu i prodeje.</li>
+                    <li><strong>Péče po předání:</strong> Zpětná vazba na vaše první 3 reálné posty.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Moje opora:</em> Možnost konzultace, abyste v tom nebyla sama.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">08</span>
+              <span class="alacarte-name">Audit webu / e-shopu</span>
+              <span class="alacarte-price">1 990 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Pohled zákazníka i odborníka na vaše prodejní místo</p>
+                  <ul>
+                    <li><strong>Průchod nákupním procesem:</strong> Najdu místa, kde vám zákazníci zbytečně odcházejí.</li>
+                    <li><strong>UX přívětivost:</strong> Zhodnotím přehlednost, čitelnost a navigaci webu.</li>
+                    <li><strong>Vizuální shoda:</strong> Kontrola, zda váš brand správně sedí i na webu.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> Hotové návrhy, které vaši zákazníci nebudou chtít vyhodit.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">09</span>
+              <span class="alacarte-name">Grafika pro web / e-shop</span>
+              <span class="alacarte-price">3 900 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Profesionální kabát pro váš online domov</p>
+                  <ul>
+                    <li><strong>Bannery &amp; Slidery:</strong> Návrh hlavních prodejních bannerů pro úvodní stranu.</li>
+                    <li><strong>Ikony &amp; Tlačítka:</strong> Designové prvky, které navigují zákazníka k nákupu.</li>
+                    <li><strong>Kategorie:</strong> Kompletní grafické podklady připravené k nahrání na web.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> Kompletní grafické podklady připravené k nahrání na web.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num">10</span>
+              <span class="alacarte-name">Jednostránkový web (One-page)</span>
+              <span class="alacarte-price">7 700 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="alacarte-detail-inner">
+                <div class="alacarte-detail-text">
+                  <p class="alacarte-tagline">Vaše vizitka, která prodává za vás 24/7</p>
+                  <ul>
+                    <li><strong>Kompletní tvorba:</strong> Od struktury textů až po nasazení na vaši doménu.</li>
+                    <li><strong>Propojení:</strong> Nastavení kontaktů, sociálních sítí a prodejních tlačítek.</li>
+                    <li><strong>Responzivita:</strong> Web, který vypadá skvěle na počítači i na telefonu.</li>
+                  </ul>
+                  <p class="alacarte-vystup"><em>Výstup:</em> Hotový, funkční web připravený ke spuštění.</p>
+                </div>              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Balíčky -->
+    <div class="services-accordion" style="margin-top:24px">
+
+      <div class="services-accordion-header" onclick="toggleSection('balicky')">
+        <div class="services-accordion-title">
+          <div class="services-badge">Balíčky služeb</div>
+          <div>
+            <h3>Vyber si balíček, který sedí přesně na tvoji situaci.</h3>
+            <p class="services-accordion-desc">Výhodné kombinace jednotlivých služeb — víc za méně, méně starostí.</p>
+          </div>
+        </div>
+        <span class="services-accordion-arrow" id="arrow-balicky">+</span>
+      </div>
+
+      <div class="services-accordion-body" id="section-balicky">
+        <div class="alacarte-list">
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num" style="font-style:italic">B01</span>
+              <span class="alacarte-name">Základ</span>
+              <span class="alacarte-price">6 500 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="package-new-card" style="margin-top:16px; border:1px solid rgba(0,0,0,0.08)">
+                <div class="package-new-header"><span class="package-code">B01</span><h3>Základ</h3><p class="package-new-tagline">PRO TVŮRKYNĚ, KTERÉ CHTĚJÍ KONEČNĚ VYSTOUPIT Z DAVU A MÍT JASNO.</p></div>
+                <div class="package-new-body">
+                  <p class="package-new-desc">Přestaneme hádat a postavíme základy, které nesou poselství tvé tvorby. Dostaneš logo, které budeš milovat.</p>
+                  <div class="package-includes"><span class="package-includes-label">Obsahuje:</span><span>01 — Strategie &amp; Positioning</span><span>02 — Vizuální směr</span><span>03 — Logo &amp; Symbolika</span></div>
+                  <p class="package-new-note">Možno přidat službu 04 – Tiskoviny za cenu 1 990 Kč</p>
+                </div>
+                <div class="package-new-price"><span class="package-price-label">Cena balíčku</span><span class="package-price-value">6 500 Kč</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num" style="font-style:italic">B02</span>
+              <span class="alacarte-name">Digitální tvář</span>
+              <span class="alacarte-price">6 200 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="package-new-card" style="margin-top:16px; border:1px solid rgba(0,0,0,0.08)">
+                <div class="package-new-header"><span class="package-code">B02</span><h3>Digitální tvář</h3><p class="package-new-tagline">UŽ ŽÁDNÉ HODINY NAD PRÁZDNÝM PLÁTNEM V CANVĚ. TVŮJ PROFIL DOSTANE ŘÁD.</p></div>
+                <div class="package-new-body">
+                  <p class="package-new-desc">Zjistíme, co na tvém IG nefunguje, a nastavíme ho tak, aby prodával. Dostaneš šablony na míru a plán, o čem psát.</p>
+                  <div class="package-includes"><span class="package-includes-label">Obsahuje:</span><span>05 — Revize &amp; vizuální úklid sítí</span><span>06 — Šablony &amp; vizuální systém v Canvě</span><span>07 — Obsahová strategie &amp; podpora</span></div>
+                </div>
+                <div class="package-new-price"><span class="package-price-label">Cena balíčku</span><span class="package-price-value">6 200 Kč</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num" style="font-style:italic">B03</span>
+              <span class="alacarte-name">Profi Start</span>
+              <span class="alacarte-price">12 000 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="package-new-card package-new-card--dark" style="margin-top:16px">
+                <div class="package-new-header"><span class="package-code">B03</span><h3>Profi Start</h3><p class="package-new-tagline">TVOJE NEJOBLÍBENĚJŠÍ CESTA. KOMPLETNÍ RESTART BRANDU I KOMUNIKACE.</p></div>
+                <div class="package-new-body">
+                  <p class="package-new-desc">Propojíme strategii s vizuálem a okamžitě to propíšeme do tvých sítí. Získáš jednotný styl, který buduje důvěru.</p>
+                  <div class="package-includes"><span class="package-includes-label">Obsahuje:</span><span>01 — Strategie &amp; Positioning</span><span>02 — Vizuální směr</span><span>03 — Logo &amp; Symbolika</span><span>05 — Revize &amp; vizuální úklid sítí</span><span>06 — Šablony &amp; vizuální systém</span><span>07 — Obsahová strategie &amp; podpora</span></div>
+                </div>
+                <div class="package-new-price"><span class="package-price-label">Cena balíčku</span><span class="package-price-value">12 000 Kč</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num" style="font-style:italic">B04</span>
+              <span class="alacarte-name">Brand Komplet</span>
+              <span class="alacarte-price">17 500 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="package-new-card package-new-card--dark" style="margin-top:16px">
+                <div class="package-new-header"><span class="package-code">B04</span><h3>Brand Komplet</h3><p class="package-new-tagline">MAXIMÁLNÍ PÉČE PRO TVŮJ BYZNYS. OD PRVNÍ VIZE PO FUNKČNÍ PRODEJNÍ WEB.</p></div>
+                <div class="package-new-body">
+                  <p class="package-new-desc">Postavíme tvou značku od úplného základu — od strategie přes logo až po funkční prodejní jednostránku.</p>
+                  <div class="package-includes"><span class="package-includes-label">Obsahuje:</span><span>01 — Strategie &amp; Positioning</span><span>02 — Vizuální směr</span><span>03 — Logo &amp; Symbolika</span><span>05 — Revize &amp; vizuální úklid sítí</span><span>06 — Šablony &amp; vizuální systém</span><span>07 — Obsahová strategie &amp; podpora</span><span>10 — Jednostránkový web</span></div>
+                  <p class="package-new-note">Možno přidat službu 04 – Tiskoviny za cenu 1 200 Kč</p>
+                </div>
+                <div class="package-new-price"><span class="package-price-label">Cena balíčku</span><span class="package-price-value">17 500 Kč</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alacarte-row" onclick="toggleAlacarte(this)">
+            <div class="alacarte-row-header">
+              <span class="alacarte-num" style="font-style:italic">B05</span>
+              <span class="alacarte-name">Restart webu</span>
+              <span class="alacarte-price">5 290 Kč</span>
+              <span class="alacarte-arrow">+</span>
+            </div>
+            <div class="alacarte-detail">
+              <div class="package-new-card package-new-card--accent" style="margin-top:16px">
+                <div class="package-new-header"><span class="package-code">B05</span><h3>Restart webu</h3><p class="package-new-tagline">MÁŠ WEB, ALE ZÁKAZNÍCI Z NĚJ ODCHÁZEJÍ S PRÁZDNÝM KOŠÍKEM?</p></div>
+                <div class="package-new-body">
+                  <p class="package-new-desc">Projdu tvůj e-shop/web krok za krokem a navrhnu změny, které zjednoduší nákup.</p>
+                  <div class="package-includes"><span class="package-includes-label">Obsahuje:</span><span>Hloubkový audit webu/e-shopu</span><span>Vizuální refresh — nová grafika</span><span>Strategické nasazení prvků</span></div>
+                  <p class="package-new-quote">„Nejdřív zjistíme, co nefunguje, a pak tomu dáme tvář, která prodává."</p>
+                </div>
+                <div class="package-new-price"><span class="package-price-label">Cena balíčku</span><span class="package-price-value">5 290 Kč</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+            </div>
+
+    <div class="services-cta" style="margin-top:56px">
+      <p>Nevíš, kde začít? Ozvi se a společně to vymyslíme.</p>
+      <a href="#schuzka" class="btn-primary">Domluvit nezávaznou schůzku</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-new" id="proces">
+  <div class="container">
+    <div class="process-new-header reveal">
+      <span class="section-label" style="color: var(--mint)">Jak to funguje</span>
+      <h2 class="section-title" style="color: white">Od první zprávy<br>k hotové značce.</h2>
+    </div>
+
+    <div class="process-new-steps">
+
+      <div class="process-new-step reveal">
+        <div class="process-new-img">
+          <img src="proces-01.png" alt="Poptávka">
+        </div>
+        <div class="process-new-content">
+          <span class="process-new-num">01</span>
+          <h3>Poptávka</h3>
+          <p>Ozvi se mi přes DM nebo e-mail. Řekni mi, co potřebuješ — já ti odpovím, jestli a jak můžu pomoct.</p>
+        </div>
+      </div>
+
+      <div class="process-new-step process-new-step--reverse reveal">
+        <div class="process-new-img">
+          <img src="proces-02.png" alt="Úvodní dotazník">
+        </div>
+        <div class="process-new-content">
+          <span class="process-new-num">02</span>
+          <h3>Úvodní dotazník</h3>
+          <p>Pošlu ti krátký dotazník, abych lépe pochopila tvoji značku, zákaznice a vizi. Nic složitého — jen pár otázek.</p>
+        </div>
+      </div>
+
+      <div class="process-new-step reveal">
+        <div class="process-new-img">
+          <img src="proces-03.png" alt="Tvorba & komunikace">
+        </div>
+        <div class="process-new-content">
+          <span class="process-new-num">03</span>
+          <h3>Tvorba &amp; komunikace</h3>
+          <p>Začnu pracovat na tvém projektu. Průběžně ti ukazuji, kam to směřuje, a ptám se na tvůj názor.</p>
+        </div>
+      </div>
+
+      <div class="process-new-step process-new-step--reverse reveal">
+        <div class="process-new-img">
+          <img src="proces-04.png" alt="2 kola revizí">
+        </div>
+        <div class="process-new-content">
+          <span class="process-new-num">04</span>
+          <h3>2 kola revizí</h3>
+          <p>Máš dvě kola úprav v ceně. Doladíme spolu detaily, aby výsledek seděl přesně na tebe.</p>
+        </div>
+      </div>
+
+      <div class="process-new-step reveal">
+        <div class="process-new-img">
+          <img src="proces-05.png" alt="Předání souborů">
+        </div>
+        <div class="process-new-content">
+          <span class="process-new-num">05</span>
+          <h3>Předání souborů</h3>
+          <p>Dostaneš všechny finální soubory ve formátech, které potřebuješ. A návod, jak je používat.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <span class="section-label">Ukázky práce</span>
+      <h2 class="section-title">Projekty, na které<br>jsem hrdá.</h2>
+    </div>
+
+    <div class="portfolio-slider" id="portfolioSlider">
+
+      <div class="portfolio-slide active" onclick="openModal('norna')">
+        <div class="portfolio-slide-bg"><img src="portfolio-norna.png" alt="NORNA"></div>
+        <div class="portfolio-slide-overlay"></div>
+        <div class="portfolio-slide-content">
+          <span class="portfolio-slide-client">NORNA – nordická háčkovaná značka</span>
+          <h3>Brand identity pro tvůrkyni</h3>
+          <div class="portfolio-slide-tags">
+            <span class="tag">Brand identita</span><span class="tag">Logo</span><span class="tag">Šablony sítí</span>
+          </div>
+          <span class="portfolio-slide-cta">Zobrazit detail →</span>
+        </div>
+      </div>
+
+      <div class="portfolio-slide" onclick="openModal('sn')">
+        <div class="portfolio-slide-bg"><img src="portfolio-sn.png" alt="SN Projekce"></div>
+        <div class="portfolio-slide-overlay"></div>
+        <div class="portfolio-slide-content">
+          <span class="portfolio-slide-client">Ing. Simona Němečková</span>
+          <h3>Rebrand OSVČ</h3>
+          <div class="portfolio-slide-tags">
+            <span class="tag">Rebrand</span><span class="tag">Logo</span><span class="tag">Tiskoviny</span>
+          </div>
+          <span class="portfolio-slide-cta">Zobrazit detail →</span>
+        </div>
+      </div>
+
+      <div class="portfolio-slide" onclick="openModal('cabs')">
+        <div class="portfolio-slide-bg"><img src="portfolio-cabs.png" alt="CABS"></div>
+        <div class="portfolio-slide-overlay"></div>
+        <div class="portfolio-slide-content">
+          <span class="portfolio-slide-client">CABS – Cestovní agentura Blanka Slavíková</span>
+          <h3>Brand vizuál, web &amp; správa sítí</h3>
+          <div class="portfolio-slide-tags">
+            <span class="tag">Brand identita</span><span class="tag">Web</span><span class="tag">Logo</span>
+          </div>
+          <span class="portfolio-slide-cta">Zobrazit detail →</span>
+        </div>
+      </div>
+
+      <div class="portfolio-slide" onclick="openModal('orrikido')">
+        <div class="portfolio-slide-bg"><img src="portfolio-orikiddo.png" alt="Orrikido"></div>
+        <div class="portfolio-slide-overlay"></div>
+        <div class="portfolio-slide-content">
+          <span class="portfolio-slide-client">Orrikido – dětský online secondhand</span>
+          <h3>Brand identity pro e-shop</h3>
+          <div class="portfolio-slide-tags">
+            <span class="tag">Brand identita</span><span class="tag">Logo</span><span class="tag">E-shop grafika</span>
+          </div>
+          <span class="portfolio-slide-cta">Zobrazit detail →</span>
+        </div>
+      </div>
+
+      <div class="portfolio-slide" onclick="openModal('rosteme')">
+        <div class="portfolio-slide-bg"><img src="portfolio-rosteme.png" alt="Rosteme spolu"></div>
+        <div class="portfolio-slide-overlay"></div>
+        <div class="portfolio-slide-content">
+          <span class="portfolio-slide-client">Rosteme spolu</span>
+          <h3>Web komunity pro tvůrkyně</h3>
+          <div class="portfolio-slide-tags">
+            <span class="tag">Web</span><span class="tag">Blog</span><span class="tag">Komunita</span>
+          </div>
+          <span class="portfolio-slide-cta">Zobrazit detail →</span>
+        </div>
+      </div>
+
+      <div class="portfolio-slide" onclick="openModal('jitkita')">
+        <div class="portfolio-slide-bg"><img src="portfolio-jitkita.png" alt="Jitkita"></div>
+        <div class="portfolio-slide-overlay"></div>
+        <div class="portfolio-slide-content">
+          <span class="portfolio-slide-client">Treasures from Jitkita</span>
+          <h3>Logo pro tvůrkyni šperků</h3>
+          <div class="portfolio-slide-tags">
+            <span class="tag">Logo</span><span class="tag">Hlavní znak</span><span class="tag">Mockupy</span>
+          </div>
+          <span class="portfolio-slide-cta">Zobrazit detail →</span>
+        </div>
+      </div>
+
+      <button class="portfolio-arrow portfolio-arrow-prev" onclick="event.stopPropagation(); portfolioPrev()">‹</button>
+      <button class="portfolio-arrow portfolio-arrow-next" onclick="event.stopPropagation(); portfolioNext()">›</button>
+
+    </div>
+
+    <div class="portfolio-slider-dots">
+      <div class="portfolio-slider-dot active" onclick="goToPortfolio(0)"></div>
+      <div class="portfolio-slider-dot" onclick="goToPortfolio(1)"></div>
+      <div class="portfolio-slider-dot" onclick="goToPortfolio(2)"></div>
+      <div class="portfolio-slider-dot" onclick="goToPortfolio(3)"></div>
+      <div class="portfolio-slider-dot" onclick="goToPortfolio(4)"></div>
+      <div class="portfolio-slider-dot" onclick="goToPortfolio(5)"></div>
+    </div>
+
+    </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="references" id="reference">
+  <div class="container">
+    <div class="references-header">
+      <span class="section-label">Co říkají klientky</span>
+      <h2 class="section-title">Spokojené tvůrkyně,<br>spokojená já.</h2>
+    </div>
+    <div class="references-grid">
+      <div class="reference-card reveal-left">
+        <span class="reference-quote">"</span>
+        <p>Moc děkuji za nádherné logo. Paní Skalková má obrovský talent a úžasný přístup k zákazníkovi. Dokázala se naprosto přesně nacítit na to, co potřebuji, a výsledek ještě předčil má očekávání. Mám z nové grafiky obrovskou radost. Pokud hledáte někoho šikovného a spolehlivého, doporučuji všemi deseti.</p>
+        <div class="reference-author">
+          <strong>Ivana</strong>
+          <span>Bellakvet</span>
+        </div>
+      </div>
+      <div class="reference-card reveal-right">
+        <span class="reference-quote">"</span>
+        <p>Jsem moc ráda, že jsem narazila právě na Míšu, odborným okem mi zkoukla eshop a logo a dala několik super tipů, jak vše ještě lépe doladit. Ochotně odpovídala na všechny moje dotazy. Dále mi poradila s vytvořením ještě poutavějšího BIA na Instagramu. Míšu moc doporučuju nejen kvůli jejímu zapálení do tohohle oboru, ale taky proto, že je vstřícná, laskavá a ochotná pomáhat malým tvůrcům k jejich vzrůstu.</p>
+        <div class="reference-author">
+          <strong>Johana</strong>
+          <span>JoVi Chokers</span>
+        </div>
+      </div>
+
+      <div class="reference-card reveal">
+        <span class="reference-quote">"</span>
+        <p>Po strategii, do které mě Míša na Instagramu zapojila, se mi mnohonásobně zvedl dosah příspěvků, což přirozeně vedlo k navýšení počtu sledujících. Vznikla podpůrná komunita, kde sdílíme své zkušenosti. A čeho si moc vážím, tak je Míšin osobní přístup — obratem na vše odpoví, poradí a pravidelně za námi přichází s novinkami, aby naše projekty rostly a držely krok s nejnovějšími trendy.</p>
+        <div class="reference-author">
+          <strong>Petra</strong>
+          <span>UTITA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="o-mne">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img reveal-left">
+        <img src="o-mne.png" alt="Michaela Skalková – SKAMI Design">
+        <div class="about-img-circle"></div>
+      </div>
+      <div class="about-content reveal-right">
+        <span class="section-label">O mně</span>
+        <h2>Michaela Skalková</h2>
+        <p>Dělám grafiku, aby nebyla jen pěkná — ale aby prodávala.</p>
+        <p>Vždycky jsem věděla, že chci tvořit. Začala jsem na rodičovské — bez velkého plánu, jen s chutí zkusit něco svého.</p>
+        <p>Spouštěčem byl brand projekt pro mamku. Pak přišla první skutečná zakázka — a s ní moje první pořádné logo. Když mi klientka napsala, že je spokojená, věděla jsem. Tohle je ono.</p>
+        <p>Sama jsem dost tvořivá, handmade mi je blízké — takže když jsem přemýšlela komu chci pomáhat, bylo mi to jasné. Začínající tvůrkyně, které mají skvělý produkt, ale neví jak ho ukázat světu.</p>
+        <p>Teď studuji UI/UX design, záměrně rostu — a souběžně jsem založila komunitu <a href="https://rostemespolu.site" target="_blank" style="color: var(--green); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--mint);">Rosteme spolu</a>, protože věřím, že cesta je snazší, když ji nejdeš sama.</p>
+        <p>Pomáhání je pro mě přirozené. A brand design je způsob, jak to dělat smysluplně.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="schuzka">
+  <div class="container">
+    <span class="section-label">Připravená začít?</span>
+    <h2 class="section-title">Ozvi se mi<br>a pojďme na to.</h2>
+    <p>Napiš mi a domluvíme si nezávaznou schůzku, kde probereme, co tvoje značka potřebuje.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/xrevpzbb" method="POST">
+      <input type="hidden" name="_next" value="https://skami.cz?odeslano=1">
+      <div class="contact-form-row">
+        <input type="text" name="jmeno" placeholder="Tvoje jméno" required>
+        <input type="email" name="email" placeholder="Tvůj email" required>
+      </div>
+      <input type="text" name="znacka" placeholder="Název tvé značky (nepovinné)">
+      <textarea name="zprava" placeholder="Co potřebuješ? Řekni mi víc..." rows="4" required></textarea>
+      <button type="submit" class="btn-outline-white">Odeslat zprávu →</button>
+    </form>
+
+    <div class="contact-social">
+      <a href="https://ig.me/m/skalkova.michaela" target="_blank" class="btn-outline-white-small">📷 Instagram</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- VIZITKA -->
+<section class="vizitka-section" id="kontakt">
+  <span class="vizitka-label">Klikni pro otočení</span>
+  <div class="vizitka-wrapper" onclick="this.classList.toggle('flipped')">
+    <div class="vizitka-inner">
+
+      <div class="vizitka-front">
+        <img src="logo.png" alt="SKAMI Design" class="vizitka-front-logo">
+        <div class="vizitka-front-bottom">
+          <span class="vizitka-front-name">Michaela Skalková</span>
+          <span class="vizitka-front-tagline">Pomáhám tvůrkyním vybudovat značku, která prodává.</span>
+        </div>
+        <span class="vizitka-front-hint">otočit →</span>
+      </div>
+
+      <div class="vizitka-back">
+        <span class="vizitka-back-name">Michaela Skalková</span>
+        <div class="vizitka-back-details">
+          <div class="vizitka-back-item">
+            <span class="vizitka-back-item-label">IČO</span>
+            <span>24108073</span>
+          </div>
+          <div class="vizitka-back-item">
+            <span class="vizitka-back-item-label">Email</span>
+            <a href="mailto:ska-mi@seznam.cz">ska-mi@seznam.cz</a>
+          </div>
+          <div class="vizitka-back-item">
+            <span class="vizitka-back-item-label">Web</span>
+            <a href="https://skami.cz" target="_blank">skami.cz</a>
+          </div>
+          <div class="vizitka-back-item">
+            <span class="vizitka-back-item-label">IG</span>
+            <a href="https://instagram.com/skalkova.michaela" target="_blank">@skalkova.michaela</a>
+          </div>
+        </div>
+        <div class="vizitka-back-mint"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="SKAMI Design" class="footer-logo-img">
+  </div>
+  <ul class="footer-links">
+    <li><a href="#sluzby">Služby</a></li>
+    <li><a href="#proces">Proces</a></li>
+    <li><a href="#o-mne">O mně</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="vop.html">Obchodní podmínky</a></li>
+  </ul>
+  <div class="footer-community">
+    <span class="footer-community-label">Komunita pro tvůrkyně</span>
+    <div class="footer-community-links">
+      <a href="https://rostemespolu.site" target="_blank">Rosteme spolu</a>
+      <a href="https://www.facebook.com/groups/rostemespolu" target="_blank">Facebook skupina</a>
+    </div>
+  </div>
+  <span class="footer-copy">© 2026 SKAMI Design</span>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal" onclick="closeModalOnOverlay(event)">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+
+
+  // Stats slider
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.stat-slide');
+  const dots = document.querySelectorAll('.stats-dot');
+  let sliderInterval = setInterval(nextSlide, 3500);
+
+  function goToSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = n;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(nextSlide, 3500);
+  }
+
+  function nextSlide() {
+    goToSlide((currentSlide + 1) % slides.length);
+  }
+
+
+  // Portfolio slider
+  let currentPortfolio = 0;
+  const portfolioSlides = document.querySelectorAll('.portfolio-slide');
+  const portfolioDots = document.querySelectorAll('.portfolio-slider-dot');
+
+  function goToPortfolio(n) {
+    portfolioSlides[currentPortfolio].classList.remove('active');
+    portfolioDots[currentPortfolio].classList.remove('active');
+    currentPortfolio = (n + portfolioSlides.length) % portfolioSlides.length;
+    portfolioSlides[currentPortfolio].classList.add('active');
+    portfolioDots[currentPortfolio].classList.add('active');
+  }
+
+  function portfolioNext() { goToPortfolio(currentPortfolio + 1); }
+  function portfolioPrev() { goToPortfolio(currentPortfolio - 1); }
+
+
+  function toggleSection(id) {
+    const body = document.getElementById('section-' + id);
+    const arrow = document.getElementById('arrow-' + id);
+    body.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
+  function toggleAlacarte(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.alacarte-row.open, .alacarte-item.open').forEach(item => item.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Portfolio filter
+  function filterPortfolio(filter, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.portfolio-card').forEach(card => {
+      if (filter === 'all') {
+        card.style.display = 'block';
+      } else {
+        const tags = card.dataset.tags || '';
+        card.style.display = tags.includes(filter) ? 'block' : 'none';
+      }
+    });
+  }
+
+  // Modal data
+  const projects = {
+    cabs: {
+      url: null,
+      cover: 'portfolio-cabs.png',
+      client: 'CABS – Cestovní agentura Blanka Slavíková',
+      title: 'Brand vizuál, web & správa sítí',
+      tags: ['Brand identita', 'Web', 'Správa sítí', 'Logo'],
+      desc: 'Pro CABS jsem vytvořila kompletní vizuální identitu od loga přes webovou prezentaci až po každodenní správu sociálních sítí. Výsledkem je profesionální a konzistentní prezentace, která buduje důvěru klientů a propojuje celý online obraz agentury do jednoho uceleného celku.',
+      gallery: [
+        { label: 'Logo – hlavní verze' },
+        { label: 'Web – úvodní stránka' },
+        { label: 'Web – detail destinace' },
+        { label: 'Instagram – přehled feedu' },
+        { label: 'Stories šablony' },
+        { label: 'Celková identita – mockup' },
+      ],
+      note: 'Obrázky budou doplněny skutečnými ukázkami'
+    },
+    sn: {
+      url: null,
+      client: 'Ing. Simona Němečková',
+      title: 'Rebrand OSVČ',
+      tags: ['Rebrand', 'Logo', 'Typografie', 'Tiskoviny', 'Profilové foto'],
+      desc: 'Nové logo a kompletní implementace do vizuálu pro strukturální inženýrku. Výsledkem je profesionální identita, která odráží odbornost a preciznost.',
+      gallery: [
+        { label: 'Logo – hlavní verze' },
+        { label: 'Barevná paleta' },
+        { label: 'Vizitka' },
+        { label: 'Brand manuál' },
+      ],
+      note: 'Obrázky budou doplněny skutečnými ukázkami'
+    },
+    orrikido: {
+      url: 'https://orikiddo.at/',
+      client: 'Orrikido – dětský online secondhand',
+      title: 'Brand identity pro e-shop',
+      tags: ['Brand identita', 'Logo', 'E-shop grafika', 'FB banner', 'Šablony sítí'],
+      desc: 'Logo, barevná paleta, typografie a grafika pro e-shop — včetně FB banneru a šablon pro sociální sítě. Hravá a přátelská identita pro dětský secondhand.',
+      gallery: [
+        { label: 'Logo' },
+        { label: 'FB banner' },
+        { label: 'Šablony sítí' },
+        { label: 'Mockupy' },
+      ],
+      note: 'Obrázky budou doplněny skutečnými ukázkami'
+    },
+    rosteme: {
+      url: 'https://rostemespolu.site',
+      client: 'Rosteme spolu',
+      title: 'Web komunity pro tvůrkyně',
+      tags: ['Web', 'Blog', 'Komunita', 'HTML/CSS'],
+      desc: 'Jednostránkový web pro komunitu začínajících podnikatelek a kreativních žen. Zahrnuje blog s praktickými články o podnikání, členskou sekci a propojení s Instagramem a Facebook skupinou. Postaveno v čistém HTML/CSS/JS a hostováno na Netlify.',
+      gallery: [
+        { label: 'Úvodní stránka' },
+        { label: 'Blog sekce' },
+        { label: 'Členská sekce' },
+        { label: 'Mobilní verze' },
+      ],
+      note: 'Obrázky budou doplněny skutečnými ukázkami'
+    },
+    jitkita: {
+      url: null,
+      client: 'Treasures from Jitkita',
+      title: 'Logo pro tvůrkyni šperků',
+      tags: ['Logo', 'Hlavní znak', 'Barevná paleta', 'Mockupy'],
+      desc: 'Nové logo, hlavní znak, barevná paleta a mockupy pro elegantní značku ručně vyráběných šperků. Jemná, luxusní identita ladící s charakterem výrobků.',
+      gallery: [
+        { label: 'Logo – hlavní verze' },
+        { label: 'Hlavní znak' },
+        { label: 'Barevná paleta' },
+        { label: 'Mockupy' },
+      ],
+      note: 'Obrázky budou doplněny skutečnými ukázkami'
+    }
+  };
+
+  function openModal(key) {
+    const p = projects[key];
+    if (!p) return;
+
+    const tagsHtml = p.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    const galleryHtml = p.gallery.map(g => `
+      <div>
+        <div class="modal-gallery-item">
+          <div class="modal-gallery-placeholder">🖼</div>
+        </div>
+        <p class="modal-gallery-label">${g.label}</p>
+      </div>
+    `).join('');
+
+    const liveBtn = p.url ? `<a href="${p.url}" target="_blank" class="btn-live">🔗 Zobrazit živě</a>` : '';
+    document.getElementById('modalBody').innerHTML = `
+      <p class="modal-client">${p.client}</p>
+      <h2>${p.title}</h2>
+      <div class="modal-tags">${tagsHtml}</div>
+      ${liveBtn}
+      ${liveBtn}
+      <p class="modal-desc">${p.desc}</p>
+      <div class="modal-gallery">${galleryHtml}</div>
+      ${p.note ? `<p class="modal-note">${p.note}</p>` : ''}
+    `;
+
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOnOverlay(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

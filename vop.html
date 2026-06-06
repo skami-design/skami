@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Všeobecné obchodní podmínky — SKAMI Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16211A;
+    --pink: #C0A0A5;
+    --green: #2B362E;
+    --mint: #9FD4B0;
+    --mint-light: #D5F0DE;
+    --off: #FAF6F0;
+    --dark: #2B362E;
+    --white: #FFFFFF;
+    --text: #16211A;
+    --text-light: #5a5a5a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text);
+    background: var(--white);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo img {
+    height: 44px;
+    width: auto;
+  }
+
+  .nav-back {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--green); }
+
+  /* HERO */
+  .vop-hero {
+    background: var(--dark);
+    padding: 120px 40px 64px;
+    text-align: center;
+  }
+
+  .vop-hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mint);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .vop-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: white;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .vop-hero-meta {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  /* CONTENT */
+  .vop-content {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 40px 96px;
+  }
+
+  .vop-section {
+    margin-bottom: 56px;
+  }
+
+  .vop-section-num {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--pink);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .vop-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .vop-section p {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .vop-section p:last-child { margin-bottom: 0; }
+
+  .vop-section strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Process steps */
+  .vop-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .vop-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 20px;
+    background: var(--off);
+    border-radius: 8px;
+  }
+
+  .vop-step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--pink);
+    flex-shrink: 0;
+    width: 28px;
+  }
+
+  .vop-step-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .vop-step-content p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 0;
+  }
+
+  /* Table */
+  .vop-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+  }
+
+  .vop-table th {
+    background: var(--dark);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  .vop-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    color: var(--text-light);
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .vop-table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+    width: 35%;
+  }
+
+  .vop-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .vop-table tr:nth-child(even) td {
+    background: var(--off);
+  }
+
+  /* Info box */
+  .vop-infobox {
+    background: var(--mint-light);
+    border-left: 3px solid var(--mint);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .vop-infobox p {
+    font-size: 15px;
+    color: var(--green);
+    margin-bottom: 0;
+  }
+
+  /* Footer */
+  .vop-footer-card {
+    background: var(--dark);
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin-top: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .vop-footer-card img {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+  }
+
+  .vop-footer-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .vop-footer-details span {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .vop-footer-details span strong {
+    color: white;
+    font-weight: 600;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--ink);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  footer img {
+    height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.6;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 20px; }
+    .vop-hero { padding: 100px 24px 48px; }
+    .vop-content { padding: 48px 24px 72px; }
+    .vop-footer-card { padding: 24px; }
+    footer { padding: 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="SKAMI Design">
+  </a>
+  <a href="index.html" class="nav-back">← Zpět na web</a>
+</nav>
+
+<div class="vop-hero">
+  <span class="vop-hero-label">Právní dokumenty</span>
+  <h1>Všeobecné obchodní podmínky</h1>
+  <p class="vop-hero-meta">
+    Digitální produkty &amp; konzultace<br>
+    Platné od 1. 1. 2026
+  </p>
+</div>
+
+<div class="vop-content">
+
+  <div class="vop-section">
+    <span class="vop-section-num">01</span>
+    <h2>Úvod</h2>
+    <p>Tato pravidla se vztahují na všechny služby, které nabízím — tvorbu brandingu, vizuálních identit, grafických materiálů, konzultace a šablony na míru. Pokud si něco objednáš, souhlasíš s těmito podmínkami.</p>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">02</span>
+    <h2>Jak spolupracujeme</h2>
+    <p>Průběh projektu závisí na tom, co si objednáš. U komplexních brandingových projektů spolupráce vypadá takto:</p>
+    <div class="vop-steps">
+      <div class="vop-step">
+        <span class="vop-step-num">01</span>
+        <div class="vop-step-content">
+          <h4>Poptávka</h4>
+          <p>Ozveš se mi přes DM nebo e-mail. Řekni mi, co potřebuješ — já ti odpovím, jestli a jak můžu pomoct.</p>
+        </div>
+      </div>
+      <div class="vop-step">
+        <span class="vop-step-num">02</span>
+        <div class="vop-step-content">
+          <h4>Úvodní dotazník</h4>
+          <p>Pošlu ti krátký dotazník, abych lépe pochopila tvůj byznys, zákaznice a vizi. Nic složitého — jen pár otázek.</p>
+        </div>
+      </div>
+      <div class="vop-step">
+        <span class="vop-step-num">03</span>
+        <div class="vop-step-content">
+          <h4>Tvorba &amp; komunikace</h4>
+          <p>Začnu pracovat na tvém projektu. Průběžně ti ukážu, kam to směřuje, a ptám se na tvůj názor.</p>
+        </div>
+      </div>
+      <div class="vop-step">
+        <span class="vop-step-num">04</span>
+        <div class="vop-step-content">
+          <h4>2 kola revizí</h4>
+          <p>Máš dvě kola úprav v ceně. Doladíme spolu detaily, aby výsledek seděl přesně na tebe.</p>
+        </div>
+      </div>
+      <div class="vop-step">
+        <span class="vop-step-num">05</span>
+        <div class="vop-step-content">
+          <h4>Předání souborů</h4>
+          <p>Dostaneš všechny finální soubory ve formátech, které potřebuješ. A návod, jak je používat.</p>
+        </div>
+      </div>
+    </div>
+    <p>U menších projektů nebo konzultací je proces kratší a přizpůsobený konkrétní zakázce.</p>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">03</span>
+    <h2>Platební a dodací podmínky</h2>
+    <p><strong>Záloha:</strong> U větších projektů platíš 50% zálohu předem na základě vystavené faktury. Zbytek po dokončení. Pokud jde o menší zakázku nebo konzultaci, platí se celá částka předem.</p>
+    <p><strong>Kdy začínám pracovat:</strong> Na projektu začínám pracovat až po zaplacení zálohy (nebo celé částky). Termín dodání ti potvrdím individuálně podle rozsahu práce.</p>
+    <p><strong>Dodání:</strong> Finální soubory dostaneš e-mailem nebo přes sdílenou složku. Formáty záleží na projektu — obvykle PNG, JPG, PDF, AI nebo šablony v Canva/Adobe Express.</p>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">04</span>
+    <h2>Storno podmínky</h2>
+    <table class="vop-table">
+      <thead>
+        <tr>
+          <th>Situace</th>
+          <th>Řešení</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Potřebuješ změnit termín</td>
+          <td>Pokud mě včas informuješ, můžeme termín posunout. Žádný problém.</td>
+        </tr>
+        <tr>
+          <td>Úplné zrušení konzultace</td>
+          <td>Pokud zrušíš méně než 24 hodin před začátkem, vracím 50% ceny. Pokud mi dáš vědět dřív, vrátím celou částku.</td>
+        </tr>
+        <tr>
+          <td>Digitální obsah (návody, strategie)</td>
+          <td>Po odeslání souboru (PDF, šablony...) už vrácení peněz není možné. Digitální produkt nemůžeš "vrátit", jak by to šlo u fyzického zboží.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">05</span>
+    <h2>Autorská práva a licence</h2>
+    <p><strong>Co dostáváš:</strong> Po zaplacení dostáváš neomezenou licenci k finálním souborům pro komerční i osobní využití. Můžeš je používat pro svůj byznys, tisknout, sdílet na sociálních sítích — bez omezení.</p>
+    <p><strong>Co si ponechávám:</strong> Zůstávám autorkou grafických prací a mám právo je použít ve svém portfoliu, na webu nebo sociálních sítích jako ukázku své práce. Pokud bys z nějakého důvodu nechtěla, aby tvůj projekt byl veřejně sdílen, dej mi vědět předem.</p>
+    <div class="vop-infobox">
+      <p>Pokud nedojde k úhradě finální faktury, nepředávám soubory a práva k nim zůstávají u mě.</p>
+    </div>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">06</span>
+    <h2>Odpovědnost a reklamace</h2>
+    <p><strong>Kvalita práce:</strong> Dělám svou práci pečlivě a snažím se, aby výsledek byl pro tebe užitečný. Pokud by ale něco nefungovalo (poškozený soubor, chybějící část zakázky), ozvi se mi do 7 dnů od dodání. Společně to vyřešíme — pošlu ti funkční verzi nebo doplním, co chybí.</p>
+    <p><strong>Co negarantuji:</strong> Neručím za konkrétní business výsledky (počet prodejů, sledujících apod.). Design a strategie jsou nástroje, ale výsledky záleží i na dalších faktorech, které nemám pod kontrolou.</p>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">07</span>
+    <h2>Ochrana osobních údajů</h2>
+    <p>Tvoje osobní údaje (jméno, e-mail, adresa) používám jen pro plnění zakázky a vystavení faktury. Nikomu je neprodávám ani nesdílím. Uchovávám je po dobu, kterou vyžaduje zákon (obvykle 10 let kvůli archivaci účetních dokladů). Máš právo kdykoliv požádat o jejich výmaz — až na ty údaje, které musím ze zákona uchovávat.</p>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">08</span>
+    <h2>Mlčenlivost</h2>
+    <p>Veškeré citlivé informace, které mi během spolupráce svěříš (obchodní plány, ceny, data o zákaznících), zůstanou mezi námi. Nebudu je sdílet třetím stranám.</p>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">09</span>
+    <h2>Řešení sporů</h2>
+    <p>Pokud bychom se na něčem neshodly, zkusíme to nejdřív vyřešit domluvou. Většinou stačí si popovídat a najít řešení, které funguje pro obě strany. Pokud by to nešlo, řídí se spory českým právem.</p>
+  </div>
+
+  <div class="vop-section">
+    <span class="vop-section-num">10</span>
+    <h2>Závěrečná ustanovení</h2>
+    <p>Tyto obchodní podmínky platí od 1. 1. 2026. Můžu je čas od času aktualizovat — například když rozšířím služby nebo změním něco v procesu. Aktuální verzi najdeš vždycky na mém webu.</p>
+  </div>
+
+  <div class="vop-footer-card">
+    <img src="logo.png" alt="SKAMI Design">
+    <div class="vop-footer-details">
+      <span><strong>Ing. Michaela Skalková</strong></span>
+      <span>Družstevní čtvrť 3126/15, 695 01, Hodonín</span>
+      <span>IČO: 24108073 | Neplátce DPH</span>
+      <span><a href="mailto:ska-mi@seznam.cz" style="color: var(--mint); text-decoration: none;">ska-mi@seznam.cz</a></span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <img src="logo.png" alt="SKAMI Design">
+  <span class="footer-copy">© 2026 SKAMI Design</span>
+</footer>
+
+</body>
+</html>
