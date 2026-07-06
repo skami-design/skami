@@ -2654,6 +2654,7 @@
     <li><a href="#sluzby">Služby</a></li>
     <li><a href="#proces">Jak to funguje</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="vyzvy.html">Výzvy</a></li>
     <li><a href="#reference">Reference</a></li>
     <li><a href="#o-mne">O mně</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
@@ -2668,6 +2669,7 @@
   <a href="#sluzby" onclick="toggleMenu()">Služby</a>
   <a href="#proces" onclick="toggleMenu()">Jak to funguje</a>
   <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+  <a href="vyzvy.html" onclick="toggleMenu()">Výzvy</a>
   <a href="#reference" onclick="toggleMenu()">Reference</a>
   <a href="#o-mne" onclick="toggleMenu()">O mně</a>
   <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
@@ -3213,6 +3215,69 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ROSTU S MIŠKOU -->
+<style>
+  .rostu-promo{
+    background: var(--mint-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .rostu-spectrum{
+    position:absolute;top:0;left:0;right:0;height:6px;display:flex;
+  }
+  .rostu-spectrum i{flex:1;}
+  .rostu-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+    max-width:1100px;margin:0 auto;
+  }
+  .rostu-chips{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 30px;}
+  .rostu-chip{
+    font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--ink);border:1px solid rgba(22,33,26,.25);
+    border-radius:6px;padding:7px 14px;background:rgba(255,255,255,.5);
+  }
+  .rostu-banner{
+    border-radius:14px;overflow:hidden;
+    box-shadow:0 20px 50px rgba(22,33,26,.18);
+    transform:rotate(1.5deg);
+  }
+  .rostu-banner img{width:100%;display:block;}
+  .rostu-note{
+    margin-top:18px;font-size:14px;color:var(--text-light);
+  }
+  @media (max-width: 900px){
+    .rostu-grid{grid-template-columns:1fr;gap:36px;}
+    .rostu-banner{transform:none;}
+  }
+</style>
+<section class="rostu-promo" id="vyzvy">
+  <div class="rostu-spectrum">
+    <i style="background:#526658"></i><i style="background:#AE9196"></i>
+    <i style="background:#94647B"></i><i style="background:#714C5D"></i>
+    <i style="background:#BBD9C4"></i><i style="background:#9FD4B0"></i>
+    <i style="background:#5C7665"></i>
+  </div>
+  <div class="rostu-grid">
+    <div>
+      <span class="section-label">Novinka · týdenní výzvy</span>
+      <h2 class="section-title">Rostu s Miškou</h2>
+      <p class="section-sub">Sedm týdenních výzev pro tvůrkyně, které chtějí značku, která prodává — ne jen hezky vypadá. Každý den jeden konkrétní úkol, za týden viditelný posun na tvém profilu.</p>
+      <div class="rostu-chips">
+        <span class="rostu-chip">7 dní</span>
+        <span class="rostu-chip">590 Kč / výzva</span>
+        <span class="rostu-chip">max 15 míst</span>
+      </div>
+      <a href="vyzvy.html" class="btn-primary">Prohlédnout výzvy</a>
+      <p class="rostu-note">Nejbližší kolo: 10.–16. srpna · #rostusmiskou</p>
+    </div>
+    <div>
+      <a href="vyzvy.html" class="rostu-banner" style="display:block;">
+        <img src="banner-misky.png" alt="Rostu s Miškou — týdenní výzvy pro značku, která prodává" onerror="this.parentElement.style.display='none';">
+      </a>
     </div>
   </div>
 </section>
