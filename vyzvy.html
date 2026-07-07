@@ -323,6 +323,25 @@
 
   /* ====== REFERENCE ====== */
   .refs{background:var(--off);}
+  .rating{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:6px 0 14px;flex-wrap:wrap;
+  }
+  .rating .stars{display:flex;gap:3px;}
+  .rating .stars svg{
+    width:22px;height:22px;fill:#e8b64c;
+  }
+  .rating-text{font-size:15px;color:var(--muted);}
+  .rating-text strong{color:var(--ink);font-weight:700;}
+  .ref-card.more{display:none;}
+  .refs-grid.expanded .ref-card.more{display:block;}
+  .refs-toggle{
+    display:block;margin:28px auto 0;
+    background:none;border:1px solid #d8e6dc;border-radius:12px;
+    padding:12px 28px;font-family:inherit;font-size:15px;font-weight:600;
+    color:var(--ink-soft);cursor:pointer;transition:border-color .15s, background .15s;
+  }
+  .refs-toggle:hover{border-color:var(--mint);background:var(--mint-pale);}
   .refs-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,420px));
     gap:18px;justify-content:center;
@@ -462,8 +481,8 @@
         týdenní výzvy · denní úkoly · max 15 míst
       </div>
       <div>
-        <a class="btn" href="#registrace">Chci místo v srpnovém kole</a>
-        <p class="hero-note">Nejbližší kolo: 10.–16. srpna · kterou výzvu spustíme, rozhodnete vy</p>
+        <a class="btn" href="#registrace">Chci místo v červencovém kole</a>
+        <p class="hero-note">Nejbližší kolo: Letní úklid Instagramu · 20.–26. července</p>
       </div>
     </div>
   </div>
@@ -897,9 +916,9 @@
   <div class="wrap">
     <div class="round-grid">
       <div class="round-box">
-        <div class="date">Nejbližší kolo: 10.–16. srpna</div>
-        <p>Kterou výzvou začneme? <strong>To rozhodnete vy.</strong> Při registraci hlasuješ pro výzvu, která tě láká nejvíc — a ta s největším zájmem odstartuje jako první.</p>
-        <div class="vote">Hlasování je součástí registračního formuláře níže. Výsledek oznámím e-mailem a na Instagramu <strong>@skalkova.michaela</strong>.</div>
+        <div class="date">Nejbližší kolo: 20.–26. července</div>
+        <p><strong>Letní úklid Instagramu</strong> — výzva, která v pilotním kole získala hodnocení 5,0 z 5. Za sedm dní uklidíš profil od bia po highlights a konečně bude na první pohled jasné, kdo jsi a co tvoříš.</p>
+        <div class="vote">Při registraci mi zároveň můžeš říct, o kterou výzvu máš zájem příště — podle toho poskládám další kola. Novinky oznamuji na Instagramu <strong>@skalkova.michaela</strong>.</div>
       </div>
       <div class="igplus">
         <span class="tag">Varianta IG+</span>
@@ -917,6 +936,16 @@
     <div class="sec-head">
       <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
       <h2>Co říkají tvůrkyně</h2>
+      <div class="rating" aria-label="Hodnocení 5 z 5">
+        <span class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </span>
+        <span class="rating-text"><strong>5,0 z 5</strong> · hodnocení 9 účastnic</span>
+      </div>
       <p>Prvním kolem už prošlo 12 tvůrkyň z komunity Rosteme spolu.</p>
     </div>
     <div class="refs-grid">
@@ -936,7 +965,43 @@
         <p>Díky výzvě jsem si vyladila profilovou fotku (aby lidi věděli, od koho nakupují), bio a highlights. Přeuspořádala jsem si mřížku a udělala si jasný plán přidávání příspěvků na další týden. Taky teď už vím co dělat a jak to dělat, aby to fungovalo. Výzva mi otevřela oči. Děkuju Míšo 🫶</p>
         <div class="name">Vyšívané od Srdéčka <span><a href="https://www.instagram.com/vysivane_odsrdecka/" target="_blank" rel="noopener" style="color:inherit;">@vysivane_odsrdecka</a> · Letní úklid Instagramu</span></div>
       </div>
+      <div class="ref-card">
+        <span class="quote-mark">„</span>
+        <p>Přestala jsem se bát sdílet sebe a svoji bublinu.</p>
+        <div class="name">Uni hry <span><a href="https://www.instagram.com/uni_hry/" target="_blank" rel="noopener" style="color:inherit;">@uni_hry</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card more">
+        <span class="quote-mark">„</span>
+        <p>Díky výzvě jsem si ujasnila spoustu důležitých věcí a upravila si díky nim vizuál profilu, který teď jasně sděluje, co a komu nabízím. Dále jsem si nastavila pravidelné přispívání jednotlivých typů příspěvků, kdy si plánuji týden dopředu a mohu tak být v klidu, protože vím kdy a co postovat. (Pochopila jsem konečně rozdíly mezi jednotlivými typy příspěvků). A hlavně - vytvořila jsem své highlights, o kterých jsem neměla ani tušení 🙈</p>
+        <div class="name">Lumari by Marti <span><a href="https://www.instagram.com/lumari_by_marti/" target="_blank" rel="noopener" style="color:inherit;">@lumari_by_marti</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card more">
+        <span class="quote-mark">„</span>
+        <p>Myslím, že u mě to nejsou ani tak změny vizuální, jako spíš to, že celkově na tvorbu obsahu a prezentaci pohlížím úplně jinak, než na začátku výzvy. Spoustu věcí, kterým jsem se bránila, jsem přehodnotila a teď mi přijdou naprosto super a logické. 🤗</p>
+        <div class="name">Ovinuto <span><a href="https://www.instagram.com/ovinuto/" target="_blank" rel="noopener" style="color:inherit;">@ovinuto</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card more">
+        <span class="quote-mark">„</span>
+        <p>Změnila jsem profilovou fotku, sjednotila vizuál a upravila bio tak, aby lépe odpovídalo tomu, co chci budovat.</p>
+        <div class="name">Akibu Handmade <span><a href="https://www.instagram.com/akibuhandmade/" target="_blank" rel="noopener" style="color:inherit;">@akibuhandmade</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <!-- DALŠÍ REFERENCE: karty s třídou "ref-card more" se zobrazí po rozkliku -->
     </div>
+    <button class="refs-toggle" id="refsToggle" type="button" style="display:none;">Zobrazit další reference</button>
+    <script>
+    (function(){
+      const grid = document.querySelector('.refs-grid');
+      const btn = document.getElementById('refsToggle');
+      const hidden = grid.querySelectorAll('.ref-card.more').length;
+      if(hidden > 0){ btn.style.display = 'block'; }
+      btn.addEventListener('click', function(){
+        grid.classList.toggle('expanded');
+        btn.textContent = grid.classList.contains('expanded')
+          ? 'Skrýt další reference'
+          : 'Zobrazit další reference';
+      });
+    })();
+    </script>
   </div>
 </section>
 <!-- ============ O MNĚ ============ -->
@@ -944,9 +1009,8 @@
   <div class="wrap">
     <div class="about-grid">
       <div class="about-photo">
-        <!-- foto: ulož jako miska.jpg vedle souboru a odkomentuj -->
-        <!-- <img src="miska.jpg" alt="Michaela Skalková"> -->
-        Sem patří tvoje fotka<br>(miska.jpg)
+        <img src="miska.jpg" alt="Michaela Skalková" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+        <span style="display:none;">Sem patří tvoje fotka<br>(miska.jpg)</span>
       </div>
       <div>
         <h2>Ahoj, jsem Miška</h2>
@@ -963,7 +1027,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Rezervuj si místo</h2>
-      <p>Srpnové kolo · 10.–16. 8. · pouze 15 míst. Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
+      <p>Letní úklid Instagramu · 20.–26. 7. · pouze 15 míst. Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
     </div>
     <form action="https://formspree.io/f/xzdlojwl" method="POST" id="regForm">
       <input type="hidden" name="_subject" value="Nová registrace — Rostu s Miškou">
@@ -981,7 +1045,7 @@
         <input type="text" id="ig" name="instagram" placeholder="@tvujprofil">
       </div>
       <div class="f-row">
-        <label for="vyzva">Pro kterou výzvu hlasuješ?</label>
+        <label for="vyzva">O kterou výzvu máš zájem příště?</label>
         <select id="vyzva" name="hlasovani_vyzva" required>
           <option value="" disabled selected>Vyber výzvu…</option>
           <option>01 · Letní úklid Instagramu</option>
