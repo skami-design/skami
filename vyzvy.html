@@ -170,6 +170,38 @@
     font-weight:700;font-size:15.5px;transition:background .2s;
   }
   .slide-cta:hover{background:var(--ink-soft);}
+  .slide-detail{
+    margin-top:18px;max-width:520px;
+    border:1px solid #e0eae3;border-radius:14px;
+    padding:14px 18px;background:#fff;
+  }
+  .slide-detail summary{
+    cursor:pointer;font-weight:700;font-size:14.5px;color:var(--ink-soft);
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .slide-detail summary::-webkit-details-marker{display:none;}
+  .slide-detail summary::after{
+    content:"+";font-family:'Playfair Display',serif;font-size:20px;color:var(--mint);flex:0 0 auto;
+  }
+  .slide-detail[open] summary::after{content:"−";}
+  .slide-detail h4{
+    font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:color-mix(in srgb, var(--accent, #526658) 65%, var(--ink));
+    margin:16px 0 8px;
+  }
+  .slide-detail ul{
+    list-style:none;margin:0;padding:0;
+  }
+  .slide-detail li{
+    font-size:14.5px;color:var(--muted);padding:4px 0 4px 18px;position:relative;
+  }
+  .slide-detail li::before{
+    content:"";position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;
+    background:var(--accent,#526658);opacity:.55;
+  }
+  @media (max-width:760px){
+    .slide-detail{margin-left:auto;margin-right:auto;text-align:left;}
+  }
   .slider-nav{
     display:flex;align-items:center;justify-content:center;gap:22px;margin-top:36px;
   }
@@ -533,6 +565,25 @@
           <h3>Letní úklid Instagramu</h3>
           <p>Za 7 dní projdeš svůj profil od bia po highlights a uklidíš všechno, co tě brzdí. Výsledek: profil, který na první pohled řekne, kdo jsi a co tvoříš.</p>
           <div class="ch-meta"><span class="chip">590 Kč</span><span class="chip">7 dní</span><span class="chip">max 15 míst</span></div>
+          <details class="slide-detail" style="--accent:#526658;">
+            <summary>Zjistit víc o výzvě</summary>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>nevíš, co a kdy zveřejnit</li>
+              <li>tvůj profil nevypadá tak, jak chceš</li>
+              <li>Instagram tě spíš stresuje, než baví</li>
+            </ul>
+            <h4>Co za týden uděláme</h4>
+            <ul>
+              <li>audit profilu — jak tě vidí ostatní</li>
+              <li>inspirace od ostatních účastnic</li>
+              <li>pojmenujeme, co nefunguje</li>
+              <li>zmapujeme formáty, které ti chybí</li>
+              <li>definuješ 3 obsahové pilíře</li>
+              <li>sestavíš první obsahový plán</li>
+              <li>uzavřeš výzvu s jasnou hlavou</li>
+            </ul>
+          </details>
           <a class="slide-cta" href="#registrace" data-pick>Chci tuhle výzvu</a>
         </div>
       </div>
