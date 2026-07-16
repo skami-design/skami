@@ -321,21 +321,30 @@
   .how-step p{font-size:14.5px;color:#b9c6bc;}
 
   /* ====== NEJBLIŽŠÍ KOLO + KONZULTACE ====== */
-  .round{background:var(--off);}
+  .round{background:var(--ink);}
   .round-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:stretch;}
   .round-box{
-    background:var(--mint-pale);border-radius:18px;padding:38px 36px;
+    padding:20px 10px;
     display:flex;flex-direction:column;justify-content:center;
+  }
+  .round-box .label{
+    font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--mint);margin-bottom:10px;
   }
   .round-box .date{
     font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,38px);
-    font-weight:600;margin-bottom:10px;
+    font-weight:600;margin-bottom:10px;color:#fff;
   }
-  .round-box p{color:var(--ink-soft);font-size:16.5px;}
+  .round-box p{color:#b9c6bc;font-size:16.5px;}
+  .round-box p strong{color:#fff;}
   .round-box .vote{
-    margin-top:18px;background:#fff;border-radius:12px;padding:16px 18px;
-    font-size:15px;color:var(--ink-soft);
+    margin-top:18px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(159,212,176,.25);border-radius:12px;padding:16px 18px;
+    font-size:15px;color:#b9c6bc;
   }
+  .round-box .vote strong{color:var(--mint);}
+  .round-box .btn{margin-top:22px;align-self:flex-start;background:var(--mint);color:var(--ink);}
+  .round-box .btn:hover{background:#8cc9a0;}
   .igplus{
     background:#fff;border:1px solid #e6d6d9;border-radius:18px;
     padding:38px 36px;position:relative;
@@ -845,6 +854,27 @@
   </div>
 </section>
 
+<!-- ============ NEJBLIŽŠÍ KOLO + KONZULTACE ============ -->
+<section class="round">
+  <div class="wrap">
+    <div class="round-grid">
+      <div class="round-box">
+        <div class="label">Nejbližší kolo</div>
+        <div class="date">Letní úklid Instagramu<br>20.–26. července</div>
+        <p>Výzva, která v pilotním kole získala hodnocení <strong>5,0 z 5</strong>. Za sedm dní uklidíš profil od bia po highlights — a konečně bude na první pohled jasné, kdo jsi a co tvoříš.</p>
+        <a class="btn" href="#registrace">Rezervovat místo · 590 Kč</a>
+        <div class="vote">Při registraci mi zároveň můžeš říct, o kterou výzvu máš zájem příště — podle toho poskládám další kola. Novinky oznamuji na Instagramu <strong>@skalkova.michaela</strong>.</div>
+      </div>
+      <div class="igplus">
+        <span class="tag">Bonus pro účastnice</span>
+        <h3>Chceš jít víc do hloubky?</h3>
+        <p>Ke každé výzvě si můžeš přidat <strong>osobní konzultaci (45 minut)</strong> se mnou — projdeme tvůj profil jedna na jednu a nastavíme další kroky přesně pro tebe. Pro účastnice výzev za zvýhodněnou cenu.</p>
+        <div class="price">400 Kč <small>· pro účastnice (běžně 550 Kč)</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ KVÍZ ============ -->
 <section class="quiz" id="kviz">
   <div class="wrap">
@@ -1105,24 +1135,6 @@
   </div>
 </section>
 
-<!-- ============ NEJBLIŽŠÍ KOLO + KONZULTACE ============ -->
-<section class="round">
-  <div class="wrap">
-    <div class="round-grid">
-      <div class="round-box">
-        <div class="date">Nejbližší kolo: 20.–26. července</div>
-        <p><strong>Letní úklid Instagramu</strong> — výzva, která v pilotním kole získala hodnocení 5,0 z 5. Za sedm dní uklidíš profil od bia po highlights a konečně bude na první pohled jasné, kdo jsi a co tvoříš.</p>
-        <div class="vote">Při registraci mi zároveň můžeš říct, o kterou výzvu máš zájem příště — podle toho poskládám další kola. Novinky oznamuji na Instagramu <strong>@skalkova.michaela</strong>.</div>
-      </div>
-      <div class="igplus">
-        <span class="tag">Bonus pro účastnice</span>
-        <h3>Chceš jít víc do hloubky?</h3>
-        <p>Ke každé výzvě si můžeš přidat <strong>osobní konzultaci (30 minut)</strong> se mnou — projdeme tvůj profil jedna na jednu a nastavíme další kroky přesně pro tebe. Pro účastnice výzev za zvýhodněnou cenu.</p>
-        <div class="price">400 Kč <small>· pro účastnice (běžně 550 Kč)</small></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ REFERENCE ============ -->
 <section class="refs">
@@ -1229,6 +1241,7 @@
     </div>
     <form action="https://formspree.io/f/xzdlojwl" method="POST" id="regForm">
       <input type="hidden" name="_subject" value="Nová registrace — Rostu s Miškou">
+      <input type="hidden" name="kolo" value="Letní úklid Instagramu · 20.–26. 7. 2026">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div class="f-row">
         <label for="jmeno">Jméno</label>
@@ -1243,9 +1256,9 @@
         <input type="text" id="ig" name="instagram" placeholder="@tvujprofil">
       </div>
       <div class="f-row">
-        <label for="vyzva">O kterou výzvu máš zájem příště?</label>
-        <select id="vyzva" name="hlasovani_vyzva" required>
-          <option value="" disabled selected>Vyber výzvu…</option>
+        <label for="vyzva">Bonusová otázka: která další výzva tě láká? <span style="font-weight:400;color:#8fa093">(nepovinné — netýká se této registrace)</span></label>
+        <select id="vyzva" name="zajem_o_dalsi_vyzvu">
+          <option value="" selected>Vyber, jestli chceš…</option>
           <option>01 · Letní úklid Instagramu</option>
           <option>02 · Ukaž se světu</option>
           <option>03 · Vylaď si vizuál</option>
@@ -1258,8 +1271,8 @@
       <div class="f-row">
         <label>Varianta</label>
         <div class="variant">
-          <label class="v"><input type="radio" name="varianta" value="Výzva 590 Kč" checked><strong>Výzva · 590 Kč</strong><small>7 dní, úkoly, videa, skupina</small></label>
-          <label class="v"><input type="radio" name="varianta" value="Výzva + konzultace 990 Kč"><strong>+ konzultace · 990 Kč</strong><small>výzva + 30 min osobní konzultace (400 Kč místo 550)</small></label>
+          <label class="v"><input type="radio" name="varianta" value="Letní úklid 590 Kč" checked><strong>Letní úklid · 590 Kč</strong><small>7 dní, úkoly, videa, skupina</small></label>
+          <label class="v"><input type="radio" name="varianta" value="Letní úklid + konzultace 990 Kč"><strong>Letní úklid + konzultace · 990 Kč</strong><small>výzva + 45 min osobní konzultace (400 Kč místo 550)</small></label>
         </div>
       </div>
       <div class="f-row">
@@ -1342,7 +1355,7 @@
       </details>
       <details>
         <summary>Můžu si k výzvě přidat konzultaci?</summary>
-        <p>Ano — účastnice výzev si mohou přidat osobní 30minutovou konzultaci se mnou za zvýhodněnou cenu 400 Kč (běžně 550 Kč). Projdeme tvůj profil jedna na jednu a nastavíme, co dál — přesně pro tvoji značku. Zvolíš ji rovnou v registračním formuláři, nebo se domluvíme kdykoliv během výzvy.</p>
+        <p>Ano — účastnice výzev si mohou přidat osobní 45minutovou konzultaci se mnou za zvýhodněnou cenu 400 Kč (běžně 550 Kč). Projdeme tvůj profil jedna na jednu a nastavíme, co dál — přesně pro tvoji značku. Zvolíš ji rovnou v registračním formuláři, nebo se domluvíme kdykoliv během výzvy.</p>
       </details>
     </div>
   </div>
