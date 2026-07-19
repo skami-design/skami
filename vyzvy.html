@@ -304,6 +304,47 @@
     border-radius:8px;padding:4px 12px;
   }
 
+  /* ====== HARMONOGRAM ====== */
+  .schedule{margin-top:30px;}
+  .schedule h3{
+    font-family:'Playfair Display',serif;font-size:22px;font-weight:600;
+    color:#fff;margin-bottom:18px;
+  }
+  .schedule-grid{border-radius:14px;overflow:hidden;border:1px solid rgba(159,212,176,.2);}
+  .sch-row{
+    display:grid;grid-template-columns:160px 1fr 90px;
+    padding:13px 18px;gap:12px;align-items:center;
+    border-bottom:1px solid rgba(159,212,176,.12);
+    font-size:15px;
+  }
+  .sch-row:last-child{border-bottom:none;}
+  .sch-row.header{
+    font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--mint);background:rgba(255,255,255,.04);
+  }
+  .sch-row:not(.header){background:rgba(255,255,255,.03);color:#d4dfd6;}
+  .sch-row:not(.header):hover{background:rgba(255,255,255,.06);}
+  .sch-row strong{color:#fff;}
+  .sch-row span:first-child{
+    display:flex;align-items:center;gap:9px;
+  }
+  .sch-row:not(.header) span:first-child::before{
+    content:"";width:9px;height:9px;border-radius:50%;
+    background:var(--dot,#9fd4b0);flex:0 0 auto;
+  }
+  .sch-row span:last-child{
+    text-align:right;font-weight:600;color:var(--mint);font-size:14px;
+  }
+  .sch-row.header span:last-child{color:var(--mint);}
+  .sch-note{
+    margin-top:14px;font-size:14px;color:#8fa093;
+  }
+  .sch-note a{color:var(--mint);}
+  @media(max-width:600px){
+    .sch-row{grid-template-columns:1fr 1fr;gap:6px;}
+    .sch-row span:first-child{grid-column:1/-1;}
+  }
+
   /* ====== JAK TO PROBÍHÁ ====== */
   .how{background:var(--ink);color:#fff;}
   .how .sec-head h2{color:#fff;}
@@ -532,8 +573,8 @@
         výzvy na 5–10 dní · denní úkoly · malé skupiny
       </div>
       <div>
-        <a class="btn" href="#registrace">Chci místo v červencovém kole</a>
-        <p class="hero-note">Nejbližší kolo: Letní úklid Instagramu · 20.–26. července</p>
+        <a class="btn" href="#registrace">Chci místo v srpnovém kole</a>
+        <p class="hero-note">Nejbližší kolo: Ukaž se světu · 10.–16. srpna</p>
       </div>
     </div>
   </div>
@@ -860,10 +901,10 @@
     <div class="round-grid">
       <div class="round-box">
         <div class="label">Nejbližší kolo</div>
-        <div class="date">Letní úklid Instagramu<br>20.–26. července</div>
-        <p>Výzva, která v pilotním kole získala hodnocení <strong>5,0 z 5</strong>. Za sedm dní uklidíš profil od bia po highlights — a konečně bude na první pohled jasné, kdo jsi a co tvoříš.</p>
-        <a class="btn" href="#registrace">Rezervovat místo · 590 Kč</a>
-        <div class="vote">Při registraci mi zároveň můžeš říct, o kterou výzvu máš zájem příště — podle toho poskládám další kola. Novinky oznamuji na Instagramu <strong>@skalkova.michaela</strong>.</div>
+        <div class="date">Ukaž se světu<br>10.–16. srpna</div>
+        <p>Přestaneš se schovávat za výrobky. Za 7 dní se naučíš ukázat svou tvář v Reels a Stories bez trapnosti — protože lidi nakupují od lidí, ne od loga.</p>
+        <a class="btn" href="#registrace">Rezervovat místo · 690 Kč</a>
+        <div class="vote">Novinky o dalších kolech oznamuji na Instagramu <strong>@skalkova.michaela</strong> a e-mailem registrovaným zájemkyním.</div>
       </div>
       <div class="igplus">
         <span class="tag">Bonus pro účastnice</span>
@@ -873,6 +914,46 @@
       </div>
     </div>
   </div>
+
+      <div class="schedule" id="harmonogram">
+        <h3>Plán výzev — srpen & září</h3>
+        <div class="schedule-grid">
+          <div class="sch-row header">
+            <span>Termín</span><span>Výzva</span><span>Cena</span>
+          </div>
+          <div class="sch-row" style="--dot:#AE9196;">
+            <span>10.–16. 8.</span>
+            <span><strong>Ukaž se světu</strong></span>
+            <span>690 Kč</span>
+          </div>
+          <div class="sch-row" style="--dot:#714C5D;">
+            <span>17.–23. 8.</span>
+            <span><strong>Ovládni Stories</strong></span>
+            <span>590 Kč</span>
+          </div>
+          <div class="sch-row" style="--dot:#9FD4B0;">
+            <span>24.–31. 8.</span>
+            <span><strong>Zkroť AI</strong></span>
+            <span>590 Kč</span>
+          </div>
+          <div class="sch-row" style="--dot:#5C7665;">
+            <span>1.–5. 9.</span>
+            <span><strong>Najdi svou značku</strong></span>
+            <span>500 Kč</span>
+          </div>
+          <div class="sch-row" style="--dot:#BBD9C4;">
+            <span>6.–15. 9.</span>
+            <span><strong>Zvládni Canvu</strong></span>
+            <span>790 Kč</span>
+          </div>
+          <div class="sch-row" style="--dot:#94647B;">
+            <span>16.–24. 9.</span>
+            <span><strong>Vylaď si vizuál</strong></span>
+            <span>750 Kč</span>
+          </div>
+        </div>
+        <p class="sch-note">Registrace na každé kolo otevírám cca týden předem — sleduj <a href="https://www.instagram.com/skalkova.michaela/" target="_blank" rel="noopener">@skalkova.michaela</a> nebo si nech posílat novinky e-mailem.</p>
+      </div>
 </section>
 
 <!-- ============ KVÍZ ============ -->
@@ -1237,11 +1318,11 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Rezervuj si místo</h2>
-      <p>Letní úklid Instagramu · 20.–26. 7. · pouze 15 míst. Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
+      <p>Ukaž se světu · 10.–16. 8. · pouze 10 míst. Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
     </div>
     <form action="https://formspree.io/f/xzdlojwl" method="POST" id="regForm">
       <input type="hidden" name="_subject" value="Nová registrace — Rostu s Miškou">
-      <input type="hidden" name="kolo" value="Letní úklid Instagramu · 20.–26. 7. 2026">
+      <input type="hidden" name="kolo" value="Ukaž se světu · 10.–16. 8. 2026">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div class="f-row">
         <label for="jmeno">Jméno</label>
@@ -1271,8 +1352,8 @@
       <div class="f-row">
         <label>Varianta</label>
         <div class="variant">
-          <label class="v"><input type="radio" name="varianta" value="Letní úklid 590 Kč" checked><strong>Letní úklid · 590 Kč</strong><small>7 dní, úkoly, videa, skupina</small></label>
-          <label class="v"><input type="radio" name="varianta" value="Letní úklid + konzultace 990 Kč"><strong>Letní úklid + konzultace · 990 Kč</strong><small>výzva + 45 min osobní konzultace (400 Kč místo 550)</small></label>
+          <label class="v"><input type="radio" name="varianta" value="Ukaž se světu 690 Kč" checked><strong>Ukaž se světu · 690 Kč</strong><small>7 dní, úkoly, videa, skupina</small></label>
+          <label class="v"><input type="radio" name="varianta" value="Ukaž se světu + konzultace 1090 Kč"><strong>Ukaž se světu + konzultace · 1 090 Kč</strong><small>výzva + 45 min osobní konzultace (400 Kč místo 550)</small></label>
         </div>
       </div>
       <div class="f-row">
