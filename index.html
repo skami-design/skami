@@ -148,6 +148,18 @@
 
   .nav-cta:hover { background: var(--green) !important; color: white !important; }
 
+  .nav-cta-green {
+    background: #9fd4b0 !important;
+    color: #16211a !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    letter-spacing: 1.5px !important;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta-green:hover { background: #8cc9a0 !important; color: #16211a !important; }
+
   .hamburger {
     display: none;
     flex-direction: column;
@@ -2654,7 +2666,7 @@
     <li><a href="#sluzby">Služby</a></li>
     <li><a href="#proces">Jak to funguje</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="vyzvy.html">Výzvy</a></li>
+    <li><a href="vyzvy.html" class="nav-cta-green">Výzvy</a></li>
     <li><a href="#reference">Reference</a></li>
     <li><a href="#o-mne">O mně</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
@@ -2669,7 +2681,7 @@
   <a href="#sluzby" onclick="toggleMenu()">Služby</a>
   <a href="#proces" onclick="toggleMenu()">Jak to funguje</a>
   <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
-  <a href="vyzvy.html" onclick="toggleMenu()">Výzvy</a>
+  <a href="vyzvy.html" onclick="toggleMenu()" style="color:#4E7A60;font-weight:700;">Výzvy</a>
   <a href="#reference" onclick="toggleMenu()">Reference</a>
   <a href="#o-mne" onclick="toggleMenu()">O mně</a>
   <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
