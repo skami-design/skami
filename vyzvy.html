@@ -324,6 +324,12 @@
   }
   .sch-row:not(.header){background:rgba(255,255,255,.03);color:#d4dfd6;}
   .sch-row:not(.header):hover{background:rgba(255,255,255,.06);}
+  .sch-row.clickable{cursor:pointer;text-decoration:none;display:grid;grid-template-columns:160px 1fr 90px;padding:13px 18px;gap:12px;align-items:center;border-bottom:1px solid rgba(159,212,176,.12);font-size:15px;color:#d4dfd6;transition:background .15s;}
+  .sch-row.clickable:hover{background:rgba(255,255,255,.10);}
+  .sch-row.clickable strong{color:#fff;}
+  .sch-row.clickable span:first-child{display:flex;align-items:center;gap:9px;}
+  .sch-row.clickable:not(.header) span:first-child::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--dot,#9fd4b0);flex:0 0 auto;}
+  .sch-row.clickable span:last-child{text-align:right;font-weight:600;color:var(--mint);font-size:14px;}
   .sch-row strong{color:#fff;}
   .sch-row span:first-child{
     display:flex;align-items:center;gap:9px;
@@ -854,7 +860,11 @@
     </div>
 
     <script>
-    (function(){
+    function goSlide(idx){
+    const s=document.getElementById('chSlider');
+    if(s) s.dispatchEvent(new CustomEvent('goTo',{detail:idx}));
+  }
+  (function(){
       const slides = Array.from(document.querySelectorAll('#chSlider .slide'));
       const dotsBox = document.getElementById('sDots');
       let cur = 0;
@@ -878,7 +888,8 @@
         slides.forEach((s,j)=>s.classList.toggle('active', j===cur));
         dots.forEach((d,j)=>d.classList.toggle('active', j===cur));
       }
-      document.getElementById('sPrev').addEventListener('click', ()=>go(cur-1));
+      document.getElementById('chSlider').addEventListener('goTo', e=>go(e.detail));
+  document.getElementById('sPrev').addEventListener('click', ()=>go(cur-1));
       document.getElementById('sNext').addEventListener('click', ()=>go(cur+1));
       let touchX = null;
       const box = document.getElementById('chSlider');
@@ -921,36 +932,36 @@
           <div class="sch-row header">
             <span>Termín</span><span>Výzva</span><span>Cena</span>
           </div>
-          <div class="sch-row" style="--dot:#AE9196;">
+          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(1)" style="--dot:#AE9196;">
             <span>8.–14. 8.</span>
-            <span><strong>Ukaž se světu</strong></span>
+            <span><strong>Ukaž se světu →</strong></span>
             <span>690 Kč</span>
-          </div>
-          <div class="sch-row" style="--dot:#714C5D;">
+          </a>
+          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(3)" style="--dot:#714C5D;">
             <span>15.–21. 8.</span>
-            <span><strong>Ovládni Stories</strong></span>
+            <span><strong>Ovládni Stories →</strong></span>
             <span>590 Kč</span>
-          </div>
-          <div class="sch-row" style="--dot:#9FD4B0;">
+          </a>
+          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(5)" style="--dot:#9FD4B0;">
             <span>22.–28. 8.</span>
-            <span><strong>Zkroť AI</strong></span>
+            <span><strong>Zkroť AI →</strong></span>
             <span>590 Kč</span>
-          </div>
-          <div class="sch-row" style="--dot:#5C7665;">
+          </a>
+          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(6)" style="--dot:#5C7665;">
             <span>1.–5. 9.</span>
-            <span><strong>Najdi svou značku</strong></span>
+            <span><strong>Najdi svou značku →</strong></span>
             <span>500 Kč</span>
-          </div>
-          <div class="sch-row" style="--dot:#BBD9C4;">
+          </a>
+          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(4)" style="--dot:#BBD9C4;">
             <span>6.–15. 9.</span>
-            <span><strong>Zvládni Canvu</strong></span>
+            <span><strong>Zvládni Canvu →</strong></span>
             <span>790 Kč</span>
-          </div>
-          <div class="sch-row" style="--dot:#94647B;">
+          </a>
+          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(2)" style="--dot:#94647B;">
             <span>16.–24. 9.</span>
-            <span><strong>Vylaď si vizuál</strong></span>
+            <span><strong>Vylaď si vizuál →</strong></span>
             <span>750 Kč</span>
-          </div>
+          </a>
         </div>
         <p class="sch-note">Registrace na každé kolo otevírám cca týden předem — sleduj <a href="https://www.instagram.com/skalkova.michaela/" target="_blank" rel="noopener">@skalkova.michaela</a> nebo si nech posílat novinky e-mailem.</p>
       </div>
