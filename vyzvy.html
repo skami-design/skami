@@ -579,8 +579,8 @@
         výzvy na 5–10 dní · denní úkoly · malé skupiny
       </div>
       <div>
-        <a class="btn" href="#registrace">Chci místo v srpnovém kole</a>
-        <p class="hero-note">Nejbližší kolo: Ovládni Stories · 15.–21. srpna</p>
+        <a class="btn" href="#registrace">Přihlásit se</a>
+        <p class="hero-note">Nejbližší kola: Ovládni Stories & Zkroť AI · 22.–28. 8.</p>
       </div>
     </div>
   </div>
@@ -912,11 +912,22 @@
   <div class="wrap">
     <div class="round-grid">
       <div class="round-box">
-        <div class="label">Nejbližší kolo</div>
-        <div class="date">Ovládni Stories<br>15.–21. srpna</div>
-        <p>Od snídaně ke kampani: začneš obyčejnou ranní story a za 7 dní poskládáš svou první vědomou stories kampaň — sérii, která vede sledující od zaujetí až k poptávce.</p>
-        <a class="btn" href="#registrace">Rezervovat místo · 590 Kč</a>
-        <div class="vote">Novinky o dalších kolech oznamuji na Instagramu <strong>@skalkova.michaela</strong> a e-mailem registrovaným zájemkyním.</div>
+        <div class="label">Nejbližší kola · 22.–28. srpna</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(159,212,176,.2);border-radius:12px;padding:16px;">
+            <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#714C5D;margin-bottom:6px;">VÝZVA 04</div>
+            <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:4px;">Ovládni Stories</div>
+            <div style="color:#b9c6bc;font-size:14px;">7 dní · 590 Kč · max 15 míst</div>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(159,212,176,.2);border-radius:12px;padding:16px;">
+            <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9FD4B0;margin-bottom:6px;">VÝZVA 06</div>
+            <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:4px;">Zkroť AI</div>
+            <div style="color:#b9c6bc;font-size:14px;">7 dní · 590 Kč · max 15 míst</div>
+          </div>
+        </div>
+        <p style="color:#b9c6bc;font-size:15px;">Obě výzvy probíhají <strong style="color:#fff;">současně</strong> — vyber si jednu, nebo obě za zvýhodněnou cenu.</p>
+        <a class="btn" href="#registrace" style="margin-top:18px;align-self:flex-start;background:var(--mint);color:var(--ink);">Vybrat výzvu a přihlásit se</a>
+        <div class="vote" style="margin-top:16px;">Novinky oznamuji na Instagramu <strong>@skalkova.michaela</strong> a e-mailem registrovaným zájemkyním.</div>
       </div>
       <div class="igplus">
         <span class="tag">Bonus pro účastnice</span>
@@ -933,20 +944,20 @@
           <div class="sch-row header">
             <span>Termín</span><span>Výzva</span><span>Cena</span>
           </div>
-          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(1)" style="--dot:#AE9196;">
+          <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
             <span>8.–14. 8.</span>
-            <span><strong>Ukaž se světu →</strong></span>
-            <span>690 Kč</span>
-          </a>
-          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(3)" style="--dot:#714C5D;">
+            <span>Ukaž se světu <small style="opacity:.6;">(proběhlo)</small></span>
+            <span style="color:#5c6a5f;">690 Kč</span>
+          </div>
+          <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
             <span>15.–21. 8.</span>
-            <span><strong>Ovládni Stories →</strong></span>
-            <span>590 Kč</span>
-          </a>
-          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(5)" style="--dot:#9FD4B0;">
+            <span>— volno —</span>
+            <span></span>
+          </div>
+          <a class="sch-row clickable" href="#registrace" style="--dot:#714C5D;border-left:3px solid var(--mint);">
             <span>22.–28. 8.</span>
-            <span><strong>Zkroť AI →</strong></span>
-            <span>590 Kč</span>
+            <span><strong>Ovládni Stories + Zkroť AI →</strong><br><small style="color:#8fa093;">dvě výzvy současně · každá zvlášť nebo obě se slevou</small></span>
+            <span>590 / 1 000 Kč</span>
           </a>
           <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(6)" style="--dot:#5C7665;">
             <span>1.–5. 9.</span>
@@ -1330,11 +1341,11 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Rezervuj si místo</h2>
-      <p>Ovládni Stories · 15.–21. 8. · pouze 15 míst. Uzávěrka přihlášek 12. 8. Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
+      <p>Obě výzvy startují 22.–28. 8. Vyber jednu nebo obě za zvýhodněnou cenu. Registrace do 19. 8. Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
     </div>
     <form action="https://formspree.io/f/xzdlojwl" method="POST" id="regForm">
       <input type="hidden" name="_subject" value="Nová registrace — Rostu s Miškou">
-      <input type="hidden" name="kolo" value="Ovládni Stories · 15.–21. 8. 2026">
+      <input type="hidden" name="kolo" value="Ovládni Stories / Zkroť AI · 22.–28. 8. 2026">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div class="f-row">
         <label for="jmeno">Jméno</label>
@@ -1362,10 +1373,11 @@
         </select>
       </div>
       <div class="f-row">
-        <label>Varianta</label>
+        <label>Vyber výzvu</label>
         <div class="variant">
-          <label class="v"><input type="radio" name="varianta" value="Ovládni Stories 590 Kč" checked><strong>Ovládni Stories · 590 Kč</strong><small>7 dní, úkoly, videa, skupina</small></label>
-          <label class="v"><input type="radio" name="varianta" value="Ovládni Stories + konzultace 990 Kč"><strong>Ovládni Stories + konzultace · 990 Kč</strong><small>výzva + 45 min osobní konzultace (400 Kč místo 550)</small></label>
+          <label class="v"><input type="radio" name="varianta" value="Ovládni Stories 590 Kč" required><strong>Ovládni Stories · 590 Kč</strong><small>7 dní · od snídaně ke kampani</small></label>
+          <label class="v"><input type="radio" name="varianta" value="Zkroť AI 590 Kč"><strong>Zkroť AI · 590 Kč</strong><small>7 dní · AI jako pomocník v podnikání</small></label>
+          <label class="v" style="grid-column:1/-1;border-color:var(--mint);"><input type="radio" name="varianta" value="Obě výzvy 1000 Kč"><strong>Obě výzvy · 1 000 Kč</strong><small style="color:#8fa093;">ušetříš 180 Kč · dvě skupiny, dvě témata</small></label>
         </div>
       </div>
       <div class="f-row">
