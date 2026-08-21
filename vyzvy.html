@@ -63,12 +63,46 @@
 
   /* ====== HERO ====== */
   header{
-    background:linear-gradient(180deg, var(--mint-pale) 0%, var(--off) 85%);
-    padding:36px 0 44px;
+    background:transparent;
+    padding:0;
+    text-align:center;
+  }
+  .hero-banner-row{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/9;
+    background-image:url('bg-header.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+  nav{all:unset;}
+  .hero-nav{
+    display:flex;align-items:center;justify-content:center;
+    gap:20px;flex-wrap:wrap;margin-top:8px;padding:0 24px;
+  }
+  .hero-nav-cta{
+    color:#fff;text-decoration:none;font-weight:700;font-size:15px;
+    letter-spacing:.1em;text-transform:uppercase;
+    padding-bottom:3px;
+    border-bottom:2px solid rgba(255,255,255,.7);
+    transition:border-color .15s;white-space:nowrap;
+  }
+  .hero-nav-cta:hover{border-color:#fff;}
+  .hero-nav-link{
+    color:rgba(255,255,255,.7);text-decoration:none;font-size:14.5px;
+    font-weight:400;transition:color .15s;white-space:nowrap;
+  }
+  .hero-nav-link:hover{color:#fff;}
+  .hero-nav-sep{color:rgba(255,255,255,.3);font-size:16px;line-height:1;}
+  .hero-cta-row{
+    background:#3A2A32;
+    padding:28px 24px 36px;
     text-align:center;
   }
   .hero-actions{
-    margin-top:30px;display:flex;flex-direction:column;align-items:center;gap:18px;
+    margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:18px;
+    padding-bottom:8px;
   }
   .hero-actions .eyebrow{margin-bottom:0;}
   .eyebrow{
@@ -94,9 +128,9 @@
 
   /* banner s Miškou */
   .banner-frame{
-    max-width:1000px;margin:0 auto;
-    border-radius:16px;overflow:hidden;
-    box-shadow:0 18px 48px rgba(22,33,26,.14);
+    width:100%;margin:0;
+    border-radius:0;overflow:hidden;
+    box-shadow:none;
   }
   .banner-frame img{width:100%;}
   .banner-fallback{
@@ -308,9 +342,9 @@
   .schedule{margin-top:30px;}
   .schedule h3{
     font-family:'Playfair Display',serif;font-size:22px;font-weight:600;
-    color:#fff;margin-bottom:18px;
+    color:#fff;margin-bottom:18px;max-width:800px;margin-left:auto;margin-right:auto;padding-left:0;
   }
-  .schedule-grid{border-radius:14px;overflow:hidden;border:1px solid rgba(159,212,176,.2);}
+  .schedule-grid{border-radius:14px;overflow:hidden;border:1px solid rgba(159,212,176,.2);max-width:800px;margin:0 auto;}
   .sch-row{
     display:grid;grid-template-columns:160px 1fr 90px;
     padding:13px 18px;gap:12px;align-items:center;
@@ -343,7 +377,7 @@
   }
   .sch-row.header span:last-child{color:var(--mint);}
   .sch-note{
-    margin-top:14px;font-size:14px;color:#8fa093;
+    margin-top:14px;font-size:14px;color:#8fa093;max-width:800px;margin-left:auto;margin-right:auto;
   }
   .sch-note a{color:var(--mint);}
   @media(max-width:600px){
@@ -431,6 +465,20 @@
   .fb-badge:hover{border-color:var(--mint);background:var(--mint-pale);}
   .fb-badge svg{width:18px;height:18px;color:#1877F2;flex:0 0 auto;}
   .fb-badge strong{color:var(--ink);}
+  .ratings-per-vyzva{
+    display:flex;flex-direction:column;gap:8px;
+    max-width:480px;margin:14px auto 0;
+  }
+  .rpv-item{
+    display:grid;grid-template-columns:12px 1fr auto auto;
+    align-items:center;gap:10px;
+    padding:8px 14px;background:rgba(255,255,255,.5);
+    border-radius:10px;font-size:14px;
+  }
+  .rpv-dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;}
+  .rpv-name{color:var(--ink-soft);font-weight:600;}
+  .rpv-stars{color:#e8b64c;font-size:13px;}
+  .rpv-count{color:var(--muted);font-size:13px;text-align:right;}
   .ref-card.more{display:none;}
   .refs-grid.expanded .ref-card.more{display:block;}
   .refs-toggle{
@@ -475,15 +523,15 @@
   }
 
   /* ====== FORMULÁŘ ====== */
-  .signup{background:var(--ink);color:#fff;}
+  .signup{background:#3A2A32;color:#fff;}
   .signup .sec-head h2{color:#fff;}
   .signup .sec-head p{color:#b9c6bc;}
   form{
     max-width:640px;margin:0 auto;background:rgba(255,255,255,.04);
-    border:1px solid rgba(159,212,176,.22);border-radius:18px;padding:38px 36px;
+    border:1px solid rgba(193,160,165,.25);border-radius:18px;padding:38px 36px;
   }
   .f-row{margin-bottom:20px;}
-  label{display:block;font-size:14px;font-weight:600;letter-spacing:.05em;margin-bottom:7px;color:var(--mint);}
+  label{display:block;font-size:14px;font-weight:600;letter-spacing:.05em;margin-bottom:7px;color:#C1A0A5;}
   input[type=text],input[type=email],select,textarea{
     width:100%;padding:13px 16px;border-radius:12px;
     border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);
@@ -558,33 +606,86 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#">Rostu <em>s Miškou</em></a>
-    <a class="nav-cta" href="#registrace">Chci místo</a>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="#refs" style="color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;">Hodnocení</a>
+      <a href="vop-vyzvy.html" style="color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;">Podmínky účasti</a>
+      <a href="#how" style="color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;">Průběh</a>
+      <a class="nav-cta" href="#registrace">Chci místo</a>
+    </div>
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
 <header>
-  <div class="wrap">
     <!-- BANNER S MIŠKOU: ulož vedle tohoto souboru jako banner-misky.png -->
-    <div class="banner-frame">
+    <div class="hero-banner-row"><div class="banner-frame" style="width:100%;height:100%;border-radius:0;">
       <img src="banner-misky.png" alt="Rostu s Miškou — týdenní výzvy pro značku, která prodává" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
       <div class="banner-fallback">
         <div class="bf-title">Rostu s Miškou</div>
         <p>Sem patří banner s Miškou — ulož ho jako <strong>banner-misky.png</strong> do stejné složky.</p>
       </div>
+    </div></div>
+    <div class="hero-cta-row">
+    <div class="hero-actions" style="margin:0;">
+      <p class="hero-note" style="color:rgba(255,255,255,.85);margin-bottom:4px;">Nejbližší kolo: <strong style="color:#fff;">Najdi svou značku · 1.–5. září</strong></p>
+      <nav class="hero-nav">
+        <a href="#registrace" class="hero-nav-cta">Přihlásit se</a>
+        <span class="hero-nav-sep">·</span>
+        <a href="#vyzvy" class="hero-nav-link">Přehled výzev</a>
+        <span class="hero-nav-sep">·</span>
+        <a href="#harmonogram" class="hero-nav-link">Harmonogram</a>
+        <span class="hero-nav-sep">·</span>
+        <a href="#kviz" class="hero-nav-link">Nevím která → kvíz</a>
+      </nav>
     </div>
-    <div class="hero-actions">
-      <div class="eyebrow">
-        <span class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></span>
-        výzvy na 5–10 dní · denní úkoly · malé skupiny
-      </div>
+    </div>
+</header>
+
+<!-- ============ NEJBLIŽŠÍ KOLO ============ -->
+<section class="next-round" id="next-round" style="background:linear-gradient(135deg, #5C7665 0%, #3D5249 100%);padding:64px 0;">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;">
+
+      <!-- Obálka -->
       <div>
-        <a class="btn" href="#registrace">Přihlásit se</a>
-        <p class="hero-note">Nejbližší kolo: Najdi svou značku · 1.–5. září</p>
+        <img src="vyzva-07.png" alt="Najdi svou značku" style="width:100%;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.3);aspect-ratio:4/5;object-fit:cover;" onerror="this.style.display='none'">
       </div>
+
+      <!-- Info -->
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px;">Nejbližší kolo</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:600;color:#fff;margin-bottom:6px;">Najdi svou značku</h2>
+        <div style="color:rgba(255,255,255,.75);font-size:16px;margin-bottom:20px;">1.–5. září · 5 dní · 590 Kč · max 10 míst · uzávěrka 30. 8.</div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;">
+          <!-- Je to pro tebe -->
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin-bottom:10px;">Je to pro tebe, pokud…</div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;">
+              <li style="color:rgba(255,255,255,.85);font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--mint);">·</span>neumíš říct, čím je tvoje tvorba jiná</li>
+              <li style="color:rgba(255,255,255,.85);font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--mint);">·</span>přitahuješ lajky, ale ne zákaznice</li>
+              <li style="color:rgba(255,255,255,.85);font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--mint);">·</span>ceny nastavuješ pocitově a pak lituješ</li>
+            </ul>
+          </div>
+          <!-- Co uděláme -->
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin-bottom:10px;">Co za 5 dní uděláme</div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;">
+              <li style="color:rgba(255,255,255,.85);font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--mint);">·</span>pojmenuješ, čím jsi jiná</li>
+              <li style="color:rgba(255,255,255,.85);font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--mint);">·</span>popíšeš svou ideální zákaznici</li>
+              <li style="color:rgba(255,255,255,.85);font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--mint);">·</span>sestavíš příběh značky</li>
+              <li style="color:rgba(255,255,255,.85);font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--mint);">·</span>nastavíš ceny, které dávají smysl</li>
+              <li style="color:rgba(255,255,255,.85);font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--mint);">·</span>propojíš značku s profilem</li>
+            </ul>
+          </div>
+        </div>
+
+        <a class="btn" href="#registrace" style="background:#fff;color:#3D5249;font-weight:700;font-size:16px;">Rezervovat místo · 590 Kč</a>
+      </div>
+
     </div>
   </div>
-</header>
+</section>
 
 <!-- ============ PRO KOHO ============ -->
 <section class="who">
@@ -829,7 +930,7 @@
           <span class="ch-num" style="--accent:#5C7665;">VÝZVA 07</span>
           <h3>Najdi svou značku</h3>
           <p>Nejhlubší z výzev: pojmenuješ, čím jsi jiná, pro koho tvoříš, proč — a za kolik. Odnášíš si základ značky, která prodává — ne jen hezky vypadá.</p>
-          <div class="ch-meta"><span class="chip">500 Kč</span><span class="chip">5 dní</span><span class="chip">max 10 míst</span></div>
+          <div class="ch-meta"><span class="chip">590 Kč</span><span class="chip">5 dní</span><span class="chip">max 10 míst</span></div>
           <details class="slide-detail" style="--accent:#5C7665;">
             <summary>Zjistit víc o výzvě</summary>
             <h4>Je to pro tebe, pokud…</h4>
@@ -907,66 +1008,41 @@
   </div>
 </section>
 
-<!-- ============ NEJBLIŽŠÍ KOLO + KONZULTACE ============ -->
-<section class="round">
+
+
+<!-- ============ DALŠÍ VÝZVY ============ -->
+<section style="background:var(--ink);padding:56px 0;" id="dalsi-vyzvy">
   <div class="wrap">
-    <div class="round-grid">
-      <div class="round-box">
-        <div class="label">Nejbližší kolo · 1.–5. září</div>
-        <div style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,32px);font-weight:600;color:#fff;margin-bottom:10px;">Najdi svou značku</div>
-        <p style="color:#b9c6bc;font-size:16px;">Nejhlubší z výzev: pojmenuješ, čím jsi jiná, pro koho tvoříš, proč — a za kolik. Odnášíš si základ značky, která prodává.</p>
-        <div style="color:#b9c6bc;font-size:14px;margin-top:10px;">5 dní · 590 Kč · max 10 míst · uzávěrka přihlášek 30. 8.</div>
-        <a class="btn" href="#registrace" style="margin-top:18px;align-self:flex-start;background:var(--mint);color:var(--ink);">Rezervovat místo · 590 Kč</a>
-        <div class="vote" style="margin-top:16px;">Novinky oznamuji na Instagramu <strong>@skalkova.michaela</strong> a e-mailem registrovaným zájemkyním.</div>
-      </div>
-      <div class="igplus">
-        <span class="tag">Bonus pro účastnice</span>
-        <h3>Chceš jít víc do hloubky?</h3>
-        <p>Ke každé výzvě si můžeš přidat <strong>osobní konzultaci (45 minut)</strong> se mnou — projdeme tvůj profil jedna na jednu a nastavíme další kroky přesně pro tebe. Pro účastnice výzev za zvýhodněnou cenu.</p>
-        <div class="price">400 Kč <small>· pro účastnice (běžně 550 Kč)</small></div>
-      </div>
+    <div class="sec-head" style="margin-bottom:32px;">
+      <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h2 style="color:#fff;">Co tě čeká dál v září</h2>
+      <p style="color:#b9c6bc;">Po Najdi svou značku tě čekají ještě dvě výzvy — vyber si tu, která ti zbývá.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:700px;margin:0 auto;">
+      <a href="#vyzvy" onclick="goSlide(4)" style="text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(159,212,176,.2);border-radius:18px;overflow:hidden;display:block;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+        <img src="vyzva-05.png" alt="Zvládni Canvu" style="width:100%;aspect-ratio:4/5;object-fit:cover;" onerror="this.style.display='none'">
+        <div style="padding:16px 18px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#BBD9C4;margin-bottom:4px;">Výzva 05</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:6px;">Zvládni Canvu</div>
+          <div style="color:#b9c6bc;font-size:14px;">6.–15. 9. · 10 dní · 990 Kč</div>
+        </div>
+      </a>
+      <a href="#vyzvy" onclick="goSlide(2)" style="text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(159,212,176,.2);border-radius:18px;overflow:hidden;display:block;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+        <img src="vyzva-03.png" alt="Vylaď si vizuál" style="width:100%;aspect-ratio:4/5;object-fit:cover;" onerror="this.style.display='none'">
+        <div style="padding:16px 18px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#94647B;margin-bottom:4px;">Výzva 03</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:6px;">Vylaď si vizuál</div>
+          <div style="color:#b9c6bc;font-size:14px;">16.–24. 9. · 9 dní · 750 Kč</div>
+        </div>
+      </a>
+    </div>
+    <div style="max-width:700px;margin:28px auto 0;background:#fff;border:1px solid #e6d6d9;border-radius:18px;padding:32px 36px;position:relative;">
+      <span style="position:absolute;top:-13px;left:32px;background:#c0a0a5;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:8px;">Bonus pro účastnice</span>
+      <h3 style="font-size:22px;margin-bottom:10px;">Chceš jít víc do hloubky?</h3>
+      <p style="color:#5c6a5f;">Ke každé výzvě si můžeš přidat <strong>osobní konzultaci (45 minut)</strong> se mnou — projdeme tvůj profil jedna na jednu a nastavíme další kroky přesně pro tebe. Pro účastnice za zvýhodněnou cenu.</p>
+      <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;margin-top:14px;">400 Kč <small style="font-size:15px;font-family:'Source Sans 3',sans-serif;color:#5c6a5f;font-weight:400;">· pro účastnice (běžně 550 Kč)</small></div>
     </div>
   </div>
-
-      <div class="schedule" id="harmonogram">
-        <h3>Plán výzev — srpen & září</h3>
-        <div class="schedule-grid">
-          <div class="sch-row header">
-            <span>Termín</span><span>Výzva</span><span>Cena</span>
-          </div>
-          <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
-            <span>8.–14. 8.</span>
-            <span>Ukaž se světu <small style="opacity:.6;">(proběhlo)</small></span>
-            <span style="color:#5c6a5f;">690 Kč</span>
-          </div>
-          <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
-            <span>15.–21. 8.</span>
-            <span>— volno —</span>
-            <span></span>
-          </div>
-          <a class="sch-row clickable" href="#registrace" style="--dot:#714C5D;border-left:3px solid var(--mint);">
-            <span>22.–28. 8.</span>
-            <span><strong>Ovládni Stories + Zkroť AI →</strong><br><small style="color:#8fa093;">dvě výzvy současně · každá zvlášť nebo obě se slevou</small></span>
-            <span>590 / 1 000 Kč</span>
-          </a>
-          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(6)" style="--dot:#5C7665;">
-            <span>1.–5. 9.</span>
-            <span><strong>Najdi svou značku →</strong></span>
-            <span>590 Kč</span>
-          </a>
-          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(4)" style="--dot:#BBD9C4;">
-            <span>6.–15. 9.</span>
-            <span><strong>Zvládni Canvu →</strong></span>
-            <span>990 Kč</span>
-          </a>
-          <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(2)" style="--dot:#94647B;">
-            <span>16.–24. 9.</span>
-            <span><strong>Vylaď si vizuál →</strong></span>
-            <span>750 Kč</span>
-          </a>
-        </div>
-        <p class="sch-note">Registrace na každé kolo otevírám cca týden předem — sleduj <a href="https://www.instagram.com/skalkova.michaela/" target="_blank" rel="noopener">@skalkova.michaela</a> nebo si nech posílat novinky e-mailem.</p>
-      </div>
 </section>
 
 <!-- ============ KVÍZ ============ -->
@@ -1198,7 +1274,7 @@
 </script>
 
 <!-- ============ JAK TO PROBÍHÁ ============ -->
-<section class="how">
+<section class="how" id="how">
   <div class="wrap">
     <div class="sec-head">
       <h2>Jak výzva probíhá</h2>
@@ -1212,13 +1288,13 @@
       </div>
       <div class="how-step">
         <div class="n">2</div>
-        <h3>Sejdeme se ve skupině</h3>
-        <p>Den před startem tě přivítám ve WhatsApp skupině s ostatními účastnicemi.</p>
+        <h3>Stáhneš Telegram</h3>
+        <p>Výzvy probíhají v uzavřené skupině na <strong>Telegramu</strong> — zdarma ke stažení pro <a href="https://apps.apple.com/app/telegram-messenger/id686449807" target="_blank" rel="noopener" style="color:var(--mint);">iOS</a> i <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger" target="_blank" rel="noopener" style="color:var(--mint);">Android</a>. Den před startem dostaneš pozvánku do skupiny. Pokud Telegram neznáš, připravila jsem krátký návod.</p>
       </div>
       <div class="how-step">
         <div class="n">3</div>
         <h3>Každé ráno úkol</h3>
-        <p>Ráno ti přijde konkrétní úkol + krátké video, kde vysvětlím proč. Večer tip navíc.</p>
+        <p>Ráno ti přijde konkrétní úkol + krátké video, kde vysvětlím proč. Večer tip navíc a prostor na dotazy.</p>
       </div>
       <div class="how-step">
         <div class="n">4</div>
@@ -1231,11 +1307,13 @@
 
 
 <!-- ============ REFERENCE ============ -->
-<section class="refs">
+<section class="refs" id="refs">
   <div class="wrap">
     <div class="sec-head">
       <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
       <h2>Co říkají tvůrkyně</h2>
+
+      <!-- Celkové hodnocení -->
       <div class="rating" aria-label="Hodnocení 5 z 5">
         <span class="stars">
           <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
@@ -1244,13 +1322,34 @@
           <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
         </span>
-        <span class="rating-text"><strong>5,0 z 5</strong> · hodnocení 11 účastnic</span>
+        <span class="rating-text"><strong>5,0 z 5</strong> · celkem 32 hodnocení napříč výzvami</span>
       </div>
       <a class="fb-badge" href="https://www.facebook.com/profile.php?id=61590805156554&sk=reviews" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.57v1.88h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
         <span><strong>100 %</strong> doporučuje na Facebooku</span>
       </a>
-      <p>Všech 11 tvůrkyň z prvního kola ohodnotilo výzvu plným počtem hvězd.</p>
+
+      <!-- Hodnocení per výzva -->
+      <div class="ratings-per-vyzva">
+        <div class="rpv-item">
+          <span class="rpv-dot" style="background:#526658;"></span>
+          <span class="rpv-name">Letní / Podzimní úklid IG</span>
+          <span class="rpv-stars">⭐ 5,0</span>
+          <span class="rpv-count">18 hodnocení</span>
+        </div>
+        <div class="rpv-item">
+          <span class="rpv-dot" style="background:#AE9196;"></span>
+          <span class="rpv-name">Ukaž se světu</span>
+          <span class="rpv-stars">⭐ 5,0</span>
+          <span class="rpv-count">6 hodnocení · NPS 100</span>
+        </div>
+        <div class="rpv-item">
+          <span class="rpv-dot" style="background:#94647B;"></span>
+          <span class="rpv-name">Vylaď si vizuál</span>
+          <span class="rpv-stars">⭐ 5,0</span>
+          <span class="rpv-count">8 hodnocení</span>
+        </div>
+      </div>
     </div>
     <div class="refs-grid">
       <!-- TODO: nahradit citacemi z Tally dotazníku -->
