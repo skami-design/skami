@@ -100,6 +100,9 @@
     padding:18px 24px 22px;
     text-align:center;
   }
+  @media(max-width:700px){
+    .hero-cta-row{display:none;}
+  }
   .hero-actions{
     margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:18px;
     padding-bottom:8px;
@@ -386,11 +389,16 @@
     .sch-row span:first-child{grid-column:1/-1;}
   }
   @media(max-width:700px){
-    .next-round .wrap > div{grid-template-columns:1fr !important;}
-    .next-round img{max-width:260px;margin:0 auto;display:block;}
-    .next-round > .wrap > div > div:first-child{order:2;}
-    .next-round > .wrap > div > div:last-child{order:1;}
+    /* Next round — obálka nahoře */
+    .next-round .wrap > div{grid-template-columns:1fr !important;gap:24px;}
+    .next-round .wrap > div > div:first-child{order:2;}
+    .next-round .wrap > div > div:last-child{order:1;}
     .next-round .wrap > div > div:nth-child(2){grid-template-columns:1fr !important;}
+    .next-round img{max-width:220px;margin:0 auto;display:block;}
+  }
+  @media(max-width:700px){
+    .hamburger{display:flex !important;}
+    nav .wrap > div{display:none !important;}
   }
 
   /* ====== JAK TO PROBÍHÁ ====== */
@@ -488,6 +496,14 @@
   .rpv-stars{color:#e8b64c;font-size:13px;}
   .rpv-count{color:var(--muted);font-size:13px;text-align:right;}
   .ref-card.more{display:none;}
+  .ref-filter{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;}
+  .rf-btn{
+    padding:7px 16px;border-radius:99px;border:1.5px solid #d8e6dc;
+    background:#fff;color:var(--muted);font-size:13.5px;font-weight:600;
+    cursor:pointer;transition:all .15s;font-family:inherit;
+  }
+  .rf-btn:hover{border-color:var(--mint);color:var(--ink);}
+  .rf-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
   .refs-grid.expanded .ref-card.more{display:block;}
   .refs-toggle{
     display:block;margin:28px auto 0;
@@ -607,6 +623,12 @@
     *{transition:none!important;}
     html{scroll-behavior:auto;}
   }
+
+  /* MOBILE NAV */
+  .mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;z-index:999;flex-direction:column;overflow-y:auto;}
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{display:block;padding:18px 24px;font-size:17px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid #e7efe9;}
+  .mobile-nav a.nav-cta{margin:20px 24px;border-radius:12px;text-align:center;border-bottom:none;background:var(--ink);color:#fff;padding:14px 24px;}
 </style>
 </head>
 <body>
@@ -620,8 +642,21 @@
       <a href="#how" style="color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;">Průběh</a>
       <a class="nav-cta" href="#registrace">Chci místo</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#refs" onclick="closeMenu()">Hodnocení výzev</a>
+  <a href="#how" onclick="closeMenu()">Průběh výzvy</a>
+  <a href="#harmonogram" onclick="closeMenu()">Harmonogram</a>
+  <a href="vop-vyzvy.html" onclick="closeMenu()">Podmínky účasti</a>
+  <a href="#vyzvy" onclick="closeMenu()">Přehled výzev</a>
+  <a href="#kviz" onclick="closeMenu()">Nevím která → kvíz</a>
+  <a href="#registrace" class="nav-cta" onclick="closeMenu()">Chci místo</a>
+</div>
 
 <!-- ============ HERO ============ -->
 <header>
@@ -804,7 +839,7 @@
           <span class="ch-num" style="--accent:#94647B;">VÝZVA 03</span>
           <h3>Vylaď si vizuál</h3>
           <p>Sladíš barvy, písma a styl fotek do vizuálu, který je poznat na první scroll. Vytvoříš si moodboard a jednoduchá pravidla, kterých se udržíš i bez grafika.</p>
-          <div class="ch-meta"><span class="chip">750 Kč</span><span class="chip">9 dní</span><span class="chip">max 15 míst</span></div>
+          <div class="ch-meta"><span class="chip">850 Kč</span><span class="chip">9 dní</span><span class="chip">max 15 míst</span></div>
           <details class="slide-detail" style="--accent:#94647B;">
             <summary>Zjistit víc o výzvě</summary>
             <h4>Je to pro tebe, pokud…</h4>
@@ -1039,7 +1074,7 @@
         <div style="padding:16px 18px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#94647B;margin-bottom:4px;">Výzva 03</div>
           <div style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:6px;">Vylaď si vizuál</div>
-          <div style="color:#b9c6bc;font-size:14px;">16.–24. 9. · 9 dní · 750 Kč</div>
+          <div style="color:#b9c6bc;font-size:14px;">17.–25. 9. · 9 dní · 850 Kč</div>
         </div>
       </a>
     </div>
@@ -1048,6 +1083,86 @@
       <h3 style="font-size:22px;margin-bottom:10px;">Chceš jít víc do hloubky?</h3>
       <p style="color:#5c6a5f;">Ke každé výzvě si můžeš přidat <strong>osobní konzultaci (45 minut)</strong> se mnou — projdeme tvůj profil jedna na jednu a nastavíme další kroky přesně pro tebe. Pro účastnice za zvýhodněnou cenu.</p>
       <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;margin-top:14px;">400 Kč <small style="font-size:15px;font-family:'Source Sans 3',sans-serif;color:#5c6a5f;font-weight:400;">· pro účastnice (běžně 550 Kč)</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HARMONOGRAM ============ -->
+<section style="background:var(--ink);padding:56px 0;">
+  <div class="wrap">
+    <div class="schedule" id="harmonogram">
+      <h3>Plán výzev — podzim & zima 2026/2027</h3>
+      <div class="schedule-grid">
+        <div class="sch-row header">
+          <span>Termín</span><span>Výzva</span><span>Cena</span>
+        </div>
+        <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
+          <span>22.–28. 8.</span>
+          <span>Ovládni Stories + Zkroť AI <small style="opacity:.6;">(proběhlo)</small></span>
+          <span style="color:#5c6a5f;">590 Kč</span>
+        </div>
+        <a class="sch-row clickable" href="#registrace" style="--dot:#5C7665;border-left:3px solid var(--mint);">
+          <span>1.–5. 9.</span>
+          <span><strong>Najdi svou značku →</strong><br><small style="color:#8fa093;">uzávěrka přihlášek 30. 8.</small></span>
+          <span>590 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(4)" style="--dot:#BBD9C4;">
+          <span>6.–15. 9.</span>
+          <span><strong>Zvládni Canvu →</strong></span>
+          <span>990 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(2)" style="--dot:#94647B;">
+          <span>17.–25. 9.</span>
+          <span><strong>Vylaď si vizuál →</strong></span>
+          <span>850 Kč</span>
+        </a>
+        <div class="sch-row" style="border-top:1px solid rgba(159,212,176,.15);">
+          <span style="font-weight:700;color:#b9c6bc;">Podzim / zima</span>
+          <span style="font-weight:700;color:#b9c6bc;">Nová kola</span>
+          <span></span>
+        </div>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(6)" style="--dot:#5C7665;">
+          <span>9.–13. 11.</span>
+          <span><strong>Najdi svou značku →</strong></span>
+          <span>590 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(1)" style="--dot:#AE9196;">
+          <span>14.–20. 11.</span>
+          <span><strong>Ukaž se světu →</strong></span>
+          <span>690 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(0)" style="--dot:#526658;">
+          <span>21.–27. 11.</span>
+          <span><strong>Podzimní úklid IG →</strong></span>
+          <span>590 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(3)" style="--dot:#714C5D;">
+          <span>5.–11. 12.</span>
+          <span><strong>Ovládni Stories →</strong></span>
+          <span>590 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(5)" style="--dot:#9FD4B0;">
+          <span>12.–18. 12.</span>
+          <span><strong>Zkroť AI →</strong></span>
+          <span>590 Kč</span>
+        </a>
+        <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
+          <span>19.–31. 12.</span>
+          <span>🎄 Vánoční pauza</span>
+          <span></span>
+        </div>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(4)" style="--dot:#BBD9C4;">
+          <span>4.–13. 1.</span>
+          <span><strong>Zvládni Canvu →</strong></span>
+          <span>990 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(2)" style="--dot:#94647B;">
+          <span>16.–24. 1.</span>
+          <span><strong>Vylaď si vizuál →</strong></span>
+          <span>850 Kč</span>
+        </a>
+      </div>
+      <p class="sch-note">Registrace na každé kolo otevírám cca týden předem — sleduj <a href="https://www.instagram.com/skalkova.michaela/" target="_blank" rel="noopener">@skalkova.michaela</a> nebo si nech posílat novinky e-mailem.</p>
     </div>
   </div>
 </section>
@@ -1318,7 +1433,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
-      <h2>Co říkají tvůrkyně</h2>
+      <h2>Hodnocení výzev</h2>
 
       <!-- Celkové hodnocení -->
       <div class="rating" aria-label="Hodnocení 5 z 5">
@@ -1358,46 +1473,73 @@
         </div>
       </div>
     </div>
+    <div class="ref-filter" style="margin-bottom:0;">
+      <button class="rf-btn active" data-filter="vse" onclick="filterRefs(this)">Vše</button>
+      <button class="rf-btn" data-filter="letni-uklid" onclick="filterRefs(this)">Letní úklid</button>
+      <button class="rf-btn" data-filter="vylad-vizual" onclick="filterRefs(this)">Vylaď si vizuál</button>
+      <button class="rf-btn" data-filter="ukaz-se-svetu" onclick="filterRefs(this)">Ukaž se světu</button>
+    </div>
+    <div class="refs-section-head" style="text-align:center;margin:36px 0 20px;">
+      <div class="spectrum" style="margin-bottom:10px;"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:6px;">Co říkají tvůrkyně</h3>
+      <p style="color:var(--muted);font-size:15px;font-style:italic;">„Co se ti konkrétně povedlo díky výzvě změnit?"</p>
+    </div>
     <div class="refs-grid">
       <!-- TODO: nahradit citacemi z Tally dotazníku -->
-      <div class="ref-card">
+      <div class="ref-card" data-vyzva="letni-uklid">
         <span class="quote-mark">„</span>
         <p>Konkrétně jsem změnila bio a profilovou fotku. Mám taky konečně jasný plán, co postovat a čeho tím dosáhnu, což jsem doteď netušila a všechno byl potom jeden velký chaos. Navíc díky výzvě mám teď i plno nápadů na obsah a vzájemnou podporu mezi malými podnikatelkami. ❤️</p>
         <div class="name">Pyrowoman <span><a href="https://www.instagram.com/pyrowoman_cz/" target="_blank" rel="noopener" style="color:inherit;">@pyrowoman_cz</a> · Letní úklid Instagramu</span></div>
       </div>
-      <div class="ref-card">
+      <div class="ref-card" data-vyzva="letni-uklid">
         <span class="quote-mark">„</span>
         <p>Díky vyzve jsem pochopila základní fungování profilu na IG, jak přidávat obsah a ujasnit si směr, kterým se chci ubyrat. V neposlední řadě mi pomohla výzva "uklidit" a sjednotit profil.</p>
         <div class="name">Friky <span><a href="https://www.instagram.com/friky.cz/" target="_blank" rel="noopener" style="color:inherit;">@friky.cz</a> · Letní úklid Instagramu</span></div>
       </div>
-      <div class="ref-card">
+      <div class="ref-card" data-vyzva="letni-uklid">
         <span class="quote-mark">„</span>
         <p>Díky výzvě jsem si vyladila profilovou fotku (aby lidi věděli, od koho nakupují), bio a highlights. Přeuspořádala jsem si mřížku a udělala si jasný plán přidávání příspěvků na další týden. Taky teď už vím co dělat a jak to dělat, aby to fungovalo. Výzva mi otevřela oči. Děkuju Míšo 🫶</p>
         <div class="name">Vyšívané od Srdéčka <span><a href="https://www.instagram.com/vysivane_odsrdecka/" target="_blank" rel="noopener" style="color:inherit;">@vysivane_odsrdecka</a> · Letní úklid Instagramu</span></div>
       </div>
-      <div class="ref-card">
+      <div class="ref-card" data-vyzva="letni-uklid">
         <span class="quote-mark">„</span>
         <p>Přestala jsem se bát sdílet sebe a svoji bublinu.</p>
         <div class="name">Uni hry <span><a href="https://www.instagram.com/uni_hry/" target="_blank" rel="noopener" style="color:inherit;">@uni_hry</a> · Letní úklid Instagramu</span></div>
       </div>
-      <div class="ref-card more">
+      <div class="ref-card more" data-vyzva="letni-uklid">
         <span class="quote-mark">„</span>
         <p>Díky výzvě jsem si ujasnila spoustu důležitých věcí a upravila si díky nim vizuál profilu, který teď jasně sděluje, co a komu nabízím. Dále jsem si nastavila pravidelné přispívání jednotlivých typů příspěvků, kdy si plánuji týden dopředu a mohu tak být v klidu, protože vím kdy a co postovat. (Pochopila jsem konečně rozdíly mezi jednotlivými typy příspěvků). A hlavně - vytvořila jsem své highlights, o kterých jsem neměla ani tušení 🙈</p>
         <div class="name">Lumari by Marti <span><a href="https://www.instagram.com/lumari_by_marti/" target="_blank" rel="noopener" style="color:inherit;">@lumari_by_marti</a> · Letní úklid Instagramu</span></div>
       </div>
-      <div class="ref-card more">
+      <div class="ref-card more" data-vyzva="letni-uklid">
         <span class="quote-mark">„</span>
         <p>Myslím, že u mě to nejsou ani tak změny vizuální, jako spíš to, že celkově na tvorbu obsahu a prezentaci pohlížím úplně jinak, než na začátku výzvy. Spoustu věcí, kterým jsem se bránila, jsem přehodnotila a teď mi přijdou naprosto super a logické. 🤗</p>
         <div class="name">Ovinuto <span><a href="https://www.instagram.com/ovinuto/" target="_blank" rel="noopener" style="color:inherit;">@ovinuto</a> · Letní úklid Instagramu</span></div>
       </div>
-      <div class="ref-card more">
+      <div class="ref-card more" data-vyzva="letni-uklid">
         <span class="quote-mark">„</span>
         <p>Změnila jsem profilovou fotku, sjednotila vizuál a upravila bio tak, aby lépe odpovídalo tomu, co chci budovat.</p>
         <div class="name">Akibu Handmade <span><a href="https://www.instagram.com/akibuhandmade/" target="_blank" rel="noopener" style="color:inherit;">@akibuhandmade</a> · Letní úklid Instagramu</span></div>
       </div>
+        <div class="ref-card more" data-vyzva="vylad-vizual">
+          <p>Celkově celý vizuál! Od teď už chci dávat vše sladěné a po prvním příspěvku co jsem dala vidím, že to má smysl! 2 uložení a 6 lidí se kouklo na profil! To se mi ještě nepovedlo.</p>
+          <div class="name">@kvety_lu <span>· Vylaď si vizuál</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="vylad-vizual">
+          <p>Zavádím teď nové barvy a bude samozřejmě i sjednocené písmo. Na příspěvky se i koukám teď jinak — že nemusí být pořád něco originální, že je spíš užitečné, když je to konzistentní.</p>
+          <div class="name">@if_hacekalist <span>· Vylaď si vizuál</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="vylad-vizual">
+          <p>Super byly zpětné vazby účastnic na splněné úkoly. Díky tomu tad mohu svůj styl poskládat tak, aby celý profil vystihoval to, co chci předat.</p>
+          <div class="name">@marketa.betani.besperatova <span>· Vylaď si vizuál</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="vylad-vizual">
+          <p>Slibuji si od toho sjednocení vzhledu a jasně daná pravidla bez tápání do budoucna, což je pro mě asi nejdůležitější.</p>
+          <div class="name">@By_Kami.Va <span>· Vylaď si vizuál</span></div>
+        </div>
       <!-- DALŠÍ REFERENCE: karty s třídou "ref-card more" se zobrazí po rozkliku -->
     </div>
-    <button class="refs-toggle" id="refsToggle" type="button" style="display:none;">Zobrazit další reference</button>
+        <button class="refs-toggle" id="refsToggle" type="button" style="display:none;">Zobrazit další reference</button>
     <script>
     (function(){
       const grid = document.querySelector('.refs-grid');
@@ -1566,7 +1708,90 @@
     <div>© 2026 Michaela Skalková · Skami Design</div>
     <div><a href="https://www.instagram.com/skalkova.michaela/" target="_blank" rel="noopener">@skalkova.michaela</a> · <a href="https://skami.cz" target="_blank" rel="noopener">skami.cz</a> · <a href="gdpr.html">ochrana osobních údajů</a> · <a href="vop-vyzvy.html">podmínky účasti</a></div>
   </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Změnila jsem bio a konečně jsem s ním spokojená. Naučila jsem se k čemu jaký formát na IG slouží, zjistila jsem, že tvorba obsahu musí mít plán — takže u mě se změnil přístup, jakým naše podnikání může jít od chaosu ke smysluplné práci s obsahem.</p>
+          <div class="name">Daisy Design Jewellery <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Formáty reel, carousel atd. A hned i den 5 plíže obsahu. Oboje super! Měla jsem v tom brutální chaos a teď už jsem moudřejší.</p>
+          <div class="name">Jannie Store <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Aby se zákazník rychle zorientoval v tom, kdo jsem, co nabízím, kolik to stojí. Tohle byl můj hlavní cíl a výzva mi ukázala jak na to.</p>
+          <div class="name">@koutekucmelaka <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Nastavení v hlavě — nemám takový zmatek. Mám teď jasnější řád a taky mám pocit, že se v hlavě obnovila inspirace na nové příspěvky.</p>
+          <div class="name">Květy Lu <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Vice typů na příspěvky, sjednocení highlights, úprava bia, přeskladání příspěvků.</p>
+          <div class="name">Lipové kouzlo <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Profilovou @ udělala jsem přehlednější bio.</p>
+          <div class="name">Lea Dekorace <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Začnu používat další formáty příspěvků.</p>
+          <div class="name">Tvůj hrnek <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Nabrat odvahu, pozerat na to inými očima… ale i osvojit si rôzne hacky.</p>
+          <div class="name">Renéa <span>· Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Vím, jak lépe na reels, aby byly úspěšnější. Taky mi výzva hoooodně zvedla sebevědomí. Celkově bych řekla, že to bylo i dobré pro uvědomění, jak vidíme sami sebe a jak nás vidí jíní — že jsme mnohdy příliš sebekritičtí. Ostatní nás často vidí v daleko lepším světle.</p>
+          <div class="name">@Pyrowoman_cz <span><a href="https://www.instagram.com/pyrowoman_cz/" target="_blank" rel="noopener" style="color:inherit;">@pyrowoman_cz</a> · Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Přístup — být trochu aktivnější a více důvěry, aby lidé věděli, kdo stojí za značkou.</p>
+          <div class="name">Tvořílkovi <span>· Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Konečně mě to donutilo aspoň trochu používat edits, hlavně dělat voiceover, titulky a celý to propojit.</p>
+          <div class="name">@AkibuHandmade <span>· Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Bez výzvy bych se nikdy k sebeprezentaci neodhodlala.</p>
+          <div class="name">@Mishako_macrame <span>· Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Povedlo se mi nekoukat na sebe jako na trapnou Kamilu — koukám teď na sebe jako na někoho, kdo se nebojí postavit se kameře čelem.</p>
+          <div class="name">@By_kami.va <span>· Ukaž se světu</span></div>
+        </div>
 </footer>
 
+<script>
+  function filterRefs(btn) {
+    document.querySelectorAll('.rf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    // Zobraz všechny skryté karty aby byly dostupné pro filtr
+    document.querySelectorAll('.ref-card.more').forEach(c => c.style.display = '');
+    // Filtruj všechny karty
+    document.querySelectorAll('.ref-card').forEach(card => {
+      if (filter === 'vse') {
+        // Při "Vše" skryj opět more karty (vrátí se do výchozího stavu)
+        if (card.classList.contains('more')) card.style.display = 'none';
+        else card.style.display = '';
+      } else {
+        card.style.display = (card.dataset.vyzva === filter) ? '' : 'none';
+      }
+    });
+  }
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMenu(){
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
 </body>
 </html>
