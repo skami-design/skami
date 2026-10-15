@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Značka od základů — týdenní výzvy pro značku, která prodává</title>
+<meta name="description" content="Značka od základů: krátké výzvy pro tvořivé ženy. Od úklidu profilu přes vizuál a Stories až po vlastní značku. Denní úkoly, malé skupiny, viditelný posun.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16211a;
+    --ink-soft:#2b362e;
+    --mint:#9fd4b0;
+    --mint-pale:#d5f0de;
+    --mauve:#c0a0a5;
+    --off:#fdfefd;
+    --muted:#5c6a5f;
+    /* barvy výzev — spektrum z banneru */
+    --v1:#526658; --v2:#AE9196; --v3:#94647B; --v4:#714C5D;
+    --v5:#BBD9C4; --v6:#9FD4B0; --v7:#5C7665;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Source Sans 3',sans-serif;
+    color:var(--ink);
+    background:var(--off);
+    line-height:1.65;
+    font-size:17px;
+  }
+  h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.2;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* podpisový prvek: proužek ze 7 barev výzev */
+  .spectrum{
+    display:flex;height:5px;border-radius:99px;overflow:hidden;
+    width:180px;
+  }
+  .spectrum span{flex:1;}
+  .spectrum .s1{background:var(--v1);} .spectrum .s2{background:var(--v2);}
+  .spectrum .s3{background:var(--v3);} .spectrum .s4{background:var(--v4);}
+  .spectrum .s5{background:var(--v5);} .spectrum .s6{background:var(--v6);}
+  .spectrum .s7{background:var(--v7);}
+
+  /* ====== NAV ====== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,254,253,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid #e7efe9;
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{font-family:'Playfair Display',serif;font-weight:600;font-size:20px;color:var(--ink);text-decoration:none;}
+  .brand em{color:var(--mint);font-style:italic;}
+  .nav-cta{
+    background:var(--ink);color:#fff;text-decoration:none;
+    padding:9px 20px;border-radius:10px;font-weight:600;font-size:15px;
+    transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--ink-soft);}
+
+  /* ====== HERO ====== */
+  header{
+    background:transparent;
+    padding:0;
+    text-align:center;
+  }
+  .hero-banner-row{
+    position:relative;
+    width:100%;
+    background-image:url('bg-header.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    line-height:0;
+  }
+  nav{all:unset;}
+  .hero-nav{
+    display:flex;align-items:center;justify-content:center;
+    gap:20px;flex-wrap:wrap;margin-top:8px;padding:0 24px;
+  }
+  .hero-nav-cta{
+    color:#fff;text-decoration:none;font-weight:700;font-size:15px;
+    letter-spacing:.1em;text-transform:uppercase;
+    padding-bottom:3px;
+    border-bottom:2px solid rgba(255,255,255,.7);
+    transition:border-color .15s;white-space:nowrap;
+  }
+  .hero-nav-cta:hover{border-color:#fff;}
+  .hero-nav-link{
+    color:rgba(255,255,255,.7);text-decoration:none;font-size:14.5px;
+    font-weight:400;transition:color .15s;white-space:nowrap;
+  }
+  .hero-nav-link:hover{color:#fff;}
+  .hero-nav-sep{color:rgba(255,255,255,.3);font-size:16px;line-height:1;}
+  .hero-cta-row{
+    background:#3A2A32;
+    padding:18px 24px 22px;
+    text-align:center;
+  }
+  @media(max-width:700px){
+    .hero-cta-row{display:none;}
+  }
+  .hero-actions{
+    margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:18px;
+    padding-bottom:8px;
+  }
+  .hero-actions .eyebrow{margin-bottom:0;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:12px;
+    font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;margin-bottom:20px;
+  }
+  header h1{font-size:clamp(42px,6vw,68px);font-weight:600;}
+  header h1 em{font-style:italic;color:#5da87a;}
+  .hero-sub{
+    max-width:560px;margin:18px auto 30px;font-size:19px;color:var(--ink-soft);font-weight:300;
+  }
+  .hero-sub strong{font-weight:700;}
+  .btn{
+    display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+    padding:15px 34px;border-radius:12px;font-weight:700;font-size:16.5px;
+    letter-spacing:.02em;transition:background .2s, opacity .2s;
+  }
+  .btn:hover{background:var(--ink-soft);}
+  .btn.light{background:var(--mint);color:var(--ink);}
+  .btn.light:hover{background:#8cc9a0;}
+  .hero-note{margin-top:14px;font-size:14px;color:var(--muted);}
+
+  /* banner s Miškou */
+  .banner-frame{
+    width:100%;margin:0;
+    border-radius:0;overflow:hidden;
+    box-shadow:none;display:block;
+  }
+  .banner-frame img{display:block;width:100%;height:auto;}
+  .banner-frame img{width:100%;}
+  .banner-fallback{
+    display:none;
+    background:linear-gradient(135deg,#1b2a20,#16211a);
+    color:#f3ead9;padding:70px 30px;text-align:center;
+  }
+  .banner-fallback .bf-title{font-family:'Playfair Display',serif;font-size:34px;margin-bottom:8px;}
+  .banner-fallback p{color:#a8b5a9;font-size:15px;}
+
+  /* ====== SEKCE OBECNĚ ====== */
+  section{padding:72px 0;}
+  .sec-head{max-width:640px;margin:0 auto 44px;text-align:center;}
+  .sec-head .spectrum{margin:0 auto 18px;}
+  .sec-head h2{font-size:clamp(30px,4vw,40px);font-weight:600;}
+  .sec-head p{margin-top:12px;color:var(--muted);font-size:17.5px;}
+
+  /* ====== PRO KOHO ====== */
+  .who{background:var(--off);}
+  .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .who-card{
+    background:#fff;border:1px solid #edf3ee;border-radius:16px;
+    padding:30px 28px;
+  }
+  .who-card h3{
+    font-size:18px;margin-bottom:10px;font-family:'Source Sans 3',sans-serif;font-weight:700;
+    padding-top:16px;position:relative;
+  }
+  .who-card h3::before{
+    content:"";position:absolute;top:0;left:0;width:34px;height:3px;
+    border-radius:99px;background:var(--mint);
+  }
+  .who-card p{font-size:15.5px;color:var(--muted);}
+
+  /* ====== VÝZVY ====== */
+  .challenges{background:#f6faf7;}
+  /* ====== SLIDER VÝZEV ====== */
+  .slider{max-width:960px;margin:0 auto;position:relative;}
+  .slide{display:none;}
+  .slide.active{
+    display:grid;grid-template-columns:360px 1fr;gap:44px;align-items:center;
+  }
+  .cover{
+    aspect-ratio:4/5;border-radius:16px;overflow:hidden;position:relative;
+    box-shadow:0 16px 40px rgba(22,33,26,.12);
+  }
+  .cover img{width:100%;height:100%;object-fit:cover;}
+  .cover .ph{
+    position:absolute;inset:0;display:none;flex-direction:column;
+    align-items:center;justify-content:center;gap:6px;
+    background:var(--accent,#526658);color:#fff;text-align:center;padding:24px;
+  }
+  .cover .ph .ph-num{
+    font-family:'Playfair Display',serif;font-size:64px;font-weight:600;opacity:.85;line-height:1;
+  }
+  .cover .ph .ph-name{
+    font-family:'Playfair Display',serif;font-size:24px;font-weight:600;
+  }
+  .cover .ph .ph-hint{font-size:12px;opacity:.65;margin-top:10px;}
+  .cover .ph.ph-light{color:var(--ink);}
+  .slide-body .ch-num{font-size:16px;}
+  .slide-body h3{
+    font-family:'Playfair Display',serif;font-size:clamp(26px,3.2vw,34px);
+    font-weight:600;margin:6px 0 14px;
+  }
+  .slide-body p{font-size:16.5px;color:var(--muted);max-width:480px;}
+  .slide-body .ch-meta{margin-top:20px;}
+  .slide-cta{
+    display:inline-block;margin-top:24px;background:var(--ink);color:#fff;
+    text-decoration:none;padding:13px 28px;border-radius:12px;
+    font-weight:700;font-size:15.5px;transition:background .2s;
+  }
+  .slide-cta:hover{background:var(--ink-soft);}
+  .slide-detail{
+    margin-top:18px;max-width:520px;
+    border:1px solid #e0eae3;border-radius:14px;
+    padding:14px 18px;background:#fff;
+  }
+  .slide-detail summary{
+    cursor:pointer;font-weight:700;font-size:14.5px;color:var(--ink-soft);
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .slide-detail summary::-webkit-details-marker{display:none;}
+  .slide-detail summary::after{
+    content:"+";font-family:'Playfair Display',serif;font-size:20px;color:var(--mint);flex:0 0 auto;
+  }
+  .slide-detail[open] summary::after{content:"−";}
+  .slide-detail h4{
+    font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:color-mix(in srgb, var(--accent, #526658) 65%, var(--ink));
+    margin:16px 0 8px;
+  }
+  .slide-detail ul{
+    list-style:none;margin:0;padding:0;
+  }
+  .slide-detail li{
+    font-size:14.5px;color:var(--muted);padding:4px 0 4px 18px;position:relative;
+  }
+  .slide-detail li::before{
+    content:"";position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;
+    background:var(--accent,#526658);opacity:.55;
+  }
+  @media (max-width:760px){
+    .slide-detail{margin-left:auto;margin-right:auto;text-align:left;}
+  }
+  .slider-nav{
+    display:flex;align-items:center;justify-content:center;gap:22px;margin-top:36px;
+  }
+  .s-arrow{
+    width:46px;height:46px;border-radius:50%;border:1px solid #d8e6dc;
+    background:#fff;cursor:pointer;font-size:18px;color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .15s, background .15s;
+  }
+  .s-arrow:hover{border-color:var(--mint);background:var(--mint-pale);}
+  .s-dots{display:flex;gap:9px;}
+  .s-dot{
+    width:11px;height:11px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--dot,#ccc);opacity:.35;transition:opacity .15s, transform .15s;
+    padding:0;
+  }
+  .s-dot.active{opacity:1;transform:scale(1.25);}
+  @media (max-width:760px){
+    .slide.active{grid-template-columns:1fr;gap:24px;}
+    .cover{max-width:320px;margin:0 auto;}
+    .slide-body{text-align:center;}
+    .slide-body p{margin:0 auto;}
+  }
+
+  /* ====== KVÍZ ====== */
+  .quiz{background:var(--off);}
+  .quiz-box{
+    max-width:720px;margin:0 auto;background:#fff;
+    border:1px solid #edf3ee;border-radius:18px;padding:38px 36px;
+  }
+  .q-progress{
+    display:flex;gap:6px;margin-bottom:26px;
+  }
+  .q-progress span{
+    flex:1;height:4px;border-radius:99px;background:#e7efe9;transition:background .2s;
+  }
+  .q-progress span.done{background:var(--mint);}
+  .q-step{display:none;}
+  .q-step.active{display:block;}
+  .q-step h3{
+    font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:20px;
+    margin-bottom:18px;
+  }
+  .q-opt{
+    display:block;border:1px solid #e0eae3;border-radius:12px;
+    padding:14px 18px;margin-bottom:10px;cursor:pointer;
+    font-size:15.5px;color:var(--ink-soft);
+    transition:border-color .15s, background .15s;
+  }
+  .q-opt:hover{border-color:var(--mint);}
+  .q-opt input{display:none;}
+  .q-opt.picked{border-color:var(--mint);background:var(--mint-pale);}
+  .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:22px;}
+  .q-back{
+    background:none;border:none;color:var(--muted);font-family:inherit;
+    font-size:15px;cursor:pointer;padding:8px 0;
+  }
+  .q-back:disabled{visibility:hidden;}
+  .q-next{
+    background:var(--ink);color:#fff;border:none;border-radius:12px;
+    padding:13px 30px;font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;
+    transition:background .2s, opacity .2s;
+  }
+  .q-next:disabled{opacity:.35;cursor:default;}
+  .q-next:not(:disabled):hover{background:var(--ink-soft);}
+  .q-result{display:none;text-align:center;}
+  .q-result.show{display:block;}
+  .q-result .r-badge{
+    display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:14px;
+  }
+  .q-result .r-card{
+    border-radius:16px;padding:34px 30px;color:#fff;
+    background:var(--r-color,#526658);margin-bottom:20px;
+  }
+  .q-result .r-num{
+    font-family:'Playfair Display',serif;font-size:16px;letter-spacing:.14em;
+    opacity:.85;margin-bottom:6px;
+  }
+  .q-result .r-card h3{
+    font-family:'Playfair Display',serif;font-size:30px;font-weight:600;margin-bottom:10px;
+  }
+  .q-result .r-card p{font-size:15.5px;opacity:.92;max-width:440px;margin:0 auto;}
+  .q-result .r-light{color:var(--ink);}
+  .q-result .r-light p{opacity:.8;}
+  .q-restart{
+    background:none;border:none;color:var(--muted);font-family:inherit;
+    font-size:14.5px;cursor:pointer;text-decoration:underline;margin-top:14px;
+  }
+
+  .ch-num{
+    font-family:'Playfair Display',serif;font-weight:600;font-size:15px;
+    color:color-mix(in srgb, var(--accent) 65%, var(--ink));letter-spacing:.1em;
+  }
+  .ch-meta{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{
+    font-size:12.5px;font-weight:600;letter-spacing:.05em;
+    color:var(--ink-soft);background:transparent;
+    border:1px solid #d8e6dc;
+    border-radius:8px;padding:4px 12px;
+  }
+
+  /* ====== HARMONOGRAM ====== */
+  .schedule{margin-top:30px;}
+  .schedule h3{
+    font-family:'Playfair Display',serif;font-size:22px;font-weight:600;
+    color:#fff;margin-bottom:18px;max-width:800px;margin-left:auto;margin-right:auto;padding-left:0;
+  }
+  .schedule-grid{border-radius:14px;overflow:hidden;border:1px solid rgba(159,212,176,.2);max-width:800px;margin:0 auto;}
+  .sch-row{
+    display:grid;grid-template-columns:160px 1fr 90px;
+    padding:13px 18px;gap:12px;align-items:center;
+    border-bottom:1px solid rgba(159,212,176,.12);
+    font-size:15px;
+  }
+  .sch-row:last-child{border-bottom:none;}
+  .sch-row.header{
+    font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--mint);background:rgba(255,255,255,.04);
+  }
+  .sch-row:not(.header){background:rgba(255,255,255,.03);color:#d4dfd6;}
+  .sch-row:not(.header):hover{background:rgba(255,255,255,.06);}
+  .sch-row.clickable{cursor:pointer;text-decoration:none;display:grid;grid-template-columns:160px 1fr 90px;padding:13px 18px;gap:12px;align-items:center;border-bottom:1px solid rgba(159,212,176,.12);font-size:15px;color:#d4dfd6;transition:background .15s;}
+  .sch-row.clickable:hover{background:rgba(255,255,255,.10);}
+  .sch-row.clickable strong{color:#fff;}
+  .sch-row.clickable span:first-child{display:flex;align-items:center;gap:9px;}
+  .sch-row.clickable:not(.header) span:first-child::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--dot,#9fd4b0);flex:0 0 auto;}
+  .sch-row.clickable span:last-child{text-align:right;font-weight:600;color:var(--mint);font-size:14px;}
+  .sch-row strong{color:#fff;}
+  .sch-row span:first-child{
+    display:flex;align-items:center;gap:9px;
+  }
+  .sch-row:not(.header) span:first-child::before{
+    content:"";width:9px;height:9px;border-radius:50%;
+    background:var(--dot,#9fd4b0);flex:0 0 auto;
+  }
+  .sch-row span:last-child{
+    text-align:right;font-weight:600;color:var(--mint);font-size:14px;
+  }
+  .sch-row.header span:last-child{color:var(--mint);}
+  .sch-note{
+    margin-top:14px;font-size:14px;color:#8fa093;max-width:800px;margin-left:auto;margin-right:auto;
+  }
+  .sch-note a{color:var(--mint);}
+  @media(max-width:600px){
+    .sch-row{grid-template-columns:1fr 1fr;gap:6px;}
+    .sch-row span:first-child{grid-column:1/-1;}
+  }
+  @media(max-width:700px){
+    /* Next round — obálka nahoře */
+    .next-round .wrap > div{grid-template-columns:1fr !important;gap:24px;}
+    .next-round .wrap > div > div:first-child{order:2;}
+    .next-round .wrap > div > div:last-child{order:1;}
+    .next-round .wrap > div > div:nth-child(2){grid-template-columns:1fr !important;}
+    .next-round img{max-width:220px;margin:0 auto;display:block;}
+  }
+  @media(max-width:700px){
+    .hamburger{display:flex !important;}
+    nav .wrap > div{display:none !important;}
+  }
+
+  /* ====== JAK TO PROBÍHÁ ====== */
+  .how{background:var(--ink);color:#fff;}
+  .how .sec-head h2{color:#fff;}
+  .how .sec-head p{color:#b9c6bc;}
+  .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .how-step{
+    background:rgba(255,255,255,.05);border:1px solid rgba(159,212,176,.22);
+    border-radius:14px;padding:26px 22px;
+  }
+  .how-step .n{
+    font-family:'Playfair Display',serif;font-size:34px;color:var(--mint);
+    line-height:1;margin-bottom:12px;
+  }
+  .how-step h3{font-size:18px;margin-bottom:8px;font-family:'Source Sans 3',sans-serif;font-weight:700;color:#fff;}
+  .how-step p{font-size:14.5px;color:#b9c6bc;}
+
+  /* ====== NEJBLIŽŠÍ KOLO + KONZULTACE ====== */
+  .round{background:var(--ink);}
+  .round-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:stretch;}
+  .round-box{
+    padding:20px 10px;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .round-box .label{
+    font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--mint);margin-bottom:10px;
+  }
+  .round-box .date{
+    font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,38px);
+    font-weight:600;margin-bottom:10px;color:#fff;
+  }
+  .round-box p{color:#b9c6bc;font-size:16.5px;}
+  .round-box p strong{color:#fff;}
+  .round-box .vote{
+    margin-top:18px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(159,212,176,.25);border-radius:12px;padding:16px 18px;
+    font-size:15px;color:#b9c6bc;
+  }
+  .round-box .vote strong{color:var(--mint);}
+  .round-box .btn{margin-top:22px;align-self:flex-start;background:var(--mint);color:var(--ink);}
+  .round-box .btn:hover{background:#8cc9a0;}
+  .igplus{
+    background:#fff;border:1px solid #e6d6d9;border-radius:18px;
+    padding:38px 36px;position:relative;
+  }
+  .igplus .tag{
+    position:absolute;top:-13px;left:32px;background:var(--mauve);color:#fff;
+    font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    padding:5px 14px;border-radius:8px;
+  }
+  .igplus h3{font-size:24px;margin-bottom:10px;}
+  .igplus p{font-size:15.5px;color:var(--muted);}
+  .igplus .price{
+    font-family:'Playfair Display',serif;font-size:34px;font-weight:600;
+    margin-top:16px;color:var(--ink);
+  }
+  .igplus .price small{font-size:15px;font-family:'Source Sans 3',sans-serif;color:var(--muted);font-weight:400;}
+
+  /* ====== REFERENCE ====== */
+  .refs{background:var(--off);}
+  .rating{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:6px 0 14px;flex-wrap:wrap;
+  }
+  .rating .stars{display:flex;gap:3px;}
+  .rating .stars svg{
+    width:22px;height:22px;fill:#e8b64c;
+  }
+  .rating-text{font-size:15px;color:var(--muted);}
+  .rating-text strong{color:var(--ink);font-weight:700;}
+  .fb-badge{
+    display:inline-flex;align-items:center;gap:9px;
+    margin:2px auto 14px;padding:8px 18px;
+    border:1px solid #d8e6dc;border-radius:99px;
+    text-decoration:none;color:var(--ink-soft);font-size:14px;
+    transition:border-color .15s, background .15s;
+  }
+  .fb-badge:hover{border-color:var(--mint);background:var(--mint-pale);}
+  .fb-badge svg{width:18px;height:18px;color:#1877F2;flex:0 0 auto;}
+  .fb-badge strong{color:var(--ink);}
+  .ratings-per-vyzva{
+    display:flex;flex-direction:column;gap:8px;
+    max-width:480px;margin:14px auto 0;
+  }
+  .rpv-item{
+    display:grid;grid-template-columns:12px 1fr auto auto;
+    align-items:center;gap:10px;
+    padding:8px 14px;background:rgba(255,255,255,.5);
+    border-radius:10px;font-size:14px;
+  }
+  .rpv-dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;}
+  .rpv-name{color:var(--ink-soft);font-weight:600;}
+  .rpv-stars{color:#e8b64c;font-size:13px;}
+  .rpv-count{color:var(--muted);font-size:13px;text-align:right;}
+  .ref-card.more{display:none;}
+  .ref-filter{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;}
+  .rf-btn{
+    padding:7px 16px;border-radius:99px;border:1.5px solid #d8e6dc;
+    background:#fff;color:var(--muted);font-size:13.5px;font-weight:600;
+    cursor:pointer;transition:all .15s;font-family:inherit;
+  }
+  .rf-btn:hover{border-color:var(--mint);color:var(--ink);}
+  .rf-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .refs-grid.expanded .ref-card.more{display:block;}
+  .refs-toggle{
+    display:block;margin:28px auto 0;
+    background:none;border:1px solid #d8e6dc;border-radius:12px;
+    padding:12px 28px;font-family:inherit;font-size:15px;font-weight:600;
+    color:var(--ink-soft);cursor:pointer;transition:border-color .15s, background .15s;
+  }
+  .refs-toggle:hover{border-color:var(--mint);background:var(--mint-pale);}
+  .refs-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,420px));
+    gap:18px;justify-content:center;
+  }
+  .ref-card{
+    background:#fff;border:1px solid #edf3ee;border-radius:16px;padding:30px 28px;
+  }
+  .ref-card .quote-mark{
+    font-family:'Playfair Display',serif;font-size:44px;color:var(--mauve);
+    line-height:.5;display:block;margin-bottom:14px;
+  }
+  .ref-card p{font-size:15.5px;color:var(--ink-soft);font-style:italic;}
+  .ref-card .name{
+    margin-top:16px;font-style:normal;font-weight:700;font-size:14.5px;color:var(--ink);
+  }
+  .ref-card .name span{display:block;font-weight:400;color:var(--muted);font-size:13.5px;}
+
+  /* ====== O MNĚ ====== */
+  .about{background:var(--off);}
+  .about-grid{display:grid;grid-template-columns:340px 1fr;gap:48px;align-items:center;}
+  .about-photo{
+    aspect-ratio:4/5;border-radius:22px;overflow:hidden;
+    background:linear-gradient(135deg,var(--mint-pale),#e9f5ee);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted);font-size:14px;text-align:center;padding:20px;
+  }
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about h2{font-size:clamp(28px,3.5vw,36px);margin-bottom:16px;font-weight:600;}
+  .about p{color:var(--ink-soft);margin-bottom:14px;}
+  .about .sig{
+    font-family:'Playfair Display',serif;font-style:italic;font-size:22px;
+    color:#5da87a;margin-top:6px;
+  }
+
+  /* ====== FORMULÁŘ ====== */
+  .signup{background:#3A2A32;color:#fff;}
+  .signup .sec-head h2{color:#fff;}
+  .signup .sec-head p{color:#b9c6bc;}
+  form{
+    max-width:640px;margin:0 auto;background:rgba(255,255,255,.04);
+    border:1px solid rgba(193,160,165,.25);border-radius:18px;padding:38px 36px;
+  }
+  .f-row{margin-bottom:20px;}
+  label{display:block;font-size:14px;font-weight:600;letter-spacing:.05em;margin-bottom:7px;color:#C1A0A5;}
+  input[type=text],input[type=email],select,textarea{
+    width:100%;padding:13px 16px;border-radius:12px;
+    border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);
+    color:#fff;font-family:inherit;font-size:16px;
+  }
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239fd4b0' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;}
+  select option{color:var(--ink);}
+  input::placeholder,textarea::placeholder{color:rgba(255,255,255,.4);}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--mint);border-color:transparent;}
+  .variant{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .variant label.v{
+    border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:16px;
+    cursor:pointer;color:#fff;font-weight:400;letter-spacing:0;font-size:15px;
+    display:block;transition:border-color .15s, background .15s;
+  }
+  .variant label.v strong{display:block;font-size:17px;margin-bottom:2px;}
+  .variant label.v small{color:#b9c6bc;}
+  .variant input{display:none;}
+  .variant input:checked + span{display:block;}
+  .variant label.v:has(input:checked){border-color:var(--mint);background:rgba(159,212,176,.12);}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#b9c6bc;}
+  .consent input{margin-top:4px;accent-color:var(--mint);}
+  .consent label{display:inline;font-weight:400;letter-spacing:0;color:#b9c6bc;font-size:14px;}
+  form .btn{width:100%;text-align:center;border:none;cursor:pointer;font-family:inherit;}
+  .form-note{text-align:center;font-size:13.5px;color:#8fa093;margin-top:14px;}
+
+  /* ====== FAQ ====== */
+  .faq{background:var(--off);}
+  .faq-list{max-width:720px;margin:0 auto;}
+  details{
+    background:#fff;border:1px solid #e7efe9;border-radius:16px;
+    padding:20px 24px;margin-bottom:12px;
+  }
+  details[open]{border-color:var(--mint);}
+  summary{
+    cursor:pointer;font-weight:700;font-size:17px;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-family:'Playfair Display',serif;font-size:24px;color:var(--mint);flex:0 0 auto;}
+  details[open] summary::after{content:"−";}
+  details p{margin-top:12px;color:var(--muted);font-size:15.5px;}
+
+  /* ====== FOOTER ====== */
+  footer{
+    background:var(--ink);color:#8fa093;padding:36px 0;font-size:14px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  footer a{color:var(--mint);text-decoration:none;}
+
+  /* ====== RESPONZIVITA ====== */
+  @media (max-width:900px){
+    .who-grid,.refs-grid{grid-template-columns:1fr;}
+    .how-grid{grid-template-columns:1fr 1fr;}
+    .round-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;gap:28px;}
+    .about-photo{max-width:340px;margin:0 auto;}
+  }
+  @media (max-width:640px){
+    .ch-grid,.how-grid,.variant{grid-template-columns:1fr;}
+    section{padding:56px 0;}
+    header{padding:44px 0 36px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* MOBILE NAV */
+  .mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;z-index:999;flex-direction:column;overflow-y:auto;}
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{display:block;padding:18px 24px;font-size:17px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid #e7efe9;}
+  .mobile-nav a.nav-cta{margin:20px 24px;border-radius:12px;text-align:center;border-bottom:none;background:var(--ink);color:#fff;padding:14px 24px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">Značka od základů</a>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="#refs" style="color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;">Hodnocení</a>
+      <a href="vop-znackaodzakladu.html" style="color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;">Podmínky účasti</a>
+      <a href="#how" style="color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;">Průběh</a>
+      <a class="nav-cta" href="#registrace">Chci místo</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#refs" onclick="closeMenu()">Hodnocení výzev</a>
+  <a href="#how" onclick="closeMenu()">Průběh výzvy</a>
+  <a href="#harmonogram" onclick="closeMenu()">Harmonogram</a>
+  <a href="vop-znackaodzakladu.html" onclick="closeMenu()">Podmínky účasti</a>
+  <a href="#vyzvy" onclick="closeMenu()">Přehled výzev</a>
+  <a href="#kviz" onclick="closeMenu()">Nevím která → kvíz</a>
+  <a href="#registrace" class="nav-cta" onclick="closeMenu()">Chci místo</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<header>
+    <!-- BANNER ZNAČKA OD ZÁKLADŮ: desktop banner-misky.png, mobilní banner-misky-mobile.png -->
+    <div class="hero-banner-row"><div class="banner-frame" style="width:100%;height:100%;border-radius:0;">
+      <picture>
+        <source media="(max-width: 700px)" srcset="banner-misky-mobile.png">
+        <img src="banner-misky.png" alt="Značka od základů — týdenní výzvy pro značku, která prodává" onerror="this.style.display='none';this.parentElement.nextElementSibling.style.display='block';">
+      </picture>
+      <div class="banner-fallback">
+        <div class="bf-title">Značka od základů</div>
+        <p>Sem patří banner — ulož ho jako <strong>banner-misky.png</strong> (desktop) a <strong>banner-misky-mobile.png</strong> (mobil) do stejné složky.</p>
+      </div>
+    </div></div>
+    <div class="hero-cta-row">
+    <div class="hero-actions" style="margin:0;">
+      <nav class="hero-nav">
+        <a href="#registrace" class="hero-nav-cta">Přihlásit se</a>
+        <span class="hero-nav-sep">·</span>
+        <a href="#vyzvy" class="hero-nav-link">Přehled výzev</a>
+        <span class="hero-nav-sep">·</span>
+        <a href="#harmonogram" class="hero-nav-link">Harmonogram</a>
+        <span class="hero-nav-sep">·</span>
+        <a href="#kviz" class="hero-nav-link">Nevím která → kvíz</a>
+      </nav>
+    </div>
+    </div>
+</header>
+
+<!-- ============ NEJBLIŽŠÍ KOLO ============ -->
+<section class="next-round" id="next-round" style="background:linear-gradient(135deg, #5C7665 0%, #3D5249 100%);padding:64px 0;">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;">
+      <div>
+        <img src="vyzva-07.png" alt="Najdi svou značku" style="width:100%;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.3);aspect-ratio:4/5;object-fit:cover;" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:10px;">Nejbližší kolo</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:600;color:#fff;margin-bottom:6px;">Najdi svou značku</h2>
+        <div style="color:rgba(255,255,255,.85);font-size:16px;margin-bottom:24px;">7.–11. listopadu · 5 dní · 590 Kč · max 10 míst</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:10px;">Je to pro tebe, pokud…</div>
+        <ul style="list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:7px;">
+          <li style="color:#fff;font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:rgba(255,255,255,.6);">·</span>neumíš říct, čím je tvoje tvorba jiná</li>
+          <li style="color:#fff;font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:rgba(255,255,255,.6);">·</span>přitahuješ lajky, ale ne zákaznice</li>
+          <li style="color:#fff;font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:rgba(255,255,255,.6);">·</span>ceny nastavuješ pocitově a pak lituješ</li>
+        </ul>
+        <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:10px;">Co za 5 dní uděláme</div>
+        <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:7px;">
+          <li style="color:#fff;font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:rgba(255,255,255,.6);">·</span>pojmenuješ, čím jsi jiná</li>
+          <li style="color:#fff;font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:rgba(255,255,255,.6);">·</span>popíšeš svou ideální zákaznici</li>
+          <li style="color:#fff;font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:rgba(255,255,255,.6);">·</span>sestavíš příběh značky</li>
+          <li style="color:#fff;font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:rgba(255,255,255,.6);">·</span>nastavíš ceny, které dávají smysl</li>
+          <li style="color:#fff;font-size:15px;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:rgba(255,255,255,.6);">·</span>propojíš značku s profilem</li>
+        </ul>
+        <a class="btn" href="#registrace" style="background:#fff;color:#3D5249;font-weight:700;font-size:16px;">Rezervovat místo · 590 Kč</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRO KOHO ============ -->
+<section class="who">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h2>Je to pro tebe?</h2>
+      <p>Výzvy jsou stavěné pro tvořivé ženy, které chtějí, aby jejich Instagram pracoval pro ně — i mezi tvořením, prací a rodinou.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <h3>Tvoříš rukama</h3>
+        <p>Háčkuješ, šiješ, maluješ, pečeš — a chceš, aby tvůj profil vypadal tak dobře, jak dobré jsou tvoje výrobky.</p>
+      </div>
+      <div class="who-card">
+        <h3>Nemáš hodiny času</h3>
+        <p>Každý den jeden konkrétní úkol na 20–30 minut. Žádná teorie navíc — jen kroky, které se hned projeví na profilu.</p>
+      </div>
+      <div class="who-card">
+        <h3>Nechceš na to být sama</h3>
+        <p>Celý týden jedeš ve skupině stejně naladěných tvůrkyň — sdílíte výsledky, držíte se navzájem a je to i zábava.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 VÝZEV ============ -->
+<section class="challenges" id="vyzvy">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h2>Sedm výzev pro tvůj Instagram</h2>
+      <p>Každá výzva stojí sama za sebe a řeší jednu konkrétní věc. Vyber si tu, která tě teď nejvíc pálí — nebo si nech poradit kvízem níže.</p>
+    </div>
+    <div class="slider" id="chSlider">
+
+      <div class="slide" data-color="#526658" data-form="01 · Letní úklid Instagramu">
+        <div class="cover" style="--accent:#526658;">
+          <img src="vyzva-01.png" alt="Výzva 01 — Letní úklid Instagramu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="ph"><div class="ph-num">01</div><div class="ph-name">Letní úklid Instagramu</div><div class="ph-hint">obálka: vyzva-01.png</div></div>
+        </div>
+        <div class="slide-body">
+          <span class="ch-num" style="--accent:#526658;">VÝZVA 01</span>
+          <h3>Letní úklid Instagramu</h3>
+          <p>Za 7 dní projdeš svůj profil od bia po highlights a uklidíš všechno, co tě brzdí. Výsledek: profil, který na první pohled řekne, kdo jsi a co tvoříš.</p>
+          <div class="ch-meta"><span class="chip">590 Kč</span><span class="chip">7 dní</span><span class="chip">max 12 míst</span></div>
+          <details class="slide-detail" style="--accent:#526658;">
+            <summary>Zjistit víc o výzvě</summary>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>nevíš, co a kdy zveřejnit</li>
+              <li>tvůj profil nevypadá tak, jak chceš</li>
+              <li>Instagram tě spíš stresuje, než baví</li>
+            </ul>
+            <h4>Co za týden uděláme</h4>
+            <ul>
+              <li>audit profilu — jak tě vidí ostatní</li>
+              <li>inspirace od ostatních účastnic</li>
+              <li>pojmenujeme, co nefunguje</li>
+              <li>zmapujeme formáty, které ti chybí</li>
+              <li>definuješ 3 obsahové pilíře</li>
+              <li>sestavíš první obsahový plán</li>
+              <li>uzavřeš výzvu s jasnou hlavou</li>
+            </ul>
+          </details>
+          <a class="slide-cta" href="#registrace" data-pick>Chci tuhle výzvu</a>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#AE9196" data-form="02 · Ukaž se světu">
+        <div class="cover" style="--accent:#AE9196;">
+          <img src="vyzva-02.png" alt="Výzva 02 — Ukaž se světu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="ph"><div class="ph-num">02</div><div class="ph-name">Ukaž se světu</div><div class="ph-hint">obálka: vyzva-02.png</div></div>
+        </div>
+        <div class="slide-body">
+          <span class="ch-num" style="--accent:#AE9196;">VÝZVA 02</span>
+          <h3>Ukaž se světu</h3>
+          <p>Přestaneš se schovávat za výrobky. Naučíš se ukázat svou tvář v Reels a Stories bez trapnosti — protože lidi nakupují od lidí, ne od loga.</p>
+          <div class="ch-meta"><span class="chip">690 Kč</span><span class="chip">7 dní</span><span class="chip">max 10 míst</span></div>
+          <details class="slide-detail" style="--accent:#AE9196;">
+            <summary>Zjistit víc o výzvě</summary>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>natočit sebe sama ti přijde nemyslitelné</li>
+              <li>tvůj profil je jen o výrobcích, ne o tobě</li>
+              <li>reels odkládáš, protože "na to nejsi"</li>
+            </ul>
+            <h4>Co za týden uděláme</h4>
+            <ul>
+              <li>první video jen pro sebe — nikdo ho neuvidí</li>
+              <li>voiceover přes záběr tvého výrobku</li>
+              <li>první věta na kameru — ve skupině, v bezpečí</li>
+              <li>přirozené stories ze zákulisí tvorby</li>
+              <li>natočíš svůj první reel</li>
+              <li>reel jde ven — a svět nespadne 😄</li>
+              <li>uzavřeš týden jako žena, co se nebojí kamery</li>
+            </ul>
+          </details>
+          <a class="slide-cta" href="#registrace" data-pick>Chci tuhle výzvu</a>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#94647B" data-form="03 · Vylaď si vizuál">
+        <div class="cover" style="--accent:#94647B;">
+          <img src="vyzva-03.png" alt="Výzva 03 — Vylaď si vizuál" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="ph"><div class="ph-num">03</div><div class="ph-name">Vylaď si vizuál</div><div class="ph-hint">obálka: vyzva-03.png</div></div>
+        </div>
+        <div class="slide-body">
+          <span class="ch-num" style="--accent:#94647B;">VÝZVA 03</span>
+          <h3>Vylaď si vizuál</h3>
+          <p>Sladíš barvy, písma a styl fotek do vizuálu, který je poznat na první scroll. Vytvoříš si moodboard a jednoduchá pravidla, kterých se udržíš i bez grafika.</p>
+          <div class="ch-meta"><span class="chip">790 Kč</span><span class="chip">9 dní</span><span class="chip">max 12 míst</span></div>
+          <details class="slide-detail" style="--accent:#94647B;">
+            <summary>Zjistit víc o výzvě</summary>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>každý tvůj post vypadá jinak a profil nedrží pohromadě</li>
+              <li>nevíš, které barvy a písma jsou "ty tvoje"</li>
+              <li>grafiku řešíš pokaždé od nuly a zdržuje tě to</li>
+            </ul>
+            <h4>Co za 9 dní uděláme</h4>
+            <ul>
+              <li>rychlý audit — jak tvůj vizuál působí teď</li>
+              <li>vybereš barevnou paletu, která k tobě sedí</li>
+              <li>najdeš dvojici písem pro grafiky i videa</li>
+              <li>sladíš fotky — nové i ty, co už máš</li>
+              <li>poskládáš si moodboard své značky</li>
+              <li>vytvoříš si tahák pro každý typ příspěvku</li>
+              <li>přeladíš 3 své posty do nového vizuálu</li>
+            </ul>
+          </details>
+          <a class="slide-cta" href="#registrace" data-pick>Chci tuhle výzvu</a>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#714C5D" data-form="04 · Ovládni Stories">
+        <div class="cover" style="--accent:#714C5D;">
+          <img src="vyzva-04.png" alt="Výzva 04 — Ovládni Stories" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="ph"><div class="ph-num">04</div><div class="ph-name">Ovládni Stories</div><div class="ph-hint">obálka: vyzva-04.png</div></div>
+        </div>
+        <div class="slide-body">
+          <span class="ch-num" style="--accent:#714C5D;">VÝZVA 04</span>
+          <h3>Ovládni Stories</h3>
+          <p>Od snídaně ke kampani: začneš obyčejnou ranní story a za 7 dní poskládáš svou první vědomou stories kampaň — sérii, která vede sledující od zaujetí až k poptávce.</p>
+          <div class="ch-meta"><span class="chip">590 Kč</span><span class="chip">7 dní</span><span class="chip">max 12 míst</span></div>
+          <details class="slide-detail" style="--accent:#714C5D;">
+            <summary>Zjistit víc o výzvě</summary>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>nevíš, co do stories dávat</li>
+              <li>přidáváš je, ale nemají žádnou odezvu</li>
+              <li>stories bereš jako povinnost, ne příležitost</li>
+            </ul>
+            <h4>Co za týden uděláme</h4>
+            <ul>
+              <li>začneš obyčejnou snídaňovou story — bez přemýšlení</li>
+              <li>poznáš typy stories a co který umí</li>
+              <li>přidáš interaktivní prvky — ankety, otázky, kvízy</li>
+              <li>naučíš se stories, které vedou k reakcím</li>
+              <li>ukážeš zákulisí tak, aby prodávalo</li>
+              <li>poskládáš mini kampaň z 5 stories s výzvou k akci</li>
+              <li>uzavřeš týden se stories rytmem, který udržíš</li>
+            </ul>
+          </details>
+          <a class="slide-cta" href="#registrace" data-pick>Chci tuhle výzvu</a>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#BBD9C4" data-form="05 · Zvládni Canvu">
+        <div class="cover" style="--accent:#BBD9C4;">
+          <img src="vyzva-05.png" alt="Výzva 05 — Zvládni Canvu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="ph ph-light"><div class="ph-num">05</div><div class="ph-name">Zvládni Canvu</div><div class="ph-hint">obálka: vyzva-05.png</div></div>
+        </div>
+        <div class="slide-body">
+          <span class="ch-num" style="--accent:#BBD9C4;">VÝZVA 05</span>
+          <h3>Zvládni Canvu</h3>
+          <p>Šablony, které si vytvoříš jednou a použiješ stokrát. Každý úkol doprovází video návod, který ti zůstane — a ke každému výstupu dostaneš osobní zpětnou vazbu. Po 10 dnech budeš mít vlastní sadu grafik pro posty i Stories a tvorba obsahu ti zabere polovinu času.</p>
+          <div class="ch-meta"><span class="chip">690 / 990 Kč</span><span class="chip">6 nebo 10 dní</span><span class="chip">max 10 míst</span></div>
+          <details class="slide-detail" style="--accent:#BBD9C4;">
+            <summary>Zjistit víc o výzvě</summary>
+            <p style="font-size:13.5px;color:var(--muted);margin:0 0 10px;font-style:italic;">📹 Video návod ke každému úkolu zůstane navždy · Osobní zpětná vazba na tvoje výstupy</p>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>každá grafika ti trvá věčnost</li>
+              <li>výsledky nevypadají, jak by sis přála</li>
+              <li>o šablonách slýcháš, ale nevíš, jak na ně</li>
+            </ul>
+            <h4>Co za 10 dní uděláme</h4>
+            <ul>
+              <li>zorientuješ se v Canvě bez chaosu</li>
+              <li>nastavíš si svoje barvy a písma</li>
+              <li>vytvoříš první vlastní šablonu na post</li>
+              <li>šablony na stories a carousel</li>
+              <li>naučíš se triky, co šetří minuty denně</li>
+              <li>poskládáš si vlastní sadu šablon</li>
+              <li>nová grafika za 10 minut místo hodiny</li>
+            </ul>
+          </details>
+          <a class="slide-cta" href="#registrace" data-pick>Chci tuhle výzvu</a>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#9FD4B0" data-form="06 · Zkroť AI">
+        <div class="cover" style="--accent:#9FD4B0;">
+          <img src="vyzva-06.png" alt="Výzva 06 — Zkroť AI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="ph ph-light"><div class="ph-num">06</div><div class="ph-name">Zkroť AI</div><div class="ph-hint">obálka: vyzva-06.png</div></div>
+        </div>
+        <div class="slide-body">
+          <span class="ch-num" style="--accent:#9FD4B0;">VÝZVA 06</span>
+          <h3>Zkroť AI</h3>
+          <p>AI ti nevezme práci — vezme ti výmluvy. Naučíš se ji používat na texty, nápady a plánování obsahu, aby ti zbylo víc času na tvoření.</p>
+          <div class="ch-meta"><span class="chip">590 Kč</span><span class="chip">7 dní</span><span class="chip">max 12 míst</span></div>
+          <details class="slide-detail" style="--accent:#9FD4B0;">
+            <summary>Zjistit víc o výzvě</summary>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>AI zkoušíš, ale výsledky nic moc</li>
+              <li>texty k postům píšeš hodinu</li>
+              <li>máš pocit, že ti ujíždí vlak</li>
+            </ul>
+            <h4>Co za týden uděláme</h4>
+            <ul>
+              <li>nastavíš si AI pomocníka (zdarma)</li>
+              <li>naučíš se zadávat tak, aby AI psala tvým hlasem</li>
+              <li>texty k postům a stories za minuty</li>
+              <li>AI jako zásobárna nápadů na obsah</li>
+              <li>plánování týdne s AI</li>
+              <li>vyzkoušíš AI na obrázky a grafiku</li>
+              <li>sestavíš si vlastní AI rutinu</li>
+            </ul>
+          </details>
+          <a class="slide-cta" href="#registrace" data-pick>Chci tuhle výzvu</a>
+        </div>
+      </div>
+
+      <div class="slide" data-color="#5C7665" data-form="07 · Najdi svou značku">
+        <div class="cover" style="--accent:#5C7665;">
+          <img src="vyzva-07.png" alt="Výzva 07 — Najdi svou značku" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="ph"><div class="ph-num">07</div><div class="ph-name">Najdi svou značku</div><div class="ph-hint">obálka: vyzva-07.png</div></div>
+        </div>
+        <div class="slide-body">
+          <span class="ch-num" style="--accent:#5C7665;">VÝZVA 07</span>
+          <h3>Najdi svou značku</h3>
+          <p>Nejhlubší z výzev: pojmenuješ, čím jsi jiná, pro koho tvoříš, proč — a za kolik. Odnášíš si základ značky, která prodává — ne jen hezky vypadá.</p>
+          <div class="ch-meta"><span class="chip">590 Kč</span><span class="chip">5 dní</span><span class="chip">max 10 míst</span></div>
+          <details class="slide-detail" style="--accent:#5C7665;">
+            <summary>Zjistit víc o výzvě</summary>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>neumíš říct, čím je tvoje tvorba jiná</li>
+              <li>přitahuješ lajky, ale ne zákaznice</li>
+              <li>ceny nastavuješ pocitově a pak lituješ</li>
+            </ul>
+            <h4>Co za 5 dní uděláme</h4>
+            <ul>
+              <li>pojmenuješ, co děláš a proč</li>
+              <li>najdeš, čím se lišíš od ostatních</li>
+              <li>popíšeš svou ideální zákaznici</li>
+              <li>sestavíš svůj příběh značky</li>
+              <li>nastavíš ceny, které dávají smysl</li>
+              <li>propojíš značku s profilem</li>
+              <li>odnášíš si základ značky, která prodává</li>
+            </ul>
+          </details>
+          <a class="slide-cta" href="#registrace" data-pick>Chci tuhle výzvu</a>
+        </div>
+      </div>
+      <div class="slide" data-form="08 · Daruj úsměv">
+        <img src="vyzva-08.png" alt="Daruj úsměv" onerror="this.style.display='none'">
+        <div class="slide-body">
+          <div class="ch-num">8</div>
+          <h3>Daruj úsměv</h3>
+          <p>7 dní vzájemné podpory a všímavosti — pro tvůrkyně, které chtějí být součástí komunity a zároveň se naučit ocenit samy sebe.</p>
+          <div class="ch-meta"><span class="chip">zdarma</span><span class="chip">7 dní</span><span class="chip">otevřená skupina</span></div>
+          <details class="slide-detail" style="--accent:#c0a0a5;">
+            <summary>Zjistit víc o výzvě</summary>
+            <h4>Je to pro tebe, pokud…</h4>
+            <ul>
+              <li>snadno chválíš ostatní, ale sebe málokdy</li>
+              <li>chceš poznat další tvůrkyně a rozšířit svou síť</li>
+              <li>ráda bys zkusila, jak výzvy fungují — bez závazku</li>
+            </ul>
+            <h4>Co za 7 dní uděláme</h4>
+            <ul>
+              <li>každý den jedno malé gesto pro jinou tvůrkyni</li>
+              <li>lajky, komentáře, sdílení, DM — v malých krocích</li>
+              <li>zjistíš, jak drobná pozornost buduje vztahy i algoritmus</li>
+              <li>poslední den se podíváš na svoji tvorbu a napíšeš si 3 úspěchy</li>
+              <li>odcházíš s úsměvem — pro ostatní i pro sebe</li>
+            </ul>
+          </details>
+          <a class="slide-cta" href="#registrace" data-pick>Chci se přidat</a>
+        </div>
+      </div>
+
+      <div class="slider-nav">
+        <button class="s-arrow" id="sPrev" type="button" aria-label="Předchozí výzva">←</button>
+        <div class="s-dots" id="sDots"></div>
+        <button class="s-arrow" id="sNext" type="button" aria-label="Další výzva">→</button>
+      </div>
+    </div>
+
+    <script>
+    function goSlide(idx){
+    const s=document.getElementById('chSlider');
+    if(s) s.dispatchEvent(new CustomEvent('goTo',{detail:idx}));
+  }
+  (function(){
+      const slides = Array.from(document.querySelectorAll('#chSlider .slide'));
+      const dotsBox = document.getElementById('sDots');
+      let cur = 0;
+      slides.forEach((s,i)=>{
+        const d = document.createElement('button');
+        d.className = 's-dot';
+        d.type = 'button';
+        d.style.setProperty('--dot', s.dataset.color);
+        d.setAttribute('aria-label','Výzva '+(i+1));
+        d.addEventListener('click', ()=>go(i));
+        dotsBox.appendChild(d);
+        const cta = s.querySelector('[data-pick]');
+        if(cta) cta.addEventListener('click', ()=>{
+          const sel = document.getElementById('vyzva');
+          if(sel) sel.value = s.dataset.form;
+        });
+      });
+      const dots = Array.from(dotsBox.children);
+      function go(i){
+        cur = (i + slides.length) % slides.length;
+        slides.forEach((s,j)=>s.classList.toggle('active', j===cur));
+        dots.forEach((d,j)=>d.classList.toggle('active', j===cur));
+      }
+      document.getElementById('chSlider').addEventListener('goTo', e=>go(e.detail));
+  document.getElementById('sPrev').addEventListener('click', ()=>go(cur-1));
+      document.getElementById('sNext').addEventListener('click', ()=>go(cur+1));
+      let touchX = null;
+      const box = document.getElementById('chSlider');
+      box.addEventListener('touchstart', e=>{touchX = e.touches[0].clientX;}, {passive:true});
+      box.addEventListener('touchend', e=>{
+        if(touchX===null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        if(Math.abs(dx)>50) go(cur + (dx<0?1:-1));
+        touchX = null;
+      }, {passive:true});
+      go(0);
+    })();
+    </script>
+  </div>
+</section>
+
+
+
+<!-- ============ DALŠÍ VÝZVY ============ -->
+<section style="background:var(--ink);padding:56px 0;" id="dalsi-vyzvy">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:32px;">
+      <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h2 style="color:#fff;">Co tě čeká dál</h2>
+      <p style="color:#b9c6bc;">Hned po Najdi svou značku přichází další výzva.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:24px;max-width:400px;margin:0 auto;">
+      <a href="#vyzvy" onclick="goSlide(1)" style="text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(159,212,176,.2);border-radius:18px;overflow:hidden;display:block;" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+        <img src="vyzva-02.png" alt="Ukaž se světu" style="width:100%;aspect-ratio:4/5;object-fit:cover;" onerror="this.style.display='none'">
+        <div style="padding:16px 18px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#AE9196;margin-bottom:4px;">Výzva 02</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:600;margin-bottom:6px;">Ukaž se světu</div>
+          <div style="color:#b9c6bc;font-size:14px;">16.–22. 11. · 7 dní · 690 Kč</div>
+        </div>
+      </a>
+    </div>
+    <div style="max-width:400px;margin:28px auto 0;background:#fff;border:1px solid #e6d6d9;border-radius:18px;padding:32px 36px;position:relative;">
+      <span style="position:absolute;top:-13px;left:32px;background:#c0a0a5;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:8px;">Bonus pro účastnice</span>
+      <h3 style="font-size:22px;margin-bottom:10px;">Chceš jít víc do hloubky?</h3>
+      <p style="color:#5c6a5f;">Ke každé výzvě si můžeš přidat <strong>osobní konzultaci (45 minut)</strong> se mnou. Pro účastnice za zvýhodněnou cenu.</p>
+      <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;margin-top:14px;">400 Kč <small style="font-size:15px;font-family:'Source Sans 3',sans-serif;color:#5c6a5f;font-weight:400;">· pro účastnice (běžně 550 Kč)</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HARMONOGRAM ============ -->
+<section style="background:var(--ink);padding:56px 0;">
+  <div class="wrap">
+    <div class="schedule" id="harmonogram">
+      <h3>Plán výzev — podzim & zima 2026/2027</h3>
+      <div class="schedule-grid">
+        <div class="sch-row header">
+          <span>Termín</span><span>Výzva</span><span>Cena</span>
+        </div>
+        <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
+          <span>22.–28. 8.</span>
+          <span>Ovládni Stories + Zkroť AI <small style="opacity:.6;">(proběhlo)</small></span>
+          <span style="color:#5c6a5f;">590 Kč</span>
+        </div>
+        <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
+          <span>1.–5. 9.</span>
+          <span>Najdi svou značku <small style="opacity:.6;">(proběhlo)</small></span>
+          <span style="color:#5c6a5f;">590 Kč</span>
+        </div>
+        <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
+          <span>9.–15. 9.</span>
+          <span>Daruj úsměv <small style="opacity:.6;">(proběhlo)</small></span>
+          <span style="color:#5c6a5f;">zdarma</span>
+        </div>
+        <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
+          <span>17.–25. 9.</span>
+          <span>Vylaď si vizuál <small style="opacity:.6;">(proběhlo)</small></span>
+          <span style="color:#5c6a5f;">790 Kč</span>
+        </div>
+        <div class="sch-row" style="border-top:1px solid rgba(159,212,176,.15);">
+          <span style="font-weight:700;color:#b9c6bc;">Podzim / zima</span>
+          <span style="font-weight:700;color:#b9c6bc;">Nová kola</span>
+          <span></span>
+        </div>
+        <a class="sch-row clickable" href="#registrace" style="--dot:#5C7665;border-left:3px solid var(--mint);">
+          <span>7.–11. 11.</span>
+          <span><strong>Najdi svou značku →</strong><br><small style="color:#8fa093;">přihlášení otevřeno</small></span>
+          <span>590 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(1)" style="--dot:#AE9196;">
+          <span>16.–22. 11.</span>
+          <span><strong>Ukaž se světu →</strong></span>
+          <span>690 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(0)" style="--dot:#526658;">
+          <span>28. 11.–4. 12.</span>
+          <span><strong>Podzimní úklid IG →</strong></span>
+          <span>590 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(3)" style="--dot:#714C5D;">
+          <span>9.–15. 12.</span>
+          <span><strong>Ovládni Stories →</strong></span>
+          <span>590 Kč</span>
+        </a>
+        <div class="sch-row" style="color:#5c6a5f;font-style:italic;">
+          <span>16.–31. 12.</span>
+          <span>🎄 Vánoční pauza</span>
+          <span></span>
+        </div>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(5)" style="--dot:#9FD4B0;">
+          <span>4.–10. 1.</span>
+          <span><strong>Zkroť AI →</strong></span>
+          <span>590 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(4)" style="--dot:#BBD9C4;">
+          <span>16.–25. 1.</span>
+          <span><strong>Zvládni Canvu →</strong><br><small style="color:#8fa093;">Canva I · 16.–21. 1. · 690 Kč &nbsp;|&nbsp; Canva II · 22.–25. 1. · 390 Kč &nbsp;|&nbsp; I+II · 990 Kč</small></span>
+          <span>690 / 990 Kč</span>
+        </a>
+        <a class="sch-row clickable" href="#vyzvy" onclick="goSlide(2)" style="--dot:#94647B;">
+          <span>30. 1.–7. 2.</span>
+          <span><strong>Vylaď si vizuál →</strong></span>
+          <span>790 Kč</span>
+        </a>
+      </div>
+      <p class="sch-note">Registrace na každé kolo otevírám cca týden předem — sleduj <a href="https://www.instagram.com/skalkova.michaela/" target="_blank" rel="noopener">@skalkova.michaela</a> nebo si nech posílat novinky e-mailem.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KVÍZ ============ -->
+<section class="quiz" id="kviz">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h2>Nevíš, kterou vybrat?</h2>
+      <p>Odpověz na 10 rychlých otázek a já ti řeknu, která výzva ti teď pomůže nejvíc.</p>
+    </div>
+
+    <div class="quiz-box" id="quizBox">
+      <div class="q-progress" id="qProgress"></div>
+      <div id="qSteps"></div>
+
+      <div class="q-nav" id="qNav">
+        <button class="q-back" id="qBack" type="button">← Zpět</button>
+        <button class="q-next" id="qNext" type="button" disabled>Další</button>
+      </div>
+
+      <div class="q-result" id="qResult">
+        <span class="r-badge">Tvoje výzva</span>
+        <div class="r-card" id="rCard">
+          <div class="r-num" id="rNum"></div>
+          <h3 id="rName"></h3>
+          <p id="rDesc"></p>
+        </div>
+        <a class="btn" href="#registrace" id="rCta">Chci tuhle výzvu</a>
+        <div><button class="q-restart" id="qRestart" type="button">Zkusit kvíz znovu</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const QUESTIONS = [
+    {
+      q:"Co tě na Instagramu nejvíc brzdí?",
+      opts:[
+        ["Můj profil je chaos — sama se v něm nevyznám", 1, 1],
+        ["Nikdo neví, kdo za značkou stojí", 2, 1],
+        ["Každý post vypadá jinak", 3, 1],
+        ["Tvorba obsahu mi žere strašně moc času", 5, 1],
+        ["Nevím, jak nastavit ceny a strategii", 7, 1]
+      ]
+    },
+    {
+      q:"Když se na svůj profil podíváš očima zákaznice…",
+      opts:[
+        ["Nepozná na první pohled, co prodávám", 1, 1],
+        ["Vizuál nedrží pohromadě", 3, 1],
+        ["Je hezký, ale neprodává", 7, 1],
+        ["Je tam mrtvo — skoro nic nepřidávám", 4, 1]
+      ]
+    },
+    {
+      q:"Když svůj profil otevřeš, jaký z něj máš pocit?",
+      opts:[
+        ["Chaos — nevím, kde začít s úklidem", 1, 2],
+        ["Je tam spousta starého, co už neplatí", 1, 1],
+        ["Profil mám čistý a aktuální", 0, 0]
+      ]
+    },
+    {
+      q:"Ukázat na profilu vlastní tvář…",
+      opts:[
+        ["To nikdy", 2, 2],
+        ["Občas, ale je mi to trapné", 2, 1],
+        ["Zvládám — ale nevím, o čem mluvit", 4, 1],
+        ["V pohodě, ukazuji se běžně", 0, 0]
+      ]
+    },
+    {
+      q:"Jak jsi na tom se stories?",
+      opts:[
+        ["Nevím, co do nich dávat", 4, 2],
+        ["Přidávám je, ale nemají žádnou odezvu", 4, 1],
+        ["Chybí mi odvaha do nich mluvit", 2, 1],
+        ["Stories mi fungují dobře", 0, 0]
+      ]
+    },
+    {
+      q:"Barvy, písma a styl tvého profilu…",
+      opts:[
+        ["Žádné stálé nemám — každý post je jiný", 3, 2],
+        ["Něco mám, ale neumím se toho držet", 3, 1],
+        ["Vím, co se mi líbí, jen to neumím poskládat", 3, 1],
+        ["Vizuál mám sladěný", 0, 0]
+      ]
+    },
+    {
+      q:"Tvorba grafiky (posty, stories) ti zabere…",
+      opts:[
+        ["Věčnost — každou dělám od nuly", 5, 2],
+        ["Grafiky skoro nedělám, neumím to", 5, 2],
+        ["Jde mi to rychle, ale výsledek je pokaždé jiný", 3, 1],
+        ["Mám šablony, grafika je v pohodě", 0, 0]
+      ]
+    },
+    {
+      q:"AI nástroje (ChatGPT, Canva AI…)",
+      opts:[
+        ["Nepoužívám, nevím jak na ně", 6, 2],
+        ["Zkouším, ale výsledky nic moc", 6, 2],
+        ["Používám na hraní, ale ne systematicky", 6, 2],
+        ["Mám je zapojené v běžné práci", 0, 0]
+      ]
+    },
+    {
+      q:"Čím je tvoje tvorba jiná — a za kolik ji prodávat?",
+      opts:[
+        ["Netuším, čím se liším", 7, 2],
+        ["Tuším, ale neumím to pojmenovat", 7, 1],
+        ["Ceny nastavuji pocitově a pak lituji", 7, 2],
+        ["Mám jasno — i v cenách", 0, 0]
+      ]
+    },
+    {
+      q:"Co by ti při tvorbě obsahu nejvíc ulevilo?",
+      opts:[
+        ["Jasná pravidla vizuálu — barvy, písma, styl", 3, 1],
+        ["Hotové šablony, do kterých jen sázím obsah", 5, 1],
+        ["Pomocník, který mi napíše texty a dá nápady", 6, 1],
+        ["Plán — vědět, co a kdy zveřejnit", 1, 1],
+        ["Tvorba mě baví a odsýpá", 0, 0]
+      ]
+    }
+  ];
+
+  const CHALLENGES = {
+    1:{num:"01", name:"Letní úklid Instagramu", color:"#526658", light:false,
+       desc:"Tvůj profil potřebuje nejdřív pořádek a systém. Za 7 dní ho projdeš od bia po highlights — a bude na první pohled jasné, kdo jsi a co tvoříš.",
+       form:"01 · Letní úklid Instagramu"},
+    2:{num:"02", name:"Ukaž se světu", color:"#AE9196", light:false,
+       desc:"Tvoje značka potřebuje tvář — tvoji. Naučíš se ukazovat v Reels a Stories bez trapnosti, protože lidi nakupují od lidí.",
+       form:"02 · Ukaž se světu"},
+    3:{num:"03", name:"Vylaď si vizuál", color:"#94647B", light:false,
+       desc:"Tvůj obsah potřebuje jednotný rukopis. Sladíš barvy, písma a styl fotek do vizuálu, který je poznat na první scroll.",
+       form:"03 · Vylaď si vizuál"},
+    4:{num:"04", name:"Ovládni Stories", color:"#714C5D", light:false,
+       desc:"Stories jsou tvoje slabé místo — a přitom právě tam se ze sledujících stávají zákaznice. Od snídaně ke kampani za 7 dní.",
+       form:"04 · Ovládni Stories"},
+    5:{num:"05", name:"Zvládni Canvu", color:"#BBD9C4", light:true,
+       desc:"Grafika tě stojí zbytečně moc času. Vytvoříš si šablony, které použiješ stokrát — a tvorba obsahu ti zabere polovinu času.",
+       form:"05 · Zvládni Canvu"},
+    6:{num:"06", name:"Zkroť AI", color:"#9FD4B0", light:true,
+       desc:"AI ti může ušetřit hodiny týdně — jen jí musíš umět říct co a jak. Naučíš se ji používat na texty, nápady a plánování.",
+       form:"06 · Zkroť AI"},
+    7:{num:"07", name:"Najdi svou značku", color:"#5C7665", light:false,
+       desc:"Tvůj základ potřebuje strategii: čím jsi jiná, pro koho tvoříš, proč — a za kolik. Odnášíš si značku, která prodává.",
+       form:"07 · Najdi svou značku"}
+  };
+
+  const steps = document.getElementById('qSteps');
+  const progress = document.getElementById('qProgress');
+  const btnNext = document.getElementById('qNext');
+  const btnBack = document.getElementById('qBack');
+  const nav = document.getElementById('qNav');
+  const result = document.getElementById('qResult');
+  const answers = new Array(QUESTIONS.length).fill(null);
+  let current = 0;
+
+  QUESTIONS.forEach((item, qi) => {
+    progress.insertAdjacentHTML('beforeend','<span></span>');
+    const step = document.createElement('div');
+    step.className = 'q-step';
+    step.innerHTML = '<h3>'+(qi+1)+'. '+item.q+'</h3>' + item.opts.map((o,oi)=>(
+      '<label class="q-opt"><input type="radio" name="q'+qi+'" value="'+oi+'">'+o[0]+'</label>'
+    )).join('');
+    step.addEventListener('change', e => {
+      answers[qi] = parseInt(e.target.value,10);
+      step.querySelectorAll('.q-opt').forEach(l=>l.classList.remove('picked'));
+      e.target.closest('.q-opt').classList.add('picked');
+      btnNext.disabled = false;
+    });
+    steps.appendChild(step);
+  });
+
+  function render(){
+    steps.querySelectorAll('.q-step').forEach((s,i)=>s.classList.toggle('active', i===current));
+    progress.querySelectorAll('span').forEach((s,i)=>s.classList.toggle('done', i<=current));
+    btnBack.disabled = current===0;
+    btnNext.disabled = answers[current]===null;
+    btnNext.textContent = current===QUESTIONS.length-1 ? 'Vyhodnotit' : 'Další';
+  }
+
+  function finish(){
+    const score = {1:0,2:0,3:0,4:0,5:0,6:0,7:0};
+    answers.forEach((oi,qi)=>{
+      const opt = QUESTIONS[qi].opts[oi];
+      if(opt[1]>0) score[opt[1]] += opt[2];
+    });
+    let winner = 1, best = -1;
+    for(let k=1;k<=7;k++){ if(score[k]>best){best=score[k];winner=k;} }
+    const ch = CHALLENGES[winner];
+    const card = document.getElementById('rCard');
+    card.style.setProperty('--r-color', ch.color);
+    card.classList.toggle('r-light', ch.light);
+    document.getElementById('rNum').textContent = 'Výzva '+ch.num;
+    document.getElementById('rName').textContent = ch.name;
+    document.getElementById('rDesc').textContent = ch.desc;
+    document.getElementById('rCta').onclick = function(){
+      const sel = document.getElementById('vyzva');
+      if(sel){ sel.value = ch.form; }
+    };
+    steps.style.display='none';
+    nav.style.display='none';
+    progress.style.display='none';
+    result.classList.add('show');
+  }
+
+  btnNext.addEventListener('click', ()=>{
+    if(current === QUESTIONS.length-1){ finish(); return; }
+    current++; render();
+  });
+  btnBack.addEventListener('click', ()=>{ if(current>0){ current--; render(); } });
+  document.getElementById('qRestart').addEventListener('click', ()=>{
+    answers.fill(null); current=0;
+    steps.querySelectorAll('input').forEach(i=>i.checked=false);
+    steps.querySelectorAll('.q-opt').forEach(l=>l.classList.remove('picked'));
+    steps.style.display=''; nav.style.display=''; progress.style.display='';
+    result.classList.remove('show');
+    render();
+  });
+
+  render();
+})();
+</script>
+
+<!-- ============ JAK TO PROBÍHÁ ============ -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Jak výzva probíhá</h2>
+      <p>Jednoduchý rytmus, který zvládneš i v nejnabitějším týdnu.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="n">1</div>
+        <h3>Přihlásíš se</h3>
+        <p>Vyplníš formulář níže a zvolíš výzvu, která tě láká. Místo ti drží platba — skupiny jsou malé, 10–15 tvůrkyň.</p>
+      </div>
+      <div class="how-step">
+        <div class="n">2</div>
+        <h3>Stáhneš Telegram</h3>
+        <p>Výzvy probíhají v uzavřené skupině na <strong>Telegramu</strong> — zdarma ke stažení pro <a href="https://apps.apple.com/app/telegram-messenger/id686449807" target="_blank" rel="noopener" style="color:var(--mint);">iOS</a> i <a href="https://play.google.com/store/apps/details?id=org.telegram.messenger" target="_blank" rel="noopener" style="color:var(--mint);">Android</a>. Den před startem dostaneš pozvánku do skupiny. Pokud Telegram neznáš, připravila jsem krátký <a href="telegram-navod.html" target="_blank" rel="noopener" style="color:var(--mint);">návod jak na Telegram</a>.</p>
+      </div>
+      <div class="how-step">
+        <div class="n">3</div>
+        <h3>Každé ráno úkol</h3>
+        <p>Ráno ti přijde konkrétní úkol + krátké video, kde vysvětlím proč. Večer tip navíc a prostor na dotazy.</p>
+      </div>
+      <div class="how-step">
+        <div class="n">4</div>
+        <h3>Na konci vidíš rozdíl</h3>
+        <p>Sdílíš pokroky ve skupině i na profilu s hashtagem <strong>#rostusmiskou</strong> — a na konci výzvy se na svůj profil podíváš úplně jinýma očima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ REFERENCE ============ -->
+<section class="refs" id="refs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h2>Hodnocení výzev</h2>
+
+      <!-- Celkové hodnocení -->
+      <div class="rating" aria-label="Hodnocení 5 z 5">
+        <span class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </span>
+        <span class="rating-text"><strong>5,0 z 5</strong> · celkem 32 hodnocení napříč výzvami</span>
+      </div>
+      <a class="fb-badge" href="https://www.facebook.com/profile.php?id=61590805156554&sk=reviews" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.57v1.88h2.78l-.45 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+        <span><strong>100 %</strong> doporučuje na Facebooku</span>
+      </a>
+
+      <!-- Hodnocení per výzva -->
+      <div class="ratings-per-vyzva">
+        <div class="rpv-item">
+          <span class="rpv-dot" style="background:#526658;"></span>
+          <span class="rpv-name">Letní / Podzimní úklid IG</span>
+          <span class="rpv-stars">⭐ 5,0</span>
+          <span class="rpv-count">18 hodnocení</span>
+        </div>
+        <div class="rpv-item">
+          <span class="rpv-dot" style="background:#AE9196;"></span>
+          <span class="rpv-name">Ukaž se světu</span>
+          <span class="rpv-stars">⭐ 5,0</span>
+          <span class="rpv-count">6 hodnocení · NPS 100</span>
+        </div>
+        <div class="rpv-item">
+          <span class="rpv-dot" style="background:#94647B;"></span>
+          <span class="rpv-name">Vylaď si vizuál</span>
+          <span class="rpv-stars">⭐ 5,0</span>
+          <span class="rpv-count">8 hodnocení</span>
+        </div>
+      </div>
+    </div>
+    <div class="ref-filter" style="margin-bottom:0;">
+      <button class="rf-btn active" data-filter="vse" onclick="filterRefs(this)">Vše</button>
+      <button class="rf-btn" data-filter="letni-uklid" onclick="filterRefs(this)">Letní úklid</button>
+      <button class="rf-btn" data-filter="vylad-vizual" onclick="filterRefs(this)">Vylaď si vizuál</button>
+      <button class="rf-btn" data-filter="ukaz-se-svetu" onclick="filterRefs(this)">Ukaž se světu</button>
+    </div>
+    <div class="refs-section-head" style="text-align:center;margin:36px 0 20px;">
+      <div class="spectrum" style="margin-bottom:10px;"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:6px;">Co říkají tvůrkyně</h3>
+      <p style="color:var(--muted);font-size:15px;font-style:italic;">„Co se ti konkrétně povedlo díky výzvě změnit?"</p>
+    </div>
+    <div class="refs-grid">
+      <!-- TODO: nahradit citacemi z Tally dotazníku -->
+      <div class="ref-card" data-vyzva="letni-uklid">
+        <span class="quote-mark">„</span>
+        <p>Konkrétně jsem změnila bio a profilovou fotku. Mám taky konečně jasný plán, co postovat a čeho tím dosáhnu, což jsem doteď netušila a všechno byl potom jeden velký chaos. Navíc díky výzvě mám teď i plno nápadů na obsah a vzájemnou podporu mezi malými podnikatelkami. ❤️</p>
+        <div class="name">Pyrowoman <span><a href="https://www.instagram.com/pyrowoman_cz/" target="_blank" rel="noopener" style="color:inherit;">@pyrowoman_cz</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card" data-vyzva="letni-uklid">
+        <span class="quote-mark">„</span>
+        <p>Díky vyzve jsem pochopila základní fungování profilu na IG, jak přidávat obsah a ujasnit si směr, kterým se chci ubyrat. V neposlední řadě mi pomohla výzva "uklidit" a sjednotit profil.</p>
+        <div class="name">Friky <span><a href="https://www.instagram.com/friky.cz/" target="_blank" rel="noopener" style="color:inherit;">@friky.cz</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card" data-vyzva="letni-uklid">
+        <span class="quote-mark">„</span>
+        <p>Díky výzvě jsem si vyladila profilovou fotku (aby lidi věděli, od koho nakupují), bio a highlights. Přeuspořádala jsem si mřížku a udělala si jasný plán přidávání příspěvků na další týden. Taky teď už vím co dělat a jak to dělat, aby to fungovalo. Výzva mi otevřela oči. Děkuju Míšo 🫶</p>
+        <div class="name">Vyšívané od Srdéčka <span><a href="https://www.instagram.com/vysivane_odsrdecka/" target="_blank" rel="noopener" style="color:inherit;">@vysivane_odsrdecka</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card" data-vyzva="letni-uklid">
+        <span class="quote-mark">„</span>
+        <p>Přestala jsem se bát sdílet sebe a svoji bublinu.</p>
+        <div class="name">Uni hry <span><a href="https://www.instagram.com/uni_hry/" target="_blank" rel="noopener" style="color:inherit;">@uni_hry</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card more" data-vyzva="letni-uklid">
+        <span class="quote-mark">„</span>
+        <p>Díky výzvě jsem si ujasnila spoustu důležitých věcí a upravila si díky nim vizuál profilu, který teď jasně sděluje, co a komu nabízím. Dále jsem si nastavila pravidelné přispívání jednotlivých typů příspěvků, kdy si plánuji týden dopředu a mohu tak být v klidu, protože vím kdy a co postovat. (Pochopila jsem konečně rozdíly mezi jednotlivými typy příspěvků). A hlavně - vytvořila jsem své highlights, o kterých jsem neměla ani tušení 🙈</p>
+        <div class="name">Lumari by Marti <span><a href="https://www.instagram.com/lumari_by_marti/" target="_blank" rel="noopener" style="color:inherit;">@lumari_by_marti</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card more" data-vyzva="letni-uklid">
+        <span class="quote-mark">„</span>
+        <p>Myslím, že u mě to nejsou ani tak změny vizuální, jako spíš to, že celkově na tvorbu obsahu a prezentaci pohlížím úplně jinak, než na začátku výzvy. Spoustu věcí, kterým jsem se bránila, jsem přehodnotila a teď mi přijdou naprosto super a logické. 🤗</p>
+        <div class="name">Ovinuto <span><a href="https://www.instagram.com/ovinuto/" target="_blank" rel="noopener" style="color:inherit;">@ovinuto</a> · Letní úklid Instagramu</span></div>
+      </div>
+      <div class="ref-card more" data-vyzva="letni-uklid">
+        <span class="quote-mark">„</span>
+        <p>Změnila jsem profilovou fotku, sjednotila vizuál a upravila bio tak, aby lépe odpovídalo tomu, co chci budovat.</p>
+        <div class="name">Akibu Handmade <span><a href="https://www.instagram.com/akibuhandmade/" target="_blank" rel="noopener" style="color:inherit;">@akibuhandmade</a> · Letní úklid Instagramu</span></div>
+      </div>
+        <div class="ref-card more" data-vyzva="vylad-vizual">
+          <p>Celkově celý vizuál! Od teď už chci dávat vše sladěné a po prvním příspěvku co jsem dala vidím, že to má smysl! 2 uložení a 6 lidí se kouklo na profil! To se mi ještě nepovedlo.</p>
+          <div class="name">@kvety_lu <span>· Vylaď si vizuál</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="vylad-vizual">
+          <p>Zavádím teď nové barvy a bude samozřejmě i sjednocené písmo. Na příspěvky se i koukám teď jinak — že nemusí být pořád něco originální, že je spíš užitečné, když je to konzistentní.</p>
+          <div class="name">@if_hacekalist <span>· Vylaď si vizuál</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="vylad-vizual">
+          <p>Super byly zpětné vazby účastnic na splněné úkoly. Díky tomu tad mohu svůj styl poskládat tak, aby celý profil vystihoval to, co chci předat.</p>
+          <div class="name">@marketa.betani.besperatova <span>· Vylaď si vizuál</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="vylad-vizual">
+          <p>Slibuji si od toho sjednocení vzhledu a jasně daná pravidla bez tápání do budoucna, což je pro mě asi nejdůležitější.</p>
+          <div class="name">@By_Kami.Va <span>· Vylaď si vizuál</span></div>
+        </div>
+      <!-- DALŠÍ REFERENCE: karty s třídou "ref-card more" se zobrazí po rozkliku -->
+    </div>
+        <button class="refs-toggle" id="refsToggle" type="button" style="display:none;">Zobrazit další reference</button>
+    <script>
+    (function(){
+      const grid = document.querySelector('.refs-grid');
+      const btn = document.getElementById('refsToggle');
+      const hidden = grid.querySelectorAll('.ref-card.more').length;
+      if(hidden > 0){ btn.style.display = 'block'; }
+      btn.addEventListener('click', function(){
+        grid.classList.toggle('expanded');
+        btn.textContent = grid.classList.contains('expanded')
+          ? 'Skrýt další reference'
+          : 'Zobrazit další reference';
+      });
+    })();
+    </script>
+  </div>
+</section>
+<!-- ============ O MNĚ ============ -->
+<section class="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="miska.jpg" alt="Michaela Skalková" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+        <span style="display:none;">Sem patří tvoje fotka<br>(miska.jpg)</span>
+      </div>
+      <div>
+        <h2>Ahoj, jsem Miška</h2>
+        <p>Pomáhám tvořivým ženám budovat značky, které prodávají — ne jen hezky vypadají. Pod značkou <strong>Skami Design</strong> tvořím brand strategie a vizuální identity pro začínající tvůrkyně a spoluvedu <strong>Rosteme spolu</strong>, komunitu podnikavých kreativních žen.</p>
+        <p><strong>Značka od základů</strong> je přirozené pokračování: v komunitě rosteme spolu — a tady rosteš ty, se mnou, krok za krokem. Vím, jaké to je budovat podnikání po večerech a mezi péčí o rodinu; přesně proto je každá výzva stavěná z malých denních kroků, které se sčítají do velké změny.</p>
+        <p class="sig">Miška · Skami Design</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULÁŘ ============ -->
+<section class="signup" id="registrace">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Rezervuj si místo</h2>
+      <p>Vylaď si vizuál · 17.–25. 9. · pouze 15 míst Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
+    </div>
+    <form action="https://formspree.io/f/xzdlojwl" method="POST" id="regForm">
+      <input type="hidden" name="_subject" value="Nová registrace — Značka od základů">
+      <input type="hidden" name="kolo" value="Najdi svou značku · 7.–11. 11. 2026">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="f-row">
+        <label for="jmeno">Jméno</label>
+        <input type="text" id="jmeno" name="jmeno" placeholder="Tvoje jméno" required>
+      </div>
+      <div class="f-row">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="tvuj@email.cz" required>
+      </div>
+      <div class="f-row">
+        <label for="ig">Instagram profil</label>
+        <input type="text" id="ig" name="instagram" placeholder="@tvujprofil">
+      </div>
+      <div class="f-row">
+        <label for="vyzva">Bonusová otázka: která další výzva tě láká? <span style="font-weight:400;color:#8fa093">(nepovinné — netýká se této registrace)</span></label>
+        <select id="vyzva" name="zajem_o_dalsi_vyzvu">
+          <option value="" selected>Vyber, jestli chceš…</option>
+          <option>01 · Letní úklid Instagramu</option>
+          <option>02 · Ukaž se světu</option>
+          <option>03 · Vylaď si vizuál</option>
+          <option>04 · Ovládni Stories</option>
+          <option>05 · Zvládni Canvu</option>
+          <option>06 · Zkroť AI</option>
+          <option>07 · Najdi svou značku</option>
+        </select>
+      </div>
+      <div class="f-row">
+        <label>Varianta</label>
+        <div class="variant">
+          <label class="v"><input type="radio" name="varianta" value="Najdi svou značku 590 Kč" checked><strong>Najdi svou značku · 590 Kč</strong><small>5 dní · USP, příběh značky & ceny</small></label>
+          <label class="v"><input type="radio" name="varianta" value="Najdi svou značku + konzultace 990 Kč"><strong>+ konzultace · 990 Kč</strong><small>výzva + 45 min osobní konzultace (400 Kč místo 550)</small></label>
+        </div>
+      </div>
+      <div class="f-row">
+        <label for="vzkaz">Chceš mi něco vzkázat? <span style="font-weight:400;color:#8fa093">(nepovinné)</span></label>
+        <textarea id="vzkaz" name="vzkaz" rows="3" placeholder="Na co se nejvíc těšíš? S čím bojuješ?"></textarea>
+      </div>
+      <div class="f-row consent">
+        <input type="checkbox" id="souhlas" name="souhlas" value="ano" required>
+        <label for="souhlas">Souhlasím se <a href="gdpr.html" target="_blank" rel="noopener" style="color:var(--mint);">zpracováním osobních údajů</a> a <a href="vop-znackaodzakladu.html" target="_blank" rel="noopener" style="color:var(--mint);">podmínkami účasti</a> na výzvách.</label>
+      </div>
+      <button class="btn light" type="submit" id="regSubmit">Odeslat registraci</button>
+      <p class="form-note">Registrace tě k ničemu nezavazuje — místo se drží až zaplacením.</p>
+    </form>
+
+    <div id="regThanks" style="display:none;max-width:640px;margin:0 auto;text-align:center;
+      background:rgba(159,212,176,.12);border:1px solid rgba(159,212,176,.4);
+      border-radius:18px;padding:44px 36px;">
+      <h3 style="font-family:'Playfair Display',serif;font-size:28px;color:#fff;margin-bottom:12px;">Mám tě! 🌱</h3>
+      <p style="color:#b9c6bc;font-size:16.5px;">Registrace dorazila. Ozvu se ti e-mailem s potvrzením a dalšími kroky — mrkni prosím i do hromadné pošty. Zatím se měj krásně!</p>
+    </div>
+
+    <script>
+    (function(){
+      const form = document.getElementById('regForm');
+      const btn = document.getElementById('regSubmit');
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = 'Odesílám…';
+        try{
+          const res = await fetch(form.action, {
+            method:'POST',
+            body:new FormData(form),
+            headers:{'Accept':'application/json'}
+          });
+          if(res.ok){
+            form.style.display='none';
+            document.getElementById('regThanks').style.display='block';
+          }else{
+            throw new Error('send failed');
+          }
+        }catch(err){
+          btn.disabled=false;
+          btn.textContent='Odeslat registraci';
+          alert('Ajaj, odeslání se nepovedlo. Zkus to prosím ještě jednou, nebo mi napiš na Instagram @skalkova.michaela.');
+        }
+      });
+    })();
+    </script>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="spectrum"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span><span class="s7"></span></div>
+      <h2>Časté otázky</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Kolik času mi výzva denně zabere?</summary>
+        <p>Počítej s 20–30 minutami. Úkoly jsou konkrétní a malé — smyslem je udělat každý den jeden krok, ne strávit u Instagramu celý večer.</p>
+      </details>
+      <details>
+        <summary>Co když některý den nestihnu?</summary>
+        <p>Nic se neděje. Všechny úkoly a videa zůstávají ve skupině, takže si den doženeš vlastním tempem. Většina holek dohání víkendově — a funguje to.</p>
+      </details>
+      <details>
+        <summary>Potřebuji nějaké placené nástroje?</summary>
+        <p>Ne. Stačí ti mobil a Instagram. Tam, kde pracujeme s Canvou, si vystačíš s verzí zdarma.</p>
+      </details>
+      <details>
+        <summary>Jak probíhá platba?</summary>
+        <p>Po registraci ti pošlu e-mail s platebními údaji. Místo ve výzvě se drží zaplacením — skupiny jsou malé (10–15 tvůrkyň podle výzvy), takže neotálej.</p>
+      </details>
+      <details>
+        <summary>Musím jít výzvy po pořadí?</summary>
+        <p>Nemusíš. Každá výzva funguje úplně samostatně a čísla nejsou pořadí, kterým se musíš řídit. Vyber si tu, která řeší, co tě teď nejvíc trápí — a jestli váháš, kvíz na téhle stránce ti poradí.</p>
+      </details>
+      <details>
+        <summary>Můžu si k výzvě přidat konzultaci?</summary>
+        <p>Ano — účastnice výzev si mohou přidat osobní 45minutovou konzultaci se mnou za zvýhodněnou cenu 400 Kč (běžně 550 Kč). Projdeme tvůj profil jedna na jednu a nastavíme, co dál — přesně pro tvoji značku. Zvolíš ji rovnou v registračním formuláři, nebo se domluvíme kdykoliv během výzvy.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Michaela Skalková · Skami Design</div>
+    <div><a href="https://www.instagram.com/skalkova.michaela/" target="_blank" rel="noopener">@skalkova.michaela</a> · <a href="https://skami.cz" target="_blank" rel="noopener">skami.cz</a> · <a href="gdpr.html">ochrana osobních údajů</a> · <a href="vop-znackaodzakladu.html">podmínky účasti</a></div>
+  </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Změnila jsem bio a konečně jsem s ním spokojená. Naučila jsem se k čemu jaký formát na IG slouží, zjistila jsem, že tvorba obsahu musí mít plán — takže u mě se změnil přístup, jakým naše podnikání může jít od chaosu ke smysluplné práci s obsahem.</p>
+          <div class="name">Daisy Design Jewellery <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Formáty reel, carousel atd. A hned i den 5 plíže obsahu. Oboje super! Měla jsem v tom brutální chaos a teď už jsem moudřejší.</p>
+          <div class="name">Jannie Store <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Aby se zákazník rychle zorientoval v tom, kdo jsem, co nabízím, kolik to stojí. Tohle byl můj hlavní cíl a výzva mi ukázala jak na to.</p>
+          <div class="name">@koutekucmelaka <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Nastavení v hlavě — nemám takový zmatek. Mám teď jasnější řád a taky mám pocit, že se v hlavě obnovila inspirace na nové příspěvky.</p>
+          <div class="name">Květy Lu <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Vice typů na příspěvky, sjednocení highlights, úprava bia, přeskladání příspěvků.</p>
+          <div class="name">Lipové kouzlo <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Profilovou @ udělala jsem přehlednější bio.</p>
+          <div class="name">Lea Dekorace <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="letni-uklid">
+          <p>Začnu používat další formáty příspěvků.</p>
+          <div class="name">Tvůj hrnek <span>· Letní úklid</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Nabrat odvahu, pozerat na to inými očima… ale i osvojit si rôzne hacky.</p>
+          <div class="name">Renéa <span>· Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Vím, jak lépe na reels, aby byly úspěšnější. Taky mi výzva hoooodně zvedla sebevědomí. Celkově bych řekla, že to bylo i dobré pro uvědomění, jak vidíme sami sebe a jak nás vidí jíní — že jsme mnohdy příliš sebekritičtí. Ostatní nás často vidí v daleko lepším světle.</p>
+          <div class="name">@Pyrowoman_cz <span><a href="https://www.instagram.com/pyrowoman_cz/" target="_blank" rel="noopener" style="color:inherit;">@pyrowoman_cz</a> · Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Přístup — být trochu aktivnější a více důvěry, aby lidé věděli, kdo stojí za značkou.</p>
+          <div class="name">Tvořílkovi <span>· Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Konečně mě to donutilo aspoň trochu používat edits, hlavně dělat voiceover, titulky a celý to propojit.</p>
+          <div class="name">@AkibuHandmade <span>· Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Bez výzvy bych se nikdy k sebeprezentaci neodhodlala.</p>
+          <div class="name">@Mishako_macrame <span>· Ukaž se světu</span></div>
+        </div>
+        <div class="ref-card more" data-vyzva="ukaz-se-svetu">
+          <p>Povedlo se mi nekoukat na sebe jako na trapnou Kamilu — koukám teď na sebe jako na někoho, kdo se nebojí postavit se kameře čelem.</p>
+          <div class="name">@By_kami.va <span>· Ukaž se světu</span></div>
+        </div>
+</footer>
+
+<script>
+  function filterRefs(btn) {
+    document.querySelectorAll('.rf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    // Zobraz všechny skryté karty aby byly dostupné pro filtr
+    document.querySelectorAll('.ref-card.more').forEach(c => c.style.display = '');
+    // Filtruj všechny karty
+    document.querySelectorAll('.ref-card').forEach(card => {
+      if (filter === 'vse') {
+        // Při "Vše" skryj opět more karty (vrátí se do výchozího stavu)
+        if (card.classList.contains('more')) card.style.display = 'none';
+        else card.style.display = '';
+      } else {
+        card.style.display = (card.dataset.vyzva === filter) ? '' : 'none';
+      }
+    });
+  }
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMenu(){
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
+</body>
+</html>
