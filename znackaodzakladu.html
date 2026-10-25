@@ -1586,11 +1586,44 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Rezervuj si místo</h2>
-      <p>Vylaď si vizuál · 17.–25. 9. · pouze 15 míst Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
+      <p id="formDesc">Najdi svou značku · 7.–11. 1. · pouze 15 míst<br>Po odeslání se ti ozvu s potvrzením a platebními údaji.</p>
     </div>
+
+    <!-- Přepínač výzev -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;">
+      <button type="button" class="vyzva-pick active" data-key="znacka"
+        style="padding:10px 20px;border-radius:100px;border:2px solid var(--mint);background:var(--mint);color:#1c2b20;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">
+        Najdi svou značku
+      </button>
+      <button type="button" class="vyzva-pick" data-key="vizual"
+        style="padding:10px 20px;border-radius:100px;border:2px solid var(--mint);background:transparent;color:var(--mint);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">
+        Vylaď si vizuál
+      </button>
+      <button type="button" class="vyzva-pick" data-key="ukaz"
+        style="padding:10px 20px;border-radius:100px;border:2px solid var(--mint);background:transparent;color:var(--mint);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">
+        Ukaž se světu
+      </button>
+      <button type="button" class="vyzva-pick" data-key="stories"
+        style="padding:10px 20px;border-radius:100px;border:2px solid var(--mint);background:transparent;color:var(--mint);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">
+        Ovládni Stories
+      </button>
+      <button type="button" class="vyzva-pick" data-key="canva"
+        style="padding:10px 20px;border-radius:100px;border:2px solid var(--mint);background:transparent;color:var(--mint);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">
+        Zvládni Canvu
+      </button>
+      <button type="button" class="vyzva-pick" data-key="ai"
+        style="padding:10px 20px;border-radius:100px;border:2px solid var(--mint);background:transparent;color:var(--mint);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">
+        Zkroť AI
+      </button>
+      <button type="button" class="vyzva-pick" data-key="uklid"
+        style="padding:10px 20px;border-radius:100px;border:2px solid var(--mint);background:transparent;color:var(--mint);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">
+        Letní úklid Instagramu
+      </button>
+    </div>
+
     <form action="https://formspree.io/f/xzdlojwl" method="POST" id="regForm">
       <input type="hidden" name="_subject" value="Nová registrace — Značka od základů">
-      <input type="hidden" name="kolo" value="Najdi svou značku · 7.–11. 11. 2026">
+      <input type="hidden" name="kolo" id="koloField" value="Najdi svou značku · 7.–11. 1. 2025">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div class="f-row">
         <label for="jmeno">Jméno</label>
@@ -1670,6 +1703,48 @@
         }
       });
     })();
+
+    // Přepínač výzev
+    const vyzvy = {
+      znacka:  { name: "Najdi svou značku",        desc: "Najdi svou značku · 7.–11. 1. · pouze 15 míst" },
+      vizual:  { name: "Vylaď si vizuál",          desc: "Vylaď si vizuál · 30. 1.–7. 2. · pouze 12 míst" },
+      ukaz:    { name: "Ukaž se světu",            desc: "Ukaž se světu · datum brzy · pouze 12 míst" },
+      stories: { name: "Ovládni Stories",          desc: "Ovládni Stories · datum brzy · pouze 12 míst" },
+      canva:   { name: "Zvládni Canvu",            desc: "Zvládni Canvu · datum brzy · pouze 12 míst" },
+      ai:      { name: "Zkroť AI",                 desc: "Zkroť AI · datum brzy · pouze 12 míst" },
+      uklid:   { name: "Letní úklid Instagramu",   desc: "Letní úklid Instagramu · datum brzy · pouze 12 míst" }
+    };
+
+    function selectVyzva(key) {
+      const v = vyzvy[key];
+      if (!v) return;
+      document.getElementById('koloField').value = v.name;
+      document.getElementById('formDesc').innerHTML = v.desc + '<br>Po odeslání se ti ozvu s potvrzením a platebními údaji.';
+      document.querySelectorAll('.vyzva-pick').forEach(b => {
+        const isActive = b.dataset.key === key;
+        b.style.background = isActive ? 'var(--mint)' : 'transparent';
+        b.style.color = isActive ? '#1c2b20' : 'var(--mint)';
+      });
+    }
+
+    document.querySelectorAll('.vyzva-pick').forEach(btn => {
+      btn.addEventListener('click', () => selectVyzva(btn.dataset.key));
+    });
+
+    // Tlačítka "Chci tuhle výzvu" ze slajdů
+    const keyMap = {
+      '01': 'uklid', '02': 'ukaz', '03': 'vizual',
+      '04': 'stories', '05': 'canva', '06': 'ai', '07': 'znacka'
+    };
+    document.querySelectorAll('.slide-cta[data-pick]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const slide = this.closest('.slide');
+        const formVal = slide ? slide.dataset.form : '';
+        const num = formVal ? formVal.split('·')[0].trim() : '';
+        const key = keyMap[num] || 'znacka';
+        selectVyzva(key);
+      });
+    });
     </script>
   </div>
 </section>
