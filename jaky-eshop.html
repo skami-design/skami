@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jaký e-shop je pro tebe?</title>
+<meta property="og:title" content="Jaký e-shop je pro tebe?">
+<meta property="og:description" content="Kvíz o 18 otázkách. Zjistíš, jaké řešení pro prodej online ti sedí, kolik tě orientačně vyjde a co budeš potřebovat za grafiku.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.skami.cz/jaky-eshop.html">
+<meta property="og:image" content="https://www.skami.cz/hero.png">
+<link rel="canonical" href="https://www.skami.cz/jaky-eshop.html">
+<script defer src="/_vercel/insights/script.js"></script>
+<meta name="description" content="Kvíz o 18 otázkách. Zjistíš, jaké řešení pro prodej online ti sedí, kolik tě orientačně vyjde a co budeš potřebovat za grafiku.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: jeden sloupec na tmavém plátně Skami, jedna otázka na obrazovku, výsledek jako delší čtení. */
+:root{
+  --bg:#16211a; --panel:#1f2c24; --panel2:#2b362e; --line:#3d4b41;
+  --fg:#f4f8f5; --muted:#b4c2b8; --mint:#9fd4b0; --mint-l:#d5f0de; --mauve:#c0a0a5; --warn:#e7c9a0;
+  --display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --body:"Source Sans 3","Source Sans Pro","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{background:var(--bg);color:var(--fg);font:400 1.0625rem/1.6 var(--body);overflow-x:hidden}
+.wrap{max-width:46rem;margin:0 auto;padding-block:1.25rem 4rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));position:relative}
+.brand{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2.5rem}
+.brand strong{color:var(--mint);font-weight:700}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.14;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.5rem,8vw,4.25rem);color:var(--mint-l)}
+h1 em{color:var(--mauve);font-style:italic}
+h2{font-size:clamp(1.65rem,5vw,2.35rem);color:var(--mint-l)}
+h3{font-size:1.3rem;color:var(--mint-l)}
+p{margin:0;max-width:65ch}
+.stack{display:flex;flex-direction:column;gap:1rem}
+.lead{font-size:1.22rem;color:var(--fg)}
+.small{font-size:.9rem;color:var(--muted)}
+.label{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+.circle{position:absolute;border-radius:50%;pointer-events:none;z-index:-1}
+.c1{width:11rem;height:11rem;background:var(--mauve);opacity:.16;right:-5rem;top:-2.5rem}
+.intro{display:flex;flex-direction:column;gap:1.5rem}
+.gets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.5rem;border-top:1px solid var(--line);padding-top:1.25rem}
+.gets div{min-width:0}
+.gets b{display:block;color:var(--mint-l);font-weight:600}
+button{font:inherit;color:inherit;cursor:pointer}
+.btn{background:var(--mint);color:var(--bg);border:0;border-radius:999px;padding:.8rem 1.6rem;font-weight:700;min-height:48px}
+.btn:hover{background:var(--mint-l)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.ghost{background:transparent;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:.7rem 1.25rem;min-height:44px}
+.ghost:hover{border-color:var(--mint)}
+.link{background:none;border:0;color:var(--muted);text-decoration:underline;text-underline-offset:3px;padding:.5rem 0;min-height:44px}
+.link:hover{color:var(--mint)}
+:focus-visible{outline:3px solid var(--mauve);outline-offset:3px}
+.bar{height:6px;background:var(--panel2);border-radius:6px;overflow:hidden;margin:.5rem 0 1.75rem}
+.bar i{display:block;height:100%;background:var(--mint);transition:width .25s}
+.meta{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.opts{display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem}
+.opt{display:flex;gap:.8rem;align-items:flex-start;text-align:left;width:100%;background:var(--panel);border:1.5px solid var(--line);border-radius:14px;padding:.85rem 1rem;min-height:56px}
+.opt:hover{border-color:var(--mint)}
+.opt .dot{flex:none;width:1.25rem;height:1.25rem;margin-top:.2rem;border:1.5px solid var(--muted);border-radius:50%}
+.opt.multi .dot{border-radius:5px}
+.opt[aria-pressed="true"]{border-color:var(--mint);background:var(--panel2)}
+.opt[aria-pressed="true"] .dot{background:var(--mint);border-color:var(--mint);box-shadow:inset 0 0 0 3px var(--panel2)}
+.opt span.t{min-width:0}
+.opt small{display:block;color:var(--muted);font-size:.9rem;line-height:1.4;margin-top:.1rem}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}
+.pick{background:var(--mint-l);color:var(--bg);border-radius:20px;padding:1.5rem;display:flex;flex-direction:column;gap:.9rem}
+.pick h2{color:var(--bg)}
+.pick .label{color:#2f6444}
+.pick .price{font-size:1.1rem;font-weight:600}
+.pick .small{color:#3a4a40}
+.result{display:flex;flex-direction:column;gap:2.25rem}
+.sec{display:flex;flex-direction:column;gap:.75rem;border-top:1px solid var(--line);padding-top:1.5rem}
+ul.clean{margin:0;padding-left:1.15rem;display:flex;flex-direction:column;gap:.45rem;max-width:65ch}
+.alts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.alt{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.15rem;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+.alt b{font-weight:600}
+.warn{color:var(--warn)}
+details{border-top:1px solid var(--line);padding-top:1rem}
+summary{cursor:pointer;font-weight:600;min-height:32px}
+details a,.contact a,a.aff{color:var(--mint)}
+.row{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+code.mail{user-select:all;background:var(--panel2);padding:.3rem .6rem;border-radius:8px;font:inherit;word-break:break-all}
+@media(max-width:540px){.gets,.alts{grid-template-columns:1fr}.c1{width:8rem;height:8rem;right:-3.5rem}.brand{margin-bottom:1.75rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap" id="app" aria-live="polite"></div>
+
+<script>
+/*LOGIC*/
+const BLOCKS=['Kde teď jsi','Sortiment','Provoz','Funkce','Vzhled a technika','Rozpočet a podklady'];
+const QS=[
+{id:'now',b:0,q:'Kde teď prodáváš?',o:[
+ {k:'none',t:'Ještě neprodávám, jen o tom přemýšlím',w:{T:3,O:1,N:2,R:1}},
+ {k:'dm',t:'Známým a přes zprávy na sítích',w:{O:2,T:1,R:2,S:1,N:2}},
+ {k:'market',t:'Na Fleru, Etsy nebo na trzích',w:{S:2,R:1,N:1,T:1,Y:1}},
+ {k:'shop',t:'Mám web nebo e-shop a chci změnu',w:{S:2,U:1,F:2,W:1,Y:1,X:1}}]},
+{id:'orders',b:0,q:'Kolik objednávek za měsíc čekáš v prvním půlroce?',h:'Odhadni to střízlivě, podle toho, co prodáváš teď.',o:[
+ {k:'o5',t:'Do 5',w:{T:3,O:3,N:3,R:1,X:2}},
+ {k:'o20',t:'5 až 20',w:{R:2,S:2,N:2,O:1,X:1}},
+ {k:'o50',t:'20 až 50',w:{S:2,U:3,F:3,R:1,W:1,Y:1}},
+ {k:'o99',t:'Víc než 50',w:{S:2,U:3,F:3,W:2,Y:2}}]},
+{id:'why',b:0,q:'Co od e-shopu čekáš hlavně?',o:[
+ {k:'time',t:'Méně dohledávání objednávek ve zprávách',w:{S:2,R:2,U:1,F:1,O:1}},
+ {k:'brand',t:'Vlastní místo pro značku a příběh',w:{N:3,X:3,W:2,S:1,O:1,Y:1}},
+ {k:'fees',t:'Nižší náklady než provize z tržiště',w:{R:3,W:1,S:1,F:1}},
+ {k:'test',t:'Ověřit, jestli o moje výrobky je zájem',w:{T:4,O:1,R:1}},
+ {k:'grow',t:'Růst a prodávat víc',w:{S:2,U:1,F:2,Y:2}}]},
+{id:'traffic',b:0,q:'Odkud k tobě budou lidé chodit?',h:'Vlastní e-shop nikdo sám nenajde. Návštěvnost si přivádíš ty.',o:[
+ {k:'own',t:'Ze sítí a od lidí, kteří mě znají',w:{O:2,N:2,R:1,S:1,X:1}},
+ {k:'search',t:'Chci, aby mě našli na tržišti',w:{T:4}},
+ {k:'ads',t:'Počítám s reklamou a vyhledávači',w:{S:2,U:1,F:2,W:1,Y:2,X:1}},
+ {k:'dunno',t:'Zatím nevím',w:{T:3,N:1}}]},
+
+{id:'products',b:1,q:'Kolik produktů budeš mít do roka?',h:'Každá varianta, kterou prodáváš jako samostatný výrobek, se počítá zvlášť.',o:[
+ {k:10,t:'Do 10',w:{N:3,O:2,T:1,X:2,R:1,S:1}},
+ {k:50,t:'11 až 50',w:{R:2,S:2,N:2,X:1,F:1,T:1}},
+ {k:100,t:'51 až 100',w:{S:2,U:1,R:2,F:1}},
+ {k:500,t:'101 až 500',w:{U:3,S:1,F:4,W:1,Y:1,N:-2,O:-3,T:-1}},
+ {k:1000,t:'501 až 1 000',w:{U:4,S:2,F:1,W:1,Y:1,N:-2,O:-4,T:-1}},
+ {k:5000,t:'Víc než 1 000',w:{F:4,U:4,S:2,W:2,Y:1,N:-3,O:-5,X:-2,R:-1}}]},
+{id:'stock',b:1,q:'Jak vzniká tvůj sortiment?',o:[
+ {k:'stock',t:'Mám hotové kusy skladem',w:{S:2,F:1,R:2}},
+ {k:'batch',t:'Dělám malé série',w:{S:1,R:1,N:2,T:1,X:1}},
+ {k:'custom',t:'Skoro všechno vzniká na zakázku',w:{O:4,N:1,W:1,X:1}},
+ {k:'mix',t:'Od každého něco',w:{S:1,W:1,N:1,F:1}}]},
+{id:'variants',b:1,q:'Potřebuješ barvy, velikosti a další varianty?',o:[
+ {k:'no',t:'Ne, jednoduché produkty',w:{N:3,O:1,R:1}},
+ {k:'some',t:'Pár barev nebo velikostí',w:{S:1,R:1,X:1}},
+ {k:'many',t:'Hodně kombinací',w:{S:2,U:1,F:2,W:1,Y:1,O:-2,N:-1}}]},
+{id:'perso',b:1,q:'Zadávají ti zákaznice jméno, text nebo vlastní přání?',o:[
+ {k:'no',t:'Ne',w:{}},
+ {k:'some',t:'Občas',w:{O:1,S:1,W:1}},
+ {k:'most',t:'U většiny objednávek',w:{O:4,W:2,X:1}}]},
+
+{id:'time',b:2,q:'Kolik času týdně chceš dávat správě prodeje?',h:'Bez balení a výroby. Jen objednávky, zboží a nastavení.',o:[
+ {k:'low',t:'Maximálně hodinu',w:{R:1,N:2,S:1,T:2,O:-1}},
+ {k:'mid',t:'Pár hodin',w:{S:1,R:1,O:1,X:1}},
+ {k:'high',t:'Klidně víc, baví mě to',w:{W:2,F:1,Y:1,X:1}}]},
+{id:'pay',b:2,q:'Jak ti mají zákaznice platit?',o:[
+ {k:'bank',t:'Stačí převod na účet',w:{O:3,R:1,N:1}},
+ {k:'card',t:'Kartou online, hned při objednávce',w:{S:1,U:2,F:1,R:1,N:1,X:1,Y:1,W:1,O:-4}},
+ {k:'later',t:'I odložená platba, třeba nákup na splátky',w:{U:8,O:-5,N:-1}}]},
+{id:'ship',b:2,q:'Kam budeš posílat?',o:[
+ {k:'cz',t:'Jen po Česku',w:{S:1,R:2,F:1,N:1,O:1,T:1,Y:-3}},
+ {k:'sk',t:'Česko a Slovensko',w:{S:1,F:1,R:1,N:1,T:1,Y:-2}},
+ {k:'world',t:'Do dalších zemí, v jiných jazycích',w:{U:4,Y:7,X:3,W:2,T:2,S:-3,R:-1,O:-2}}]},
+
+{id:'sales',b:3,q:'Které prodejní funkce chceš mít hned od začátku?',h:'Vyber jen to, co bys opravdu používala. Každá funkce navíc může zvednout cenu.',multi:1,o:[
+ {k:'rating',t:'Hodnocení u každého produktu',w:{U:1,W:2,S:1,F:1}},
+ {k:'coupon',t:'Slevové kupóny',w:{U:1,R:1,W:1}},
+ {k:'loyal',t:'Věrnostní program',w:{U:1,R:2,F:1}},
+ {k:'cart',t:'Připomenutí opuštěného košíku',w:{S:2}},
+ {k:'blog',t:'Blog',w:{N:3,X:2,W:2,R:1}}]},
+{id:'ops',b:3,q:'Které provozní věci potřebuješ hned?',multi:1,o:[
+ {k:'stock',t:'Hlídání skladu',w:{U:1,S:1,F:2,N:-1,O:-1}},
+ {k:'acc',t:'Faktury a napojení na účetnictví',w:{S:1,R:2,F:1}},
+ {k:'heureka',t:'Heureka a další srovnávače',w:{S:2,R:2,F:1,N:1,O:-2,T:-1}},
+ {k:'labels',t:'Štítky pro dopravce přímo z administrace',w:{S:1,F:2,O:-1}}]},
+
+{id:'look',b:4,q:'Jak moc ti záleží na vlastním vzhledu?',o:[
+ {k:'tpl',t:'Stačí mi hezká šablona',w:{S:1,R:2,T:1}},
+ {k:'colors',t:'Chci šablonu ve svých barvách a písmech',w:{S:1,N:3,X:3,F:1}},
+ {k:'custom',t:'Chci to přesně podle návrhu',w:{W:4,O:3,X:2,Y:1,R:-1}}]},
+{id:'tech',b:4,q:'Jak jsi na tom s technikou?',o:[
+ {k:'low',t:'Bojím se toho, potřebuju to jednoduché',w:{R:2,N:3,S:1,T:1,F:1,W:-5,Y:-2}},
+ {k:'mid',t:'S návodem si poradím',w:{S:2,F:1,N:1,X:1,W:-2}},
+ {k:'high',t:'Zvládnu hosting a kód, nebo mám koho poprosit',w:{W:4,O:2,Y:2,X:1}}]},
+
+{id:'budget',b:5,q:'Kolik můžeš měsíčně dávat za provoz?',h:'Jen za samotnou platformu, bez reklamy a poštovného.',o:[
+ {k:200,t:'Do 200 Kč',w:{}},
+ {k:600,t:'200 až 600 Kč',w:{}},
+ {k:1500,t:'600 až 1 500 Kč',w:{}},
+ {k:1e9,t:'Víc, pokud to dává smysl',w:{}}]},
+{id:'vat',b:5,q:'Jsi plátce DPH?',h:'Neplátce platí platformám cenu včetně 21 % DPH, proto se to promítne do výsledku.',o:[
+ {k:'no',t:'Ne',w:{}},
+ {k:'yes',t:'Ano',w:{}},
+ {k:'dunno',t:'Nevím',w:{},s:'Počítám to jako neplátce.'}]},
+{id:'assets',b:5,q:'Co už máš připravené?',h:'Do doporučení platformy to nezasáhne, jen do toho, co budeš potřebovat za grafiku.',o:[
+ {k:'all',t:'Logo, barvy i fotky výrobků',w:{}},
+ {k:'logo',t:'Logo a barvy, fotky ještě ne',w:{}},
+ {k:'photos',t:'Fotky, ale logo a barvy ne',w:{}},
+ {k:'none',t:'Zatím nic z toho',w:{}}]}
+];
+const NAMES={S:'Shoptet',R:'Eshop-rychle',U:'Upgates',F:'FastCentrik',N:'Webnode',X:'Wix',W:'WooCommerce',Y:'Shopify',O:'Web s objednávkovým formulářem',T:'Tržiště místo vlastního e-shopu'};
+const has=(a,q,k)=>(a[q]||[]).includes(k);
+/* Měsíční cena bez DPH při měsíční platbě, stav podkladů k 2. 11. 2026. */
+function cost(p,a){
+  const n=a.products, s=k=>has(a,'sales',k), o=k=>has(a,'ops',k), world=a.ship==='world';
+  if(p==='S'){
+    const addons=s('rating')||s('coupon')||o('stock')||s('cart')||a.variants==='many';
+    if(s('loyal')||n>1000) { const e=n>5000||world; return {tier:e?'Enterprise':'Profi',m:e?4690:2490,vat:1,n:s('loyal')&&!e?'Věrnostní slevy jsou až v tarifu Profi.':''}; }
+    if(world) return {tier:'Enterprise',m:4690,vat:1,n:'Cizí měny a jazyky jsou v Shoptetu až v Enterprise, nebo doplněk cizí měny za 300 Kč.'};
+    if(n<=10&&!addons&&!o('acc')) return {tier:'Free',m:0,vat:0,n:'Limit je 10 produktů, méně funkcí a vyšší poplatek z plateb.'};
+    if(n<=100){ let m=440,x=[]; if(s('rating')){m+=100;x.push('hodnocení 100 Kč')} if(s('coupon')){m+=200;x.push('kupóny 200 Kč')} if(o('stock')){m+=200;x.push('sklad 200 Kč')}
+      if(m>=1490) return {tier:'Business',m:1490+(s('coupon')?200:0),vat:1,n:'S více doplňky už vychází lépe vyšší tarif.'};
+      return {tier:'Basic',m,vat:1,n:x.length?'Cena zahrnuje doplňky: '+x.join(', ')+'.':''}; }
+    return {tier:'Business',m:1490+(s('coupon')?200:0),vat:1,n:s('coupon')?'Včetně kupónů za 200 Kč.':''};
+  }
+  if(p==='R'){
+    const biz=s('rating')||s('cart'), st=s('coupon')||s('loyal')||s('blog')||o('acc');
+    if(n>1000||biz) return {tier:'Business',m:1190,vat:1,n:biz?'Hodnocení a opuštěný košík jsou až tady. Limity vyšších tarifů si ověř v ceníku.':'Limity vyšších tarifů si ověř v ceníku.'};
+    if(n>100||st) return {tier:'Startup',m:590,vat:1,n:'Limity tarifu si ověř v ceníku.'};
+    return {tier:'Hobby',m:390,vat:1,n:'Na 2 roky předem vychází na 312 Kč měsíčně.'};
+  }
+  if(p==='U'){
+    if(n>5000) return {tier:'Platinum',m:3250,vat:1};
+    if(n>1000) return {tier:'Gold',m:1750,vat:1};
+    if(n>100||world) return {tier:'Silver',m:1150,vat:1,n:world?'Silver má 2 jazyky, Gold 5.':''};
+    return {tier:'Bronze',m:450,vat:1,n:'Všechny funkce jsou v každém tarifu, tarify se liší počtem produktů a jazyků.'};
+  }
+  if(p==='F'){
+    if(n>3000) return {tier:'Plus',m:2700,vat:1};
+    if(n>500) return {tier:'Basic',m:1530,vat:1};
+    if(n>50) return {tier:'Start',m:825+(world?400:0),vat:1,n:world?'Včetně více jazyků za 400 Kč.':''};
+    return {tier:'Mini',m:470+(world?400:0),vat:1,n:world?'Včetně více jazyků za 400 Kč.':'Limit je 50 produktů.'};
+  }
+  if(p==='N'){
+    if(o('acc')||world) return {tier:'Business',m:999,vat:1,n:'Automatická fakturace a cizí měny jsou až v tomhle balíčku. Doména je první rok zdarma jen při roční platbě, jinak stojí 499 Kč ročně bez DPH. Převod domény koupené jinde je zdarma, platíš jen její prodloužení.'};
+    const pro=a.variants!=='no'||s('coupon')||o('heureka')||a.ship==='sk';
+    return pro?{tier:'Profi',m:779,vat:1,n:'Varianty, slevy, export do srovnávačů a doprava do zahraničí jsou až od tohoto balíčku. Při roční platbě akčně 379 Kč měsíčně bez DPH. Doména je první rok zdarma jen při roční platbě, jinak stojí 499 Kč ročně bez DPH. Převod domény koupené jinde je zdarma, platíš jen její prodloužení.'}:{tier:'Standard',m:479,vat:1,n:'Bez variant, slev, exportu do srovnávačů a dopravy do zahraničí. Při roční platbě akčně 209 Kč měsíčně bez DPH. Doména je první rok zdarma jen při roční platbě, jinak stojí 499 Kč ročně bez DPH. Převod domény koupené jinde je zdarma, platíš jen její prodloužení.'};
+  }
+  if(p==='X') return {tier:'Core',m:550,vat:0,n:'22 € měsíčně podle údaje z roku 2025, přepočet orientační. Cenu v korunách si ověř.'};
+  if(p==='W') return {tier:'',m:350,vat:0,from:1,n:'Samotný hosting od 1 900 Kč za rok s DPH. V odhadu jsou k tomu doména a základní pluginy, dražší pluginy a správa se platí navíc.'};
+  if(p==='Y') return {tier:'Basic',m:670,vat:0,n:'Při roční platbě 499 Kč. Placené aplikace a šablona se platí navíc.'};
+  if(p==='O') return {tier:'',m:30,vat:0,from:1,once:1,n:'Hlavní náklad je jednorázová tvorba webu. Měsíčně pak platíš hlavně doménu.'};
+  if(p==='T') return {tier:'',m:0,vat:0,pct:1,n:world?'Etsy: 0,20 $ za nabídku, 6,5 % z prodeje a poplatek za platbu.':'Fler: 11 % z ceny a servisní poplatek podle objednávky, u 201 až 500 Kč je to 12 Kč.'};
+}
+function monthly(c,a){return Math.round(c.m*(c.vat&&a.vat!=='yes'?1.21:1)/10)*10}
+function score(a){
+  const r={};Object.keys(NAMES).forEach(p=>r[p]=0);
+  QS.forEach(q=>{const v=a[q.id];q.o.forEach(o=>{if(q.multi?(v||[]).includes(o.k):v===o.k)Object.entries(o.w).forEach(([p,x])=>r[p]+=x)})});
+  const k=(a.sales||[]).length;if(k>=2)r.U+=k*2; /* Upgates má funkce v ceně, jinde se doplácejí */
+  Object.keys(r).forEach(p=>{const c=cost(p,a),m=monthly(c,a);if(a.budget<1e8&&m>a.budget)r[p]-=Math.min(8,2+(m/a.budget-1)*4);if(m===0&&!c.pct&&a.budget===200)r[p]+=1});
+  return Object.entries(r).sort((x,y)=>y[1]-x[1]);
+}
+/*END*/
+function nb(s){return String(s).replace(/(^|[\s(„])([aiksuvzoAIKSUVZO])\s/g,'$1$2 ').replace(/(\d) (Kč|%)/g,'$1 $2')}
+function esc(s){return nb(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function why(p,a){
+  const s=k=>has(a,'sales',k),L=[];
+  if(p==='S'){L.push('Největší česká platforma, takže snadno najdeš návody i lidi, kteří ti pomůžou.');L.push('Zásilkovna, Balíkovna a export pro Heureku jsou zdarma.');if(a.orders==='o50'||a.orders==='o99'||a.why==='grow')L.push('Má kam růst: funkce se odemykají s vyšším tarifem.');if(a.products<=10)L.push('Můžeš začít zdarma do 10 produktů a vyzkoušet si, jestli ti to sedí.')}
+  if(p==='R'){if(cost('R',a).tier!=='Business')L.push('Patří k nejlevnějším českým pronájmům.');L.push('Srovnávače, platební brány a pošty jsou v ceně tarifu.');if(a.tech==='low')L.push('Hodí se pro jednoduchý rozjezd bez technických starostí.')}
+  if(p==='U'){L.push('Všech 168 funkcí je v každém tarifu, nepřekvapí tě dokupování.');if(s('rating')||s('coupon')||s('loyal'))L.push('Funkce, které jsi vybrala, se u jiných platforem často doplácejí.');if(a.ship==='world')L.push('Jazyky přibývají už od tarifu Silver.');if(a.pay==='later')L.push('Odložená platba Skip Pay je zdarma.');if(a.products>100)L.push('Nad 100 produktů vychází levněji než Shoptet.')}
+  if(p==='F'){L.push('Tarify stojí hlavně na počtu produktů, s neomezenými uživateli a e-maily.');if(a.products>50&&a.products<=500)L.push('Do 500 produktů patří tarif Start k nejlevnějším.');L.push('Podpora je po telefonu 7 dní v týdnu.')}
+  if(p==='N'){L.push('Web a obchod máš na jednom místě, začátek je jednoduchý.');if(a.why==='brand'||has(a,'sales','blog'))L.push('Dobře se v něm vypráví příběh značky, včetně blogu.');if(a.products<=50)L.push('Na menší sortiment to stačí.')}
+  if(p==='X'){L.push('Máš velkou volnost ve vzhledu bez programování.');if(a.why==='brand')L.push('Hodí se, když je pro tebe web výkladní skříň značky.');if(a.ship==='world')L.push('Není vázaný na český trh.')}
+  if(p==='W'){L.push('Máš plnou kontrolu nad vzhledem a kódem.');L.push('Hodnocení produktů je v základu zdarma.');if(a.look==='custom')L.push('Web může vypadat přesně podle návrhu.')}
+  if(p==='Y'){L.push('Je postavený na prodej do zahraničí.');L.push('Má velkou nabídku aplikací pro další funkce.')}
+  if(p==='O'){if(a.stock==='custom'||a.perso==='most')L.push('U zakázek stejně většinu domlouváš osobně, a formulář ti k tomu dá všechny údaje na jedno místo.');L.push('Nepotřebuješ platební bránu ani měsíční tarif e-shopu.');if(a.orders==='o5'||a.orders==='o20')L.push('Při tomhle počtu objednávek zvládneš platby a expedici ručně.')}
+  if(p==='T'){L.push('Nemusíš nic stavět a zaplatíš hlavně z toho, co prodáš.');if(a.why==='test'||a.now==='none')L.push('Rychle ověříš, jestli a za kolik se výrobky prodávají.');if(a.traffic==='dunno'||a.traffic==='search')L.push('Lidé tam už nakupovat chodí, vlastní e-shop bys jim musela teprve ukázat.');if(a.ship==='world')L.push('Přes Etsy se dostaneš do zahraničí bez vlastního e-shopu.')}
+  return L.slice(0,3);
+}
+function watch(p,a){
+  const L=[];
+  if(p==='S')L.push('Součet doplňků může změnit rozpočet. Nové e-shopy běží 30 dní s funkcemi nejvyššího běžného tarifu, tak si ověř, co v tvém tarifu opravdu zůstane.');
+  if(p==='R')L.push('Hodnocení produktů a opuštěný košík jsou až ve vyšším tarifu. Limity tarifů Startup a Business se ve zdrojích rozcházejí.');
+  if(p==='U')L.push('Vestavěné funkce neznamenají, že jsou zdarma i služby třetích stran. Napojení Zásilkovny si ověř ve zkušební době.');
+  if(p==='F')L.push('Tarif Mini má jen 50 produktů. Napojení Zásilkovny a Heureky si ověř v demu.');
+  if(p==='N')L.push('Podle testu Testado to není plnohodnotný e-shop. Platební brány, dopravce a hlídání skladu si ověř.');
+  if(p==='X')L.push('Česká napojení a ceny v korunách jsem neověřovala. Vyzkoušej, jestli zvládneš českou dopravu a platby.');
+  if(p==='W')L.push('Aktualizace, zálohy a bezpečnost jsou tvoje práce, nebo je musíš někomu zaplatit.');
+  if(p==='Y')L.push('Česká lokalizace je slabší a české služby se řeší placenými aplikacemi.');
+  if(p==='O')L.push('Povinnosti prodeje na dálku zůstávají stejné jako u e-shopu. Platby a sklad hlídáš ručně.');
+  if(p==='T')L.push('Jsi vedle konkurence a řídíš se pravidly tržiště. Zákaznice si často pamatují tržiště, ne tebe.');
+  if(a.perso==='most'&&'SRUFNXY'.includes(p))L.push('Vlastní pole pro jméno nebo text jsem u téhle platformy neověřovala. Vyzkoušej ho jako první.');
+  if(a.traffic==='dunno'&&p!=='T')L.push('Zatím nevíš, odkud lidé přijdou. Bez toho e-shop sám prodávat nezačne.');
+  return L;
+}
+const TRIAL={S:'Shoptet má 30 dní zdarma.',R:'Eshop-rychle má 15 dní zdarma.',U:'Upgates má 30 dní zdarma.',F:'FastCentrik má 30denní demo.',N:'Ve Webnode si e-shop nastavíš zdarma, objednávky přijímá až s placeným balíčkem.',X:'Wix nabízí 14 dní na vrácení peněz.',Y:'Shopify má krátkou zkoušku a pak první měsíce za symbolickou cenu.'};
+function tests(p,a){
+  if(p==='T')return['Vystav 3 až 5 nejprodávanějších výrobků.','Sleduj 2 až 3 měsíce, co se prodává a za kolik.','Spočítej si, kolik ti po provizi a poštovném skutečně zbývá.'];
+  if(p==='O')return['Sepiš, co všechno potřebuješ od zákaznice vědět, a podle toho nastav formulář.','Připrav si text potvrzení objednávky a pokyny k platbě.','Vyzkoušej celou objednávku z mobilu.'];
+  const L=[];if(TRIAL[p])L.push(TRIAL[p]+' Vlož tam 3 výrobky.');else L.push('Vlož na zkoušku 3 výrobky.');
+  if(a.variants!=='no')L.push('Nastav výrobek s variantami a zkus, jak to vypadá pro zákaznici.');
+  if(a.perso!=='no')L.push('Zkus pole pro jméno nebo text u výrobku.');
+  if(p==='N')L.push('Projdi si nastavení dopravy a plateb. Skutečnou objednávku vyzkoušíš až po zaplacení, tak si před ním ověř, že ti všechno sedí.');else L.push('Udělej celou objednávku z mobilu, včetně dopravy a platby.');
+  if(has(a,'ops','acc'))L.push('Vystav si zkušebně fakturu.');
+  if(has(a,'sales','rating'))L.push('Zkontroluj, jak funguje hodnocení u jednoho produktu.');
+  return L.slice(0,5);
+}
+function graphics(p,a){
+  const L=[];
+  if(p==='T'){L.push('Logo ve čtverci a úvodní obrázek obchodu','Jednotné fotky výrobků')}
+  else{L.push('Logo ve vodorovné verzi do hlavičky a favikona','Úvodní banner zvlášť pro počítač a pro mobil','Barvy a písma do šablony nebo editoru','Jednotné fotky výrobků','Náhled webu pro sdílení na sítích');
+    if(a.products>50)L.push('Obrázky ke kategoriím');if(a.look==='custom')L.push('Návrh vzhledu hlavních stránek')}
+  return L;
+}
+function help(p,a){
+  const L=[];
+  if(a.assets==='none'||a.assets==='photos')L.push(['Vizuální směr a logo','1 490 Kč a 3 900 Kč']);
+  if(p!=='T')L.push(['Grafika pro web nebo e-shop','3 900 Kč']);
+  if(p==='O')L.push(['Jednostránkový web','7 700 Kč, větší web nacením zvlášť']);
+  if(a.now==='shop')L.push(['Audit webu nebo e-shopu','1 990 Kč']);
+  L.push(['Konzultace, kde výsledek společně projdeme','560 Kč za 45 minut']);
+  return L;
+}
+function priceText(p,a){
+  const c=cost(p,a),m=monthly(c,a);
+  if(c.pct)return 'Bez měsíčního poplatku, platíš z prodeje';
+  if(c.once)return 'Jednorázově web, pak od '+m+' Kč měsíčně';
+  if(m===0)return 'Zdarma';
+  const t=m.toLocaleString('cs-CZ');
+  const v=c.vat?(a.vat==='yes'?' bez DPH':' s DPH'):'';
+  return (c.from?'Odhad ':'')+t+' Kč měsíčně'+v+', tedy '+(m*12).toLocaleString('cs-CZ')+' Kč za rok';
+}
+function title(p,a){const c=cost(p,a);return NAMES[p]+(c.tier?' '+c.tier:'')}
+
+const app=document.getElementById('app');
+let A={},i=-1;
+try{const raw=localStorage.getItem('eshop-kviz');if(raw){const d=JSON.parse(raw);A=d.A||{};}}catch(e){}
+function save(){try{localStorage.setItem('eshop-kviz',JSON.stringify({A}))}catch(e){}}
+function head(){return '<div class="brand"><span><a href="https://www.skami.cz" style="color:inherit;text-decoration:none"><strong>Skami Design</strong></a></span><span>Michaela Skalková</span></div>'}
+function intro(){
+  const done=Object.keys(A).length;
+  app.innerHTML=head()+`<span class="circle c1"></span><div class="intro">
+  <span class="label">Kvíz, 18 otázek, asi 5 minut</span>
+  <h1>Jaký e-shop je <em>pro tebe?</em></h1>
+  <p class="lead">${esc('Shoptet, Webnode, nebo zatím vůbec žádný? Odpovíš na otázky o výrobcích, objednávkách, funkcích a rozpočtu a dostaneš doporučení podle své situace.')}</p>
+  <div class="row"><button class="btn" id="go">${done?'Začít znovu':'Začít kvíz'}</button>${done>=QS.length?'<button class="ghost" id="last">Zobrazit poslední výsledek</button>':''}</div>
+  <div class="gets">
+   <div><b>Co ti sedí</b><span class="small">${esc('Deset možností včetně tržiště nebo webu s formulářem, když e-shop zatím nedává smysl.')}</span></div>
+   <div><b>Kolik to stojí</b><span class="small">${esc('Orientačně za měsíc i za rok, podle tvých funkcí a toho, jestli jsi plátce DPH.')}</span></div>
+   <div><b>Na co si dát pozor</b><span class="small">${esc('Co si ověřit ve zkušební době, než za něco zaplatíš.')}</span></div>
+   <div><b>Co budeš potřebovat</b><span class="small">${esc('Jakou grafiku si připravit, aby e-shop nevypadal jako každá druhá šablona.')}</span></div>
+  </div>
+  <p class="small">${esc('Výpočet běží jen ve tvém prohlížeči, nikam se neodesílá.')}</p></div>`;
+  document.getElementById('go').onclick=()=>{A={};save();i=0;render()};
+  const l=document.getElementById('last');if(l)l.onclick=()=>{i=QS.length;render()};
+}
+function render(){
+  if(i<0)return intro();
+  if(i>=QS.length)return result();
+  const q=QS[i],v=A[q.id],pct=Math.round(i/QS.length*100);
+  app.innerHTML=head()+`<div class="meta"><span class="label">${esc(BLOCKS[q.b])}</span><span class="small">Otázka ${i+1} z ${QS.length}</span></div>
+  <div class="bar" role="progressbar" aria-valuenow="${i+1}" aria-valuemin="1" aria-valuemax="${QS.length}"><i style="width:${pct}%"></i></div>
+  <h2 tabindex="-1" id="qh">${esc(q.q)}</h2>${q.h?`<p class="small" style="margin-top:.6rem">${esc(q.h)}</p>`:''}
+  <div class="opts">${q.o.map((o,n)=>`<button class="opt${q.multi?' multi':''}" data-n="${n}" aria-pressed="${q.multi?(v||[]).includes(o.k):v===o.k}"><span class="dot"></span><span class="t">${esc(o.t)}${o.s?`<small>${esc(o.s)}</small>`:''}</span></button>`).join('')}</div>
+  <div class="nav"><button class="link" id="back">${i?'Zpět':'Zpět na úvod'}</button>${q.multi?`<button class="btn" id="next">${(v||[]).length?'Pokračovat':'Nic z toho, pokračovat'}</button>`:''}</div>`;
+  const h=document.getElementById('qh');if(h)h.focus({preventScroll:true});window.scrollTo(0,0);
+  app.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    const o=q.o[+b.dataset.n];
+    if(q.multi){const c=A[q.id]||[];A[q.id]=c.includes(o.k)?c.filter(x=>x!==o.k):c.concat(o.k);save();const f=+b.dataset.n;render();const nb2=app.querySelector(`.opt[data-n="${f}"]`);if(nb2)nb2.focus()}
+    else{A[q.id]=o.k;save();i++;render()}
+  });
+  document.getElementById('back').onclick=()=>{i--;render()};
+  const n=document.getElementById('next');if(n)n.onclick=()=>{if(!A[q.id])A[q.id]=[];save();i++;render()};
+}
+function summary(top,a){
+  const lines=['Můj výsledek z kvízu Jaký e-shop je pro tebe?','Doporučení: '+title(top[0],a)+' ('+priceText(top[0],a)+')','Další možnosti: '+title(top[1],a)+', '+title(top[2],a),'','Moje odpovědi:'];
+  QS.forEach(q=>{const v=a[q.id];const t=q.multi?q.o.filter(o=>(v||[]).includes(o.k)).map(o=>o.t).join(', ')||'nic z toho':(q.o.find(o=>o.k===v)||{}).t;lines.push('- '+q.q+' '+t)});
+  return lines.join('\n');
+}
+function result(){
+  const a=A,rank=score(a),top=rank.slice(0,3).map(x=>x[0]),p=top[0],c=cost(p,a);
+  const alts=top.slice(1);
+  const assetsNote={all:'Máš hotové základy. Stačí je přizpůsobit formátům platformy.',logo:'Logo a barvy máš. Největší rozdíl teď udělají jednotné fotky výrobků.',photos:'Fotky máš. Před stavbou si dořeš logo a barvy, jinak budeš později všechno předělávat.',none:'Začni logem a barvami, teprve potom řeš šablonu. Ušetříš si předělávání.'}[a.assets];
+  app.innerHTML=head()+`<div class="result">
+  <div class="pick"><span class="label">Tobě vychází nejlépe</span><h2>${esc(title(p,a))}</h2>
+    <p class="price">${esc(priceText(p,a))}</p>
+    ${c.n?`<p class="small">${esc(c.n)}</p>`:''}
+    <ul class="clean">${why(p,a).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+
+  <div class="sec"><h3>Na co si dát pozor</h3><ul class="clean">${watch(p,a).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+
+  <div class="sec"><h3>Než se rozhodneš, vyzkoušej</h3><ul class="clean">${tests(p,a).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+
+  <div class="sec"><h3>Další dvě možnosti</h3><p class="small">${esc('Výsledek je vodítko, ne verdikt. Pokud ti některá z nich sedí víc, je to v pořádku.')}</p>
+  <div class="alts">${alts.map(x=>`<div class="alt"><b>${esc(title(x,a))}</b><span class="small">${esc(priceText(x,a))}</span><span>${esc(why(x,a)[0]||'')}</span><span class="small warn">${esc(watch(x,a)[0]||'')}</span></div>`).join('')}</div></div>
+
+  <div class="sec"><h3>Co budeš potřebovat za grafiku</h3><p>${esc(assetsNote)}</p><ul class="clean">${graphics(p,a).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${p==='T'||p==='N'?'':`<p class="small"><b>${esc('Ještě nemáš doménu?')}</b> ${esc('Můžeš si ji koupit přes')} <a class="aff" href="https://www.wedos.cz/?ap=LaqFrH" target="_blank" rel="sponsored noopener">${esc('můj odkaz na WEDOS')}</a>. ${esc('Je to affiliate odkaz, takže za nákup dostanu odměnu. Pomůžeš mi tím, ale nijak tě to nezavazuje.')}</p>`}</div>
+
+  <div class="sec"><h3>Platí, ať si vybereš cokoli</h3><ul class="clean">
+    <li>${esc('Když výrobky vyrábíš cíleně na prodej, jde zpravidla o podnikání a potřebuješ živnost.')}</li>
+    ${p==='T'?'':`<li>${esc('Tlačítko objednávky musí říkat, že zákaznice objednává se závazkem zaplatit. Potřebuješ obchodní podmínky, reklamační řád a zásady ochrany osobních údajů.')}</li>
+    <li>${esc('Od 1. 1. 2027 musí e-shop mít tlačítko pro odstoupení od smlouvy.')}</li>`}
+    <li>${esc('Placená reklama od Mety nebo Googlu může z neplátce udělat identifikovanou osobu k DPH.')}</li></ul>
+    <p class="small">${esc('Obecná informace, ne právní nebo daňová rada.')}</p></div>
+
+  <div class="sec contact"><h3>Chceš to probrat?</h3><p>${esc('Zkopíruj si výsledek a pošli mi ho. Podívám se na něj a napíšu ti, co bych udělala já.')}</p>
+    <div class="row"><button class="btn" id="copy">Zkopírovat výsledek</button><code class="mail">miska@skami.cz</code></div><p class="small" id="cs" role="status"></p>
+    <ul class="clean">${help(p,a).map(x=>`<li>${esc(x[0])}: ${esc(x[1])}</li>`).join('')}</ul>
+    <textarea id="ct" hidden aria-label="Text výsledku" style="width:100%;min-height:10rem;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:.7rem;font:inherit"></textarea>
+  </div>
+
+  <div class="row"><button class="ghost" id="edit">Upravit odpovědi</button><button class="link" id="again">Začít znovu</button></div>
+
+  <details><summary>Jak výsledek vzniká a odkud jsou ceny</summary><div class="stack" style="margin-top:.75rem">
+    <p class="small">${esc('Každá odpověď přidá nebo ubere body deseti možnostem. Cena se počítá podle tarifu, který odpovídá tvému počtu produktů a funkcím, a když překročí tvůj rozpočet, možnost ztrácí body. Ceny jsou orientační při měsíční platbě, stav k listopadu 2026. Poplatky z plateb, doména a poštovné v nich nejsou. Před objednáním si všechno ověř v aktuálním ceníku.')}</p>
+    <p class="small"><a href="https://www.shoptet.cz/cenik/" target="_blank" rel="noopener">Shoptet</a> · <a href="https://www.eshop-rychle.cz/cenik" target="_blank" rel="noopener">Eshop-rychle</a> · <a href="https://www.upgates.cz/cenik" target="_blank" rel="noopener">Upgates</a> · <a href="https://www.fastcentrik.cz/cenik" target="_blank" rel="noopener">FastCentrik</a> · <a href="https://www.webnode.com/cs/eshop-levne/" target="_blank" rel="noopener">Webnode</a> · <a href="https://www.nastrojeproweb.cz/clanky/wix-recenze" target="_blank" rel="noopener">Wix</a> · <a href="https://www.arecenze.cz/webhostingy/" target="_blank" rel="noopener">hostingy pro WooCommerce</a> · <a href="https://eshopradar.cz/blog/shoptet-cenik-tarify-2026" target="_blank" rel="noopener">Shopify a přehled tarifů</a> · <a href="https://www.fler.cz/napoveda?cat=4&amp;scat=4" target="_blank" rel="noopener">Fler</a> · <a href="https://www.etsy.com/legal/fees/" target="_blank" rel="noopener">Etsy</a></p>
+  </div></details></div>`;
+  window.scrollTo(0,0);
+  document.getElementById('copy').onclick=()=>{const t=summary(top,a),ct=document.getElementById('ct'),cs=document.getElementById('cs');
+    const fb=()=>{ct.hidden=false;ct.value=t;ct.focus();ct.select();cs.textContent='Text je označený níže, zkopíruj si ho.'};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(()=>{cs.textContent='Zkopírováno. Pošli mi to na e-mail nebo do zprávy na Instagramu.'},fb);else fb()};
+  document.getElementById('edit').onclick=()=>{i=0;render()};
+  document.getElementById('again').onclick=()=>{A={};save();i=-1;render()};
+}
+render();
+</script>
+</body>
+</html>
